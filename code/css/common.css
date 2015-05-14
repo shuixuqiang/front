@@ -1250,6 +1250,22 @@ textarea.resize-both {
   float: none;
   text-align: right;
 }
+.form-createJob .form-group {
+  float: left;
+}
+.form-createJob .form-group:first-child {
+  width: 420px;
+}
+.form-createJob .item-label {
+  width: 74px;
+  font-size: 14px;
+}
+.form-createJob .item-cont {
+  margin-left: 84px;
+}
+.form-createJob .txt {
+  width: 270px;
+}
 .table {
   width: 100%;
   max-width: 100%;
@@ -1684,7 +1700,9 @@ table.table-center > tfoot > tr > td {
   -moz-transition: all 0.3s;
   transition: all 0.3s;
 }
-.clearfix:after {
+.clearfix:after,
+.form-createJob:after,
+.wrap:after {
   display: table;
   clear: both;
   content: " ";
@@ -1692,11 +1710,6 @@ table.table-center > tfoot > tr > td {
 .wrap {
   margin-right: auto;
   margin-left: auto;
-}
-.wrap:after {
-  display: table;
-  clear: both;
-  content: " ";
 }
 #wrapper {
   width: 100%;

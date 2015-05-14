@@ -12,6 +12,7 @@
 // Base
 // Theme
 // Form-qiye
+// Form-createJob
 
 // *Form Variable
 // ----------------------------------------
@@ -138,5 +139,37 @@
         clear: both;
         float: none;
         text-align: right;
+    }
+}
+
+// *Form-createJob
+// ----------------------------------------
+
+.form-createJob {
+    .cf;
+    .form-group {
+        float: left;
+        &:first-child {
+            width: 420px;
+        }
+    }
+    .item-label {
+        width: 74px;
+        font-size: 14px;
+    }
+    .item-cont {
+        position: relative;
+        margin-left: 84px;
+    }
+    .note {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0;
+        line-height: 20px;
+        white-space: nowrap;
+    }
+    .txt {
+        width: 270px;
     }
 }

@@ -86,7 +86,7 @@ var qy_submit = {
 					$email.parent().append(note);
 					return false;
 				} else {
-					return true;
+					
 				}
 			}
 		});
