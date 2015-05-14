@@ -1,0 +1,105 @@
+// style tooltip
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Tooltip
+// 
+// 
+
+// *Tooltip Base
+// ----------------------------------------
+
+@tooltip-border-color: #d2d2d2;
+.tooltip {
+    position: absolute;
+    z-index: 500;
+}
+.tooltip .wrap {
+    padding: 8px;
+    background: #fff;
+    border: 1px solid @tooltip-border-color;
+}
+.tooltip .hd {
+    margin-bottom: 8px;
+    padding: 0 5px 8px;
+    border-bottom: 1px solid #d2d2d2;
+}
+.tooltip .bd {
+
+}
+
+// *Arrow guide
+// ----------------------------------------
+
+.tooltip {
+    .arrow {
+        position: absolute;
+    }
+    &[class*="guide-T"] {
+        .arrow {
+            margin-top: -7px;
+            margin-left: -8px;
+            .arrow-style(top-hollow; 16px; 1px; @tooltip-border-color; #fff);
+        }
+    }
+    &[class*="guide-R"] {
+        .arrow {
+            right: 0;
+            margin-top: -8px;
+            margin-right: -7px;
+            .arrow-style(right-hollow; 16px; 1px; @tooltip-border-color; #fff);
+        }
+    }
+    &[class*="guide-B"] {
+        .arrow {
+            bottom: 0;
+            margin-bottom: -7px;
+            margin-left: -8px;
+            .arrow-style(bottom-hollow; 16px; 1px; @tooltip-border-color; #fff);
+        }
+    }
+    &[class*="guide-L"] {
+        .arrow {
+            left: 0;
+            margin-top: -8px;
+            margin-left: -7px;
+            .arrow-style(left-hollow; 16px; 1px; @tooltip-border-color; #fff);
+        }
+    }
+    &.guide-TL, &.guide-BL {
+        .arrow {/* top left & bottom left */
+            left: 20%;
+        }
+    }
+    &.guide-TC, &.guide-BC {
+        .arrow {/* top center & bottom center */
+            left: 50%;
+        }
+    }
+    &.guide-TR, &.guide-BR {
+        .arrow {/* top right & bottom right */
+            left: 80%;
+        }
+    }
+    &.guide-RT, &.guide-LT {
+        .arrow {/* right top & left top */
+            top: 25%;
+        }
+    }
+    &.guide-RM, &.guide-LM {
+        .arrow {/* right middle & left middle */
+            top: 50%;
+        }
+    }
+    &.guide-RB, &.guide-LB {
+        .arrow {/* right bottom & left bottom */
+            top: 75%;
+        }
+    }
+}

@@ -1,0 +1,142 @@
+// style form
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Variable
+// Base
+// Theme
+// Form-qiye
+
+// *Form Variable
+// ----------------------------------------
+
+@form-item-margin: 20px 0;          // item上下间距
+@item-line-height: 32px;
+@item-label-width: 110px;           // label宽度
+@item-label-color: #333;            // label颜色
+@item-label-em-color: #f00;         // 必填项 * 颜色
+@item-cont-margin-left: 120px;
+@form-inline-margin: 0 10px 15px 0;
+
+// *Form Base
+// ----------------------------------------
+
+/* form */
+.form {
+    .legend {
+        display: block;
+        width: 100%;
+    }
+    .form-group {
+        .clearfix-mixin;
+    }
+    .form-item {
+        &:extend(.form .form-group all);
+        margin: @form-item-margin;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    .item-label {
+        float: left;
+        width: @item-label-width;
+        color: @item-label-color;
+        line-height: @item-line-height;
+        text-align: right;
+        
+        em {
+            margin: 0 5px;
+            color: @item-label-em-color;
+            font-family: @font-family-mark;
+        }
+        label {
+            cursor: default;
+        }
+    }
+    .item-cont {
+        margin-left: @item-cont-margin-left;
+        line-height: @item-line-height;
+        .clearfix-mixin;
+        >label {
+            margin-right: 20px;
+        }
+        >.txt, >.btn, >.txt-tel,
+        >.txt-section, >.select, >select {
+            margin-right: 10px;
+        }
+        >.radio, >.chk {
+            margin-right: 5px;
+        }
+    }
+}
+
+/* form-inline */
+.form.form-inline .form-item {
+    display: inline-block;
+    margin: @form-inline-margin;
+    vertical-align: top;
+}
+/* form-lable-auto */
+.form.form-lable-auto {
+    .form-item {
+        
+    }
+    .item-label {
+        float: left;
+        margin-right: 10px;
+        width: auto;
+    }
+    .item-cont {
+        float: left;
+        margin-left: 0;
+    }
+}
+
+// *Form-qiye
+// ----------------------------------------
+
+.form-qiye {
+    .w-full {
+        width: 600px;
+    }
+    fieldset {
+        float: left;
+        &.qyLogo {
+            float: right;
+        }
+    }
+    .item-label {
+        font-size: 14px;
+    }
+    .item-cont {
+        position: relative;
+    }
+    .note {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0;
+        line-height: 20px;
+        white-space: nowrap;
+    }
+    .form-group {
+        .form-item {
+            float: left;
+            margin: 0;
+            &:first-child {
+                margin-right: 30px;
+            }
+        }
+    }
+    .btn-submit {
+        clear: both;
+        float: none;
+        text-align: right;
+    }
+}

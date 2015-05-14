@@ -1,0 +1,9 @@
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
+#index #container {
+  height: 859px;
+  background: url(../img/ui/index_bg_01.jpg) no-repeat center 0, url(../img/ui/index_bg_02.jpg) no-repeat center 300px, transparent url(../img/ui/index_bg_03.jpg) no-repeat center 600px;
+}

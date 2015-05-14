@@ -1,0 +1,144 @@
+// style arrow
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+//
+
+// *Arrow Base
+// ----------------------------------------
+
+/* arrow */
+.arrow {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    padding: 0 !important;
+    background-image: none;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    vertical-align: middle;
+    
+    >*, &[class*="-hollow"]:empty:before,
+    &[class*="-hollow"]:empty:after {
+        width: 0 !important;
+        height: 0 !important;
+        padding: 0 !important;
+        font-size: 0 !important;
+        line-height: 0 !important;
+    }
+}
+
+/* arrow direction */
+.arrow[class*="top-"],
+.arrow[class*="top-"]>*,
+.arrow[class*="top-"]:before,
+.arrow[class*="top-"]:after {
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-left-color: transparent !important;
+    border-top-width: 0 !important;
+}
+.arrow[class*="right-"],
+.arrow[class*="right-"]>*,
+.arrow[class*="right-"]:before,
+.arrow[class*="right-"]:after {
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-right-width: 0 !important;
+}
+.arrow[class*="bottom-"],
+.arrow[class*="bottom-"]>*,
+.arrow[class*="bottom-"]:before,
+.arrow[class*="bottom-"]:after {
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-bottom-width: 0 !important;
+}
+.arrow[class*="left-"],
+.arrow[class*="left-"]>*,
+.arrow[class*="left-"]:before,
+.arrow[class*="left-"]:after {
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0 !important;
+}
+
+/* arrow theme */
+.arrow {
+    &[class*="-solid"] {
+        border-style: solid;
+        border-width: @arrow-base-width;
+        border-color: @arrow-base-color;
+    }
+    &[class*="-hollow"] {
+        >*, &:empty:before, &:empty:after {
+            border-style: solid;
+            border-width: @arrow-base-width;
+            border-color: @arrow-base-color;
+            display: block;
+        }
+        &:empty:before, &:empty:after {
+            content: " ";
+        }
+        >small, &:empty:after {
+            position: absolute;
+            border-width: @arrow-base-width - @arrow-base-border-width;
+            border-color: @arrow-base-hollow-color;
+        }
+    }
+    &.top-hollow,
+    &.left-hollow {
+        &:empty:after, small {
+           top: @arrow-base-border-width;
+           left: @arrow-base-border-width;
+        }
+    }
+    &.right-hollow,
+    &.bottom-hollow {
+        &:empty:after, small {
+            right: @arrow-base-border-width;
+            bottom: @arrow-base-border-width;
+        }
+    }
+}
+
+/* arrow color */
+.arrow {
+    &.white {
+        &, &:empty:before, >big {
+            .arrow-style(null, @arrow-white-color);
+        }
+    }
+    &.muted {
+        &, &:empty:before, >big {
+            .arrow-style(null, @arrow-muted-color);
+        }
+    }
+    &.danger {
+        &, &:empty:before, >big {
+            .arrow-style(null, @arrow-danger-color);
+        }
+    }
+}
+
+/* arrow size */
+.arrow {
+    &.xs {
+        .arrow-hollow-style(@arrow-xs; null);
+    }
+    &.sm {
+        .arrow-hollow-style(@arrow-sm; null);
+    }
+    &.lg {
+        .arrow-hollow-style(@arrow-lg; null);
+    }
+    &.xl {
+        .arrow-hollow-style(@arrow-xl; null);
+    }
+}

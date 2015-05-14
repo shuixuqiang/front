@@ -1,0 +1,111 @@
+//module less
+@import url("ui/ui.less");
+
+// style common
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Variable
+// ImgUrl
+// Transition
+// Structure
+// Common
+
+// *Variable
+// ----------------------------------------
+
+// *Img url
+// ----------------------------------------
+.icon, .webuploader-pick {
+    background-image: url(../img/ui/element.png);
+    -webkit-background-size: 250px 200px;
+    background-size: 250px 200px;
+}
+
+// *Transition
+// ----------------------------------------
+
+.trs-3s {
+    .transition(all .3s);
+}
+
+// *Structure
+// ----------------------------------------
+
+.clearfix {
+    .clearfix-mixin;
+}
+
+.wrap {
+    .mc;
+    .clearfix;
+}
+#wrapper {
+    width: 100%;
+    min-width: 1000px;
+}
+#header,
+#container,
+#footer {
+    min-width: 1000px;
+    >.wrap {
+        width: 1000px;
+    }
+}
+#container {
+    padding: 36px 0 40px;
+    background: #f3f3f3;
+}
+
+// *Common
+// ----------------------------------------
+
+.caption {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+// qy-logo
+.qy-logo {
+    position: relative;
+    width: 196px;
+    height: 196px;
+    background: #fff;
+    border: 3px solid #35B558;
+    .radius(3px);
+    img {
+        .imgfull;
+    }
+    .webuploader-container {
+        position: absolute;
+        right: 2px;
+        bottom: 2px;
+        width: 28px;
+        height: 28px;
+        
+        label {
+            position: absolute;
+            top: 0;
+        }
+    }
+    input {
+        clear: both;
+        opacity: 0 !important;
+        width: 0 !important;
+        height: 0 !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+    .note {
+        padding-top: 5px;
+    }
+}

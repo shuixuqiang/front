@@ -1,0 +1,262 @@
+// arrow mixins
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// *定义 arrow 的大小和颜色; 也可以用来设置其中一项
+// ----------------------------------------
+
+.arrow-style(@arrow-width; @rest...) {
+    .width-set(@arrow-width) when (isnumber(@arrow-width)) {
+        border-width: @arrow-width / 2;
+    }
+    .width-set(@arrow-width);
+    
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        border-color: @arrow-color;
+    }
+    .arrow-color(@rest);
+}
+// 空心箭头
+.arrow-hollow-style(@arrow-width; @arrow-color; @rest...) {
+    .arrow-width(@arrow-width;) when (isnumber(@arrow-width)) {
+        &, &>*, &:empty:before {
+            border-width: @arrow-width / 2;
+        }
+        &>small, &:empty:after {
+            border-width: @arrow-width / 2 - 1;
+        }
+    }
+    .arrow-width(@arrow-width);
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        &>*, &:empty:before {
+            border-color: @arrow-color;
+        }
+    }
+    .arrow-color(@arrow-color);
+    .arrow-border-color(@arrow-hollow-color) when (iscolor(@arrow-hollow-color)) {
+        &>small, &:empty:after {
+            border-color: @arrow-hollow-color;
+        }
+    }
+    .arrow-border-color(@rest);
+}
+
+// *用于自定义 arrow 的方向、大小和颜色(颜色参数为可选项)
+// ----------------------------------------
+
+// top
+.arrow-style(top; @arrow-width; @rest...) {
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-left-color: transparent !important;
+    border-top-width: 0 !important;
+    border-width: @arrow-width / 2;
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        border-color: @arrow-color;
+    }
+    .arrow-color(@rest);
+}
+// right
+.arrow-style(right; @arrow-width; @rest...) {
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid;
+    border-top-color: transparent !important;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-right-width: 0 !important;
+    border-width: @arrow-width / 2;
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        border-color: @arrow-color;
+    }
+    .arrow-color(@rest);
+}
+// bottom
+.arrow-style(bottom; @arrow-width; @rest...) {
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid;
+    border-right-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-bottom-width: 0 !important;
+    border-width: @arrow-width / 2;
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        border-color: @arrow-color;
+    }
+    .arrow-color(@rest);
+}
+// left
+.arrow-style(left; @arrow-width; @rest...) {
+    width: 0 !important;
+    height: 0 !important;
+    border-style: solid;
+    border-top-color: transparent !important;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0 !important;
+    border-width: @arrow-width / 2;
+    .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+        border-color: @arrow-color;
+    }
+    .arrow-color(@rest);
+}
+
+// *用于自定义空心 arrow 的方向、大小、颜色和底色
+// ----------------------------------------
+
+// top 空心箭头
+.arrow-style(top-hollow; @arrow-width; @arrow-border-width; @arrow-color; @hollow-color) {
+    &>*, &:empty:before, &:empty:after {
+        border-top-color: transparent !important;
+        border-right-color: transparent !important;
+        border-left-color: transparent !important;
+        border-top-width: 0 !important;
+        border-width: @arrow-width / 2;
+        .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+            border-color: @arrow-color;
+        }
+        .arrow-color(@arrow-color);
+    }
+    &>small, &:empty:after {
+        position: absolute;
+        border-width: @arrow-width / 2 - @arrow-border-width;
+        border-color: @hollow-color;
+        top: @arrow-border-width;
+        left: @arrow-border-width;
+    }
+}
+// right 空心箭头
+.arrow-style(right-hollow; @arrow-width; @arrow-border-width; @arrow-color; @hollow-color) {
+    &>*, &:empty:before, &:empty:after {
+        border-top-color: transparent !important;
+        border-right-color: transparent !important;
+        border-bottom-color: transparent !important;
+        border-right-width: 0 !important;
+        border-width: @arrow-width / 2;
+        .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+            border-color: @arrow-color;
+        }
+        .arrow-color(@arrow-color);
+    }
+    &>small, &:empty:after {
+        position: absolute;
+        border-width: @arrow-width / 2 - @arrow-border-width;
+        border-color: @hollow-color;
+        right: @arrow-border-width;
+        bottom: @arrow-border-width;
+    }
+}
+// bottom 空心箭头
+.arrow-style(bottom-hollow; @arrow-width; @arrow-border-width; @arrow-color; @hollow-color) {
+    &>*, &:empty:before, &:empty:after {
+        border-right-color: transparent !important;
+        border-bottom-color: transparent !important;
+        border-left-color: transparent !important;
+        border-bottom-width: 0 !important;
+        border-width: @arrow-width / 2;
+        .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+            border-color: @arrow-color;
+        }
+        .arrow-color(@arrow-color);
+    }
+    &>small, &:empty:after {
+        position: absolute;
+        border-width: @arrow-width / 2 - @arrow-border-width;
+        border-color: @hollow-color;
+        right: @arrow-border-width;
+        bottom: @arrow-border-width;
+    }
+}
+// left 空心箭头
+.arrow-style(left-hollow; @arrow-width; @arrow-border-width; @arrow-color; @hollow-color) {
+    &>*, &:empty:before, &:empty:after {
+        border-top-color: transparent !important;
+        border-bottom-color: transparent !important;
+        border-left-color: transparent !important;
+        border-left-width: 0 !important;
+        border-width: @arrow-width / 2;
+        .arrow-color(@arrow-color) when (iscolor(@arrow-color)) {
+            border-color: @arrow-color;
+        }
+        .arrow-color(@arrow-color);
+    }
+    &>small, &:empty:after {
+        position: absolute;
+        border-width: @arrow-width / 2 - @arrow-border-width;
+        border-color: @hollow-color;
+        top: @arrow-border-width;
+        left: @arrow-border-width;
+    }
+}
+
+// *自定义底色透明的空心 arrow (适合透明效果的翻页按钮)
+// ----------------------------------------
+
+// top transparent
+.arrow-style(top-trs; @arrow-width; @arrow-border-width; @arrow-color ) {
+    @width: floor(@arrow-width / sqrt(2));
+    @height: @width;
+    .box-sizing(border-box);
+    width: @width;
+    height: @height;
+    background: transparent !important;
+    border: @arrow-border-width solid @arrow-color;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    .transform(rotate(-45deg));
+}
+// right transparent
+.arrow-style(right-trs; @arrow-width; @arrow-border-width; @arrow-color ) {
+    @width: floor(@arrow-width / sqrt(2));
+    @height: @width;
+    .box-sizing(border-box);
+    width: @width;
+    height: @height;
+    background: transparent !important;
+    border: @arrow-border-width solid @arrow-color;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    .transform(rotate(45deg));
+}
+// bottom transparent
+.arrow-style(bottom-trs; @arrow-width; @arrow-border-width; @arrow-color ) {
+    @width: floor(@arrow-width / sqrt(2));
+    @height: @width;
+    .box-sizing(border-box);
+    width: @width;
+    height: @height;
+    background: transparent !important;
+    border: @arrow-border-width solid @arrow-color;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    .transform(rotate(135deg));
+}
+// left transparent
+.arrow-style(left-trs; @arrow-width; @arrow-border-width; @arrow-color ) {
+    @width: floor(@arrow-width / sqrt(2));
+    @height: @width;
+    .box-sizing(border-box);
+    width: @width;
+    height: @height;
+    background: transparent !important;
+    border: @arrow-border-width solid @arrow-color;
+    border-bottom-color: transparent !important;
+    border-left-color: transparent !important;
+    border-left-width: 0;
+    border-bottom-width: 0;
+    .transform(rotate(-135deg));
+}

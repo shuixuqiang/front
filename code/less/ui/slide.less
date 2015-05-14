@@ -1,0 +1,127 @@
+// style slide
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Slide
+// Theme
+// 
+
+// *Slide
+// ----------------------------------------
+
+/* slide */
+.slide {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    overflow: hidden;
+    
+    >.items {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        height: 100%;
+        
+        ul {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 30;
+            
+            li {
+                float: left;
+            }
+        }
+    }
+    >.prev, >.next {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        z-index: 40;
+        .transition(all .5s);
+        text-align: center;
+        cursor: pointer;
+        
+        .arrow {
+            display: inline-block;
+        }
+        
+        // disabled
+        &.disabled, &.disabled .arrow, &.disabled:hover .arrow {
+            background-color: #eee;
+            background-image: none;
+            cursor: default;
+            cursor: not-allowed;
+            opacity: .7;
+        }
+    }
+    >.next {
+        left: auto;
+        right: 0;
+    }
+    
+    // 鼠标移入时显示翻页按钮
+    &.pageTurn-hide {
+        >.prev, >.next {
+            opacity: 0;
+        }
+        &:hover {
+            >.prev, >.next {
+                opacity: 1;
+            }
+        }
+    }
+    
+    // paging
+    .slide-paging {
+        
+    }
+}
+
+// *Slide theme
+// ----------------------------------------
+
+/* theme def */
+.slide-def {
+    @slide-arrow-width: 40px;
+    @slide-arrow: floor(@slide-arrow-width / sqrt(2));
+    @slide-arrow-v: -(@slide-arrow / 2);
+    @slide-arrow-h: -(@slide-arrow / 4);
+    .prev {
+        @height: 50px;
+        width: 40px;
+        height:@height;
+        margin: -@height/2 0 0;
+        background: rgba(0,0,0,.4);
+        
+        .arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: @slide-arrow-v 0 0 @slide-arrow-h;
+            .arrow-style(left-trs; @slide-arrow-width; 4px; #fff);
+        }
+        &:hover {
+            background: rgba(0,0,0,.6);
+        }
+    }
+    .next {
+        &:extend(.slide-def .prev all);
+        
+        .arrow {
+            left: auto;
+            right: 50%;
+            margin: @slide-arrow-v @slide-arrow-h 0 0 ;
+            .transform(rotate(45deg));
+        }
+    }
+}

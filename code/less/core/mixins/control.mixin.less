@@ -1,0 +1,265 @@
+// control mixins
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+//
+
+.border-color-set(@border-color) when (iscolor(@border-color)) {
+    border-color: @border-color;
+}
+.color-set(@color) when (iscolor(@color)) {
+    color: @color;
+}
+
+// *Button
+// ----------------------------------------
+
+// Button Disabled
+.btn-disabled(@background; @border; @color) {
+    background: @background;
+    border: @border;
+    color: @color;
+}
+
+// Button Size
+.btn-size(@height; @padding; @font-size) {
+    height: @height;
+    padding: @padding;
+    font-size: @font-size;
+}
+
+// Background - Image
+.btn-style(img; @background; @border-color; @color; @hover-bg; @hover-brc; @hover-color; @active-bg; @active-brc; @active-color) {
+    background: @background repeat-x 0 0;
+    .border-color-set(@border-color);
+    color: @color;
+    
+    &:hover {
+        background-position: @hover-bg;
+        .border-color-set(@hover-brc);
+        .color-set(@hover-color);
+    }
+    &:active {
+        background-position: @active-bg;
+        .border-color-set(@active-brc);
+        .color-set(@active-color);
+    }
+}
+// Background - Color
+.btn-style(color; @background; @border-color; @color; @hover-bg; @hover-brc; @hover-color; @active-bg; @active-brc; @active-color) {
+    background: @background;
+    border-color: @border-color;
+    color: @color;
+    
+    &:hover {
+        background: @hover-bg;
+        .border-color-set(@hover-brc);
+        .color-set(@hover-color);
+    }
+    &:active {
+        background: @active-bg;
+        .border-color-set(@active-brc);
+        .color-set(@active-color);
+
+    }
+}
+// Background - Gradient
+.btn-style(gradient; @background; @border-color; @color; @hover-bg; @hover-brc; @hover-color; @active-bg; @active-brc; @active-color) {
+    .gradient(@background);
+    .border-color-set(@border-color);
+    color: @color;
+    
+    &:hover {
+        background: @hover-bg;
+        .border-color-set(@hover-brc);
+        .color-set(@hover-color);
+    }
+    &:active {
+        background: @active-bg;
+        .border-color-set(@active-brc);
+        .color-set(@active-color);
+
+    }
+}
+// Button height
+.btn-size-h(@height; @padding; @border-width; @font-size) {
+    height: @height;
+    padding: @padding;
+    .font-size(@font-size) when (isnumber(@font-size)) {
+        font-size: @font-size;
+    }
+    .font-size(@font-size);
+    a&, span& {
+        line-height: @height - @border-width * 2;
+    }
+}
+// Button width
+.btn-size-w(@btn-w-enable; @class-name; @width) when (@btn-w-enable = true) {
+    .btn.@{class-name} {
+        width: @width;
+        padding: 0 !important;
+    }
+}
+// Button padding
+.btn-size-p(@btn-p-enable; @class-name; @padding) when (@btn-p-enable = true) {
+    .btn.@{class-name} {
+        padding: 0 @padding;
+    }
+}
+
+// *Text
+// ----------------------------------------
+
+// Text size
+.txt-size(@height; @font-size; @line-height) {
+    @line-h: (@height - @line-height) / 2;
+    height: @height;
+    padding: @line-h @line-h;
+    font-size: @font-size;
+    line-height: @line-height;
+}
+// Text & Select & Textarea style
+.txt-style(@border-color; @hover-border-color; @focus-border-color) {
+    border-color: @border-color;
+    .transition(~"border-color .15s ease-in-out,box-shadow .15s ease-in-out");
+    &:hover {
+        border-color: @hover-border-color;
+        .box-shadow(0 0 5px lighten(@hover-border-color, 20%));
+    }
+    &:focus {
+        border-color: @focus-border-color;
+        .box-shadow(0 0 5px lighten(@focus-border-color, 10%));
+    }
+}
+// Text height
+.txt-size-h(@txt-h-enable; @class-name; @height; @line-height; @font-size) when (@txt-h-enable = true) {
+    @line-h: (@height - @line-height) / 2;
+    .txt.@{class-name} {
+        height: @height;
+        padding: @line-h @line-h;
+        .font-size-set(@font-size) when (isnumber(@font-size)) {
+            font-size: @font-size;
+        }
+        .font-size-set(@font-size);
+        line-height: @line-height;
+    }
+}
+// Text width
+.txt-size-w(@txt-w-enable; @class-name; @width) when (@txt-w-enable = true) {
+    .txt.@{class-name} {
+        width: @width;
+    }
+}
+
+// *TEL Text
+// ----------------------------------------
+
+// 创建tel input 组件
+.txt-tel(@tel-enable; @class-name; @tel-area-w; @tel-num-w; @tel-ext-w; @margin; @color; @line-height) when (@tel-enable = true) {
+    .@{class-name} {
+        display: inline-block;
+        vertical-align: middle;
+        .tel-area {
+            width: @tel-area-w;
+            margin: 0 @margin 0 0 !important;
+        }
+        .tel-num {
+            width: @tel-num-w;
+            margin: 0 @margin !important;
+        }
+        .tel-ext {
+            width: @tel-ext-w;
+            margin: 0 0 0 @margin !important;
+        }
+        i {
+            color: @color;
+            display: inline-block;
+            font-family: simsun, \5b8b\4f53, arial;
+            line-height: @line-height;
+            vertical-align: middle;
+        }
+    }
+}
+// tel input height
+.tel-size-h(@enable; @class-name; @height; @line-height; @font-size) when (@enable = true) {
+    @line-h: (@height - @line-height) / 2;
+    .@{class-name} {
+        .txt {
+            height: @height;
+            padding: @line-h @line-h;
+            .font-size-set(@font-size) when (isnumber(@font-size)) {
+                font-size: @font-size;
+            }
+            .font-size-set(@font-size);
+            line-height: @line-height;
+        }
+        i {
+            line-height: @height;
+        }
+    }
+}
+
+// *Text Section
+// ----------------------------------------
+
+.txt-section(@enable; @class-name; @margin; @color; @family; @font-size; @line-height; @dash-color) when (@enable = true) {
+    .@{class-name} {
+        display: inline-block;
+        vertical-align: middle;
+        .txt {
+            margin: 0 @margin !important;
+            &:first-child {
+                margin-left: 0 !important;
+            }
+            &:last-child {
+                margin-right: 0 !important;
+            }
+        }
+        i {
+            color: @color;
+            display: inline-block;
+            font-family: @family;
+            font-size: @font-size;
+            line-height: @line-height;
+            vertical-align: middle;
+        }
+        // 设置连接符为破折号的样式
+        &.txt-dash i {
+            color: @dash-color;
+            font-family: @font-family-mark;
+        }
+    }
+}
+
+
+// *Select
+// ----------------------------------------
+
+// Select size
+.select-size(@height; @font-size) {
+    height: @height;
+    font-size: @font-size;
+}
+// Select height
+.select-size-h(@select-h-enable; @class-name; @height; @padding; @font-size) when (@select-h-enable = true) {
+    .select.@{class-name} {
+        height: @height;
+        .padding-set(@padding) when (isnumber(@padding)) {
+            padding: @padding;
+        }
+        .padding-set(@padding);
+        .font-size-set(@font-size) when (isnumber(@font-size)) {
+            font-size: @font-size;
+        }
+        .font-size-set(@font-size);
+    }
+}
+// Select width
+.select-size-w(@select-w-enable; @class-name; @width) when (@select-w-enable = true) {
+    .select.@{class-name} {
+        width: @width;
+    }
+}

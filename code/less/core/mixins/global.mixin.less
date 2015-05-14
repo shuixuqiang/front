@@ -1,0 +1,155 @@
+// global mixins
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// 清除浮动
+.clearfix-mixin() {
+    &:after {
+        display: table;
+        clear: both;
+        content: " ";
+    }
+}
+// cf 可以将需要清除浮动的元素连接在一起
+// 调用cf需要在页面样式表中创建已下样式
+// .clearfix {
+//     .clearfix-mixin;
+// }
+.cf() {
+    &:extend(.clearfix all);
+}
+
+// box左右居中
+.mc() {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// 禁止用户选择文本
+.user-select-none() {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+// 设置盒模型
+.box-sizing(@box-sizing) {
+    -webkit-box-sizing: @box-sizing;
+    -moz-box-sizing: @box-sizing;
+    box-sizing: @box-sizing;
+}
+// overflow方式
+.overflow(overflow; @overflow) {
+    overflow: @overflow;
+}
+.overflow(overflow-x; @overflow-x) {
+    overflow-x: @overflow-x;
+}
+.overflow(overflow-y; @overflow-y) {
+    overflow-y: @overflow-y;
+}
+// 单行文本溢出添加省略号
+.text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+// 圆角
+.radius(@radius) {
+    -webkit-border-radius: @arguments;
+    -moz-border-radius: @arguments;
+    border-radius: @arguments;
+}
+// input[text] radius （该混合要在input的父级使用)
+.txt-radius(@radius) {
+    & .txt {
+        -webkit-border-radius: @arguments;
+        -moz-border-radius: @arguments;
+        border-radius: @arguments;
+    }
+}
+// 阴影
+.box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+    box-shadow: @shadow;
+}
+// 过渡
+.transition(@transition) {
+    // IE 9 不支持该属性
+    // IE 10 支持标准格式
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    transition: @arguments;
+}
+// 变换
+.transform(@arguments) {
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+// 动画
+.animation(@arguments) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    -ms-animation: @arguments;
+    animation: @arguments;
+}
+// 渐变
+.gradient(@args){
+    -webkit-background: @arguments;
+    -moz-background: @arguments;
+    -ms-background: @arguments;
+    background: @arguments;
+}
+// 边框
+.border(@border-width;@border-style;@border-color) {
+    border: @arguments;
+}
+
+// 遮罩
+.mask(@mask-zindex;@mask-color;@mask-opacity) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: @mask-zindex;
+    width: 100%;
+    height: 100%;
+    background: @mask-color;
+    opacity: @mask-opacity;
+}
+.mask-bar(@mask-bar-zindex;@mask-bar-color;@mask-bar-opacity) {
+    position: absolute;
+    left: 0;
+    z-index: @mask-bar-zindex;
+    width: 100%;
+    background: @mask-bar-color;
+    opacity: @mask-opacity;
+}
+// close
+.close(@top; @right; @width; @height) {
+    position: absolute;
+    top: @top;
+    right: @right;
+    display: block;
+    width: @width;
+    height: @height;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+// button height
+.btn-height(@height; @border-width) {
+    height: @height;
+    line-height: @height - @border-width * 2;
+}
+
+// img full
+.imgfull() {
+    width: 100%;
+    height: 100%;
+}

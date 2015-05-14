@@ -1,0 +1,44 @@
+@import url("core/core.less");
+.icon-want(@icon-want);
+.tabs-want(@tabs-want);
+.form-want(@form-want);
+.table-want(@table-want);
+.popup-want(@popup-want);
+.slide-want(@slide-want);
+.tooltip-want(@tooltip-want);
+.header-want(@header-want);
+.footer-want(@footer-want);
+@import url("ui/module.less");
+.theme-want(@theme-want);
+
+// Mixins
+.icon-want(@icon) when (@icon = true) {
+    @import url("ui/icon.less");
+}
+.tabs-want(@tabs) when (@tabs = true) {
+    @import url("ui/tabs.less");
+}
+.form-want(@form) when (@form = true) {
+    @import url("ui/form.less");
+}
+.table-want(@table) when (@table = true) {
+    @import url("ui/table.less");
+}
+.popup-want(@popup) when (@popup = true) {
+    @import url("ui/popup.less");
+}
+.slide-want(@slide) when (@slide = true) {
+    @import url("ui/slide.less");
+}
+.tooltip-want(@tooltip) when (@tooltip = true) {
+    @import url("ui/tooltip.less");
+}
+.header-want(@header) when (@header = true) {
+    @import url("ui/header.less");
+}
+.footer-want(@footer) when (@footer = true) {
+    @import url("ui/footer.less");
+}
+.theme-want(@theme) when (@theme = true) {
+    @import url("ui/theme.less");
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>企业申请</title>
+		<!--<link rel="stylesheet" href="css/common.min.css" />-->
+		<link rel="stylesheet/less" type="text/css" href="less/common.less" />
+		<script src="js/plugin/holder.min.js"></script><!--图片占位插件，请删除-->
+		<script src="js/plugin/less-1.7.0.min.js"></script>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/qy.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header id="header">
+				<div class="wrap">
+					
+				</div>
+				<!-- loading -->
+				<div id="loading"></div>
+				<!-- loading end -->
+			</header>
+			<div id="container">
+				<div class="wrap">
+					<form action="" class="form form-lable-auto form-qiye">
+						<div class="caption">提交企业信息</div>
+						<fieldset>
+							<div class="form-item">
+								<div class="item-label"><label>企业名称：</label></div>
+								<div class="item-cont"><input type="text" autofocus="autofocus" id="qyName" class="txt lg w-full" placeholder="请输入公司名称" /></div>
+							</div>
+							<div class="form-item">
+								<div class="item-label"><label>企业简介：</label></div>
+								<div class="item-cont"><textarea name="" id="qyOverview" class="w-full resize-none" style="height:145px" placeholder="请输入公司简介"></textarea></div>
+							</div>
+							<div class="form-group">
+								<div class="form-item">
+									<div class="item-label"><label>联系人电话：</label></div>
+									<div class="item-cont"><input type="text" id="qyTel" class="txt lg w-lg" /></div>
+								</div>
+								<div class="form-item">
+									<div class="item-label"><label>联系人：</label></div>
+									<div class="item-cont"><input type="text" id="qyContact" class="txt lg w-lg" /></div>
+								</div>
+							</div>
+							<div class="form-item">
+								<div class="item-label"><label>联系人邮箱：</label></div>
+								<div class="item-cont"><input type="text" id="qyEmail" class="txt lg w-lg" /></div>
+							</div>
+						</fieldset>
+						<fieldset class="qyLogo">
+							<div class="qy-logo">
+								<img src="holder.js/100%x100%/#fff:#666" alt="" />
+								<label><i class="icon i-pencil"></i><input type="file" name="" id="qyLogo" value="" class="hide" /></label>
+							</div>
+						</fieldset>
+						<fieldset class="btn-submit">
+							<button type="button" class="btn btn-def xl w-lg" id="qySubmit">提交申请</button>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+			<footer id="footer">
+				
+			</footer>
+		</div>
+	</body>
+</html>

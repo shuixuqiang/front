@@ -1,0 +1,23 @@
+@import url("core/variable.less");
+@import url("core/mixins.less");
+@import url("core/reset.less");
+@import url("core/global.less");
+.grid-want(@grid-want);
+@import url("core/font.less");
+.code-want(@code-want);
+.control-want(@control-want);
+.arrow-want(@arrow-want);
+
+// Mixins
+.grid-want(@grid) when (@grid = true) {
+    @import url("core/grid.less");
+}
+.code-want(@code) when (@code = true) {
+    @import url("core/code.less");
+}
+.control-want(@control) when (@control = true) {
+    @import url("core/control.less");
+}
+.arrow-want(@arrow) when (@arrow = true) {
+    @import url("core/arrow.less");
+}

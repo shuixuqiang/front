@@ -1,0 +1,381 @@
+// style control
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+//
+// Menu
+//
+// Base
+// Common
+// - common
+// - mask
+// - position
+// - loading img
+
+// *Base
+// ----------------------------------------
+/* control base */
+input,
+button,
+a.btn,
+span.btn,
+select,
+textarea {
+    .box-sizing(@box-sizing: border-box);
+}
+input,
+button,
+span.btn,
+a.btn,
+select,
+label {
+	vertical-align: middle;
+}
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+	line-height: normal;
+	cursor: pointer;
+}
+
+// *Status
+// ----------------------------------------
+
+.placeholder {
+    color: @placeholder !important;
+}
+.errIpt {
+    &, &:focus, &:hover {
+        .bg-set(@input-error-bg) when (iscolor(@input-error-bg)) {
+            background: @input-error-bg !important;
+        }
+        .bg-set(@input-error-bg);
+        border: @input-error-border !important;
+        .box-shadow(none) !important;
+    }
+}
+.errTxt {
+    color: @text-error-color !important;
+}
+
+/* note */
+.note {
+    color: @note-color;
+    vertical-align: middle;
+    span& {
+        padding-left: @span-note-padding-left;
+    }
+    div& {
+        padding: @div-note-padding;
+        line-height: @div-note-line-height;
+    }
+    & strong {
+        padding: @note-strong-padding;
+        color: @note-strong-color;
+    }
+    & b {
+        padding: @note-b-padding;
+        color: @note-b-color;
+    }
+}
+
+// *Checkbox & Radio
+// ----------------------------------------
+
+/* checkbox & radio */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 13px;
+    height: 13px;
+    margin: @chk-radio-margin;
+    cursor: pointer;
+    
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled]:active {
+        cursor: default !important;
+        cursor: not-allowed !important;
+    }
+}
+label {
+    & input[type="checkbox"],
+    & input[type="radio"] {
+        position: relative;
+        top: -1px;
+        left: 0;
+    }
+}
+
+// *Button
+// ----------------------------------------
+
+/* button */
+.btn {
+    .btn-size(@btn-base-height; @btn-base-padding; @btn-base-font-size);
+    .border(@btn-base-border-width;@btn-base-border-style;@btn-base-border-color);
+    .radius-set(@btn-radius) when (isnumber(@btn-radius)) {
+        .radius(@btn-radius);
+    }
+    .radius-set(@btn-radius);
+    .transition(background-color .8s,border-color .8s,color .8s;);
+    
+    &, a&, span& {
+        .btn-style(@btn-base-bg-type; @btn-base-background; @btn-base-border-color; @btn-base-color;
+            @btn-base-hover-background; @btn-base-hover-border-color; @btn-base-hover-color; 
+            @btn-base-active-background; @btn-base-active-border-color; @btn-base-active-color);
+    }
+    a&, span& {
+        display: inline-block;
+        line-height: @btn-base-height - @btn-base-border-width * 2;
+        text-align: center;
+        text-decoration: none;
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    
+    &.disabled, &[disabled],
+    &.disabled:hover, &[disabled]:hover,
+    &.disabled:focus, &[disabled]:focus,
+    &.disabled:active, &[disabled]:active {
+        .btn-disabled(@btn-disabled-background; @btn-disabled-border; @btn-disabled-color) !important;
+        cursor: default !important;
+        cursor: not-allowed !important;
+    }
+}
+
+/* button theme */
+
+.btn-def {
+    // 默认按钮
+	&, a&, span& {
+        .btn-style(@btn-def-bg-type; @btn-def-background; @btn-def-border-color; @btn-def-color;
+            @btn-def-hover-background; @btn-def-hover-border-color; @btn-def-hover-color; 
+            @btn-def-active-background; @btn-def-active-border-color; @btn-def-active-color);
+	}
+}
+.btn-primary {
+    // 主要按钮
+    &, a&, span& {
+        .btn-style(@btn-primary-bg-type; @btn-primary-background; @btn-primary-border-color; 
+            @btn-primary-color; @btn-primary-hover-background; @btn-primary-hover-border-color; @btn-primary-hover-color; 
+            @btn-primary-active-background; @btn-primary-active-border-color; @btn-primary-active-color);
+    }
+}
+.btn-warn {
+    // 警示性按钮
+    &, a&, span& {
+        .btn-style(@btn-warn-bg-type; @btn-warn-background; @btn-warn-border-color; @btn-warn-color; 
+            @btn-warn-hover-background; @btn-warn-hover-border-color; @btn-warn-hover-color; 
+            @btn-warn-active-background; @btn-warn-active-border-color; @btn-warn-active-color);
+    }
+}
+.btn-text {
+    // 文字按钮
+    &, a&, span& {
+        .btn-style(@btn-text-bg-type; @btn-text-background; @btn-text-border-color; @btn-text-color; 
+            @btn-text-hover-background; @btn-text-hover-border-color; @btn-text-hover-color; 
+            @btn-text-active-background; @btn-text-active-border-color; @btn-text-active-color);
+    }
+    &.btn.disabled, &.btn[disabled] {
+        &, &:hover, &:focus, &:active {
+            .btn-disabled(transparent; transparent; #999) !important;           
+        }
+    }
+}
+
+/* button height */
+
+// button extra small
+.set-btn-xs-enable(@height; @padding; @border-width; @font-size) when (@btn-h-xs-enable = true) {
+    .btn.xs {
+        /* extra small */
+        .btn-size-h(@height; @padding; @border-width; @font-size);
+    }
+}
+.set-btn-xs-enable(@btn-h-xs; @btn-h-xs-padding; @btn-h-xs-border-width;@btn-h-xs-font-size);
+
+// button small
+.set-btn-sm-enable(@height; @padding; @border-width; @font-size) when (@btn-h-sm-enable = true) {
+    .btn.sm {
+        /* small */
+        .btn-size-h(@height; @padding; @border-width; @font-size);
+    }
+}
+.set-btn-sm-enable(@btn-h-sm; @btn-h-sm-padding; @btn-h-sm-border-width;@btn-h-sm-font-size);
+
+// button large
+.set-btn-lg-enable(@height; @padding; @border-width; @font-size) when (@btn-h-lg-enable = true) {
+    .btn.lg {
+        /* large */
+        .btn-size-h(@height; @padding; @border-width; @font-size);
+    }
+}
+.set-btn-lg-enable(@btn-h-lg; @btn-h-lg-padding; @btn-h-lg-border-width;@btn-h-lg-font-size);
+
+// button extra large
+.set-btn-xl-enable(@height; @padding; @border-width; @font-size) when (@btn-h-xl-enable = true) {
+    .btn.xl {
+        /* extra large */
+        .btn-size-h(@height; @padding; @border-width; @font-size);
+    }
+}
+.set-btn-xl-enable(@btn-h-xl; @btn-h-xl-padding; @btn-h-xl-border-width;@btn-h-xl-font-size);
+
+/* button width */
+.btn-size-w(@btn-w-xs-enable; @class-name: w-xs; @btn-w-xs);
+.btn-size-w(@btn-w-sm-enable; @class-name: w-sm; @btn-w-sm);
+.btn-size-w(@btn-w-lg-enable; @class-name: w-lg; @btn-w-lg);
+.btn-size-w(@btn-w-xl-enable; @class-name: w-xl; @btn-w-xl);
+.btn-size-w(@btn-w-full-enable; @class-name: w-full; @btn-w-full);
+
+/* button padding */
+.btn-size-p(@btn-p-xs-enable; @class-name: p-xs; @btn-p-xs);
+.btn-size-p(@btn-p-sm-enable; @class-name: p-sm; @btn-p-sm);
+.btn-size-p(@btn-p-lg-enable; @class-name: p-lg; @btn-p-lg);
+.btn-size-p(@btn-p-xl-enable; @class-name: p-xl; @btn-p-xl);
+
+// *Text
+// ----------------------------------------
+
+.txt, select, .select, textarea {
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus,
+    &[disabled]:active {
+        background: #f8f8f8 !important;
+        border-color: lighten(@txt-base-border-color, 5%) !important; 
+        .box-shadow(none) !important;
+        cursor: default !important;
+        cursor: not-allowed !important;
+    }
+}
+
+/* input text */
+.txt {
+    width: @txt-base-width;
+    &[readonly="readonly"], &[readonly="readonly"]:hover, &[readonly="readonly"]:focus {
+        border-color: @txt-base-border-color !important;
+        .box-shadow(none);
+    }
+    .txt-size(@txt-base-height; @txt-base-font-size; @txt-base-line-height);
+    .border(@txt-base-border-width; @txt-base-border-style; @txt-base-border-color);
+    .txt-style(@txt-base-border-color; @txt-base-hover-border-color; @txt-base-focus-border-color);
+}
+
+/* text radius */
+.txt.txt-radius {
+    .radius(@txt-base-radius);
+}
+
+/* text height */
+.txt-size-h(@txt-h-xs-enable; @class-name: xs; @txt-h-xs; @txt-h-xs-line-height; @txt-h-xs-font-size);
+.txt-size-h(@txt-h-sm-enable; @class-name: sm; @txt-h-sm; @txt-h-sm-line-height; @txt-h-sm-font-size);
+.txt-size-h(@txt-h-lg-enable; @class-name: lg; @txt-h-lg; @txt-h-lg-line-height; @txt-h-lg-font-size);
+.txt-size-h(@txt-h-xl-enable; @class-name: xl; @txt-h-xl; @txt-h-xl-line-height; @txt-h-xl-font-size);
+
+/* text width */
+.txt-size-w(@txt-w-xs-enable; @class-name: w-xs; @txt-w-xs);
+.txt-size-w(@txt-w-sm-enable; @class-name: w-sm; @txt-w-sm);
+.txt-size-w(@txt-w-lg-enable; @class-name: w-lg; @txt-w-lg);
+.txt-size-w(@txt-w-xl-enable; @class-name: w-xl; @txt-w-xl);
+.txt-size-w(@txt-w-full-enable; @class-name: w-full; @txt-w-full);
+
+/* tel text */
+.txt-tel(@tel-txt-enable; @class-name: txt-tel; 
+    @tel-txt-area-width; @tel-txt-num-width; @tel-txt-ext-width; 
+    @tel-txt-dash-margin; @tel-txt-dase-color; @tel-txt-dase-line-height
+);
+
+/* tel height*/
+.tel-size-h(@tel-h-xs-enable; @class-name: tel-xs; @tel-h-xs; @tel-h-xs-line-height; @tel-h-xs-font-size);
+.tel-size-h(@tel-h-sm-enable; @class-name: tel-sm; @tel-h-sm; @tel-h-sm-line-height; @tel-h-sm-font-size);
+.tel-size-h(@tel-h-lg-enable; @class-name: tel-lg; @tel-h-lg; @tel-h-lg-line-height; @tel-h-lg-font-size);
+.tel-size-h(@tel-h-xl-enable; @class-name: tel-xl; @tel-h-xl; @tel-h-xl-line-height; @tel-h-xl-font-size);
+
+/* txt section */
+.txt-section(@txt-section-enable; @class-name: txt-section; 
+    @txt-section-margin; @txt-section-color; @txt-section-family; 
+    @txt-section-font-size; @txt-section-line-height; @txt-section-dash-color
+);
+
+/* file */
+.file-ctrl {
+    display: inline-block;
+    vertical-align: middle;
+    input {
+        float: left;
+    }
+    .txt {
+        width: 180px;
+    }
+    .btn {
+        width: 60px;
+        padding: 0;
+        .radius(0);
+    }
+    input[type="file"] {
+        clear: both;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        line-height: 0 !important;
+        font-size: 0 !important;
+    }
+}
+
+/* select */
+
+select,
+.select {
+    width: @select-base-width;
+    .select-size(@select-base-height; @select-base-font-size);
+    .border(@select-base-border-width; @select-base-border-style; @select-base-border-color);
+    .txt-style(@select-base-border-color; @select-base-hover-border-color; @select-base-focus-border-color);
+	background: #fff;
+	outline: 0;
+//	-webkit-appearance: none !important;
+//	.radius(0);
+}
+
+/* select height */
+.select-size-h(@select-h-xs-enable; @class-name: xs; @select-h-xs; @select-h-xs-padding; @select-h-xs-font-size);
+.select-size-h(@select-h-sm-enable; @class-name: sm; @select-h-sm; @select-h-sm-padding; @select-h-sm-font-size);
+.select-size-h(@select-h-lg-enable; @class-name: lg; @select-h-lg; @select-h-lg-padding; @select-h-lg-font-size);
+.select-size-h(@select-h-xl-enable; @class-name: xl; @select-h-xl; @select-h-xl-padding; @select-h-xl-font-size);
+
+/* select width */
+.select-size-w(@select-w-xs-enable; @class-name: w-xs; @select-w-xs);
+.select-size-w(@select-w-sm-enable; @class-name: w-sm; @select-w-sm);
+.select-size-w(@select-w-lg-enable; @class-name: w-lg; @select-w-lg);
+.select-size-w(@select-w-xl-enable; @class-name: w-xl; @select-w-xl);
+
+/* textarea */
+textarea {
+	overflow-y: auto;
+	padding: @textarea-base-padding;
+    .border(@textarea-base-border-width; @textarea-base-border-style; @textarea-base-border-color);
+    .txt-style(@textarea-base-border-color; @textarea-base-hover-border-color; @textarea-base-focus-border-color);
+	background: #fff;
+	outline: 0;
+	vertical-align: top;
+    resize: @textarea-base-resize;
+    
+	&.resize-none {
+    	   resize: none;
+	}
+	&.resize-h {
+    	   resize: horizontal;
+	}
+	&.resize-both {
+	   resize: both;
+	}
+}

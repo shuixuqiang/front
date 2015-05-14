@@ -1,0 +1,29 @@
+// style index
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Base
+// 
+// 
+
+// * Base
+// ----------------------------------------
+
+@import (reference) "core/core.less";
+
+// 使用.cf清除浮动会将所有要清除浮动的样式合并, 如要单独清除浮动请使用.clearfix
+.clearfix {
+    .clearfix-mixin;
+}
+#index #container {
+    height: 859px;
+    background: url(../img/ui/index_bg_01.jpg) no-repeat center 0,
+                url(../img/ui/index_bg_02.jpg) no-repeat center 300px,
+                transparent url(../img/ui/index_bg_03.jpg) no-repeat center 600px;
+}

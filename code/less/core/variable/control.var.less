@@ -1,0 +1,318 @@
+// variable
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+// 
+// 参数说明: true为开启 || false、无参数为不开启或默认参数
+
+// *Control Status
+// ----------------------------------------
+
+@placeholder: #999;             // placeholder 文字颜色
+@input-error-bg: #ffe8e8;       // 输入错误input背景样式(可选项)
+@input-error-border: 1px solid #ef7f7f;     // 输入错误input边框样式
+@text-error-color: #f00;        // 输入错误提示文字颜色
+
+// *Note
+// ----------------------------------------
+
+@note-color: #666;
+@span-note-padding-left: 5px;
+@div-note-padding: 5px 0 0;
+@div-note-line-height: 1.8;
+
+@note-strong-padding: 0 5px;
+@note-strong-color: #f00;
+@note-b-padding: 0 5px;
+@note-b-color: #333;
+
+// *Checkbox & Radio
+// ----------------------------------------
+
+@chk-radio-margin: 0 5px 0 2px;
+
+// *Button
+// ----------------------------------------
+
+@btn-radius: 3px;   // 按钮圆角
+
+// Disabled
+@btn-disabled-background: #eee;
+@btn-disabled-border: 1px solid #e7e7e7;
+@btn-disabled-color: #999;
+
+// 按钮基础样式
+@btn-base-height: 26px;
+@btn-base-padding: 0 15px;
+@btn-base-font-size: 12px;
+@btn-base-border-width: 1px;
+@btn-base-border-style: solid;
+
+// 背景类型参数: img, color, gradient;
+// Button Theme
+@btn-base-bg-type: color;
+@btn-base-background: #eaeaea;
+@btn-base-border-color: #eaeaea;
+@btn-base-color: #666;
+@btn-base-hover-background: #eee;
+@btn-base-hover-border-color: ;             // (可选项)
+@btn-base-hover-color: #999;                // (可选项)
+@btn-base-active-background: #eee;
+@btn-base-active-border-color: ;            // (可选项)
+@btn-base-active-color: #999;               // (可选项)
+
+@btn-def-bg-type: color;
+@btn-def-background: #35b558;
+@btn-def-border-color: #35b558;             // (可选项)
+@btn-def-color: #fff;
+@btn-def-hover-background: #66d178;
+@btn-def-hover-border-color: #66d178;       // (可选项)
+@btn-def-hover-color: #fff;                 // (可选项)
+@btn-def-active-background: #66d178;
+@btn-def-active-border-color: #66d178;      // (可选项)
+@btn-def-active-color: #fff;                // (可选项)
+
+@btn-primary-bg-type: color;
+@btn-primary-background: #2d85ca;
+@btn-primary-border-color: #2d85ca;
+@btn-primary-color: #fff;
+@btn-primary-hover-background: #4a9bdb;
+@btn-primary-hover-border-color: #4a9bdb;   // (可选项)
+@btn-primary-hover-color: #fff;             // (可选项)
+@btn-primary-active-background: #4a9bdb;
+@btn-primary-active-border-color: #4a9bdb;  // (可选项)
+@btn-primary-active-color: #fff;            // (可选项)
+
+@btn-warn-bg-type: color;
+@btn-warn-background: #ff5c00;
+@btn-warn-border-color: #ff5c00;
+@btn-warn-color: #fff;
+@btn-warn-hover-background: #ff8530;
+@btn-warn-hover-border-color: #ff8530;      // (可选项)
+@btn-warn-hover-color: #fff;                // (可选项)
+@btn-warn-active-background: #ff8530;
+@btn-warn-active-border-color: #ff8530;     // (可选项)
+@btn-warn-active-color: #fff;               // (可选项)
+
+@btn-text-bg-type: color;
+@btn-text-background: transparent;
+@btn-text-border-color: transparent;
+@btn-text-color: #666;
+@btn-text-hover-background: transparent;
+@btn-text-hover-border-color: transparent;  // (可选项)
+@btn-text-hover-color: #999;                // (可选项)
+@btn-text-active-background: transparent;
+@btn-text-active-border-color: transparent; // (可选项)
+@btn-text-active-color: #999;               // (可选项)
+
+// *Button Size
+// ----------------------------------------
+
+// Button height
+@btn-h-xs-enable: true;
+@btn-h-xs: 22px;
+@btn-h-xs-padding: 0 15px;
+@btn-h-xs-border-width: @btn-base-border-width;
+@btn-h-xs-font-size: ;          // (可选项)
+
+@btn-h-sm-enable: true;
+@btn-h-sm: 24px;
+@btn-h-sm-padding: 0 15px;
+@btn-h-sm-border-width: @btn-base-border-width;
+@btn-h-sm-font-size: ;          // (可选项)
+
+@btn-h-lg-enable: true;
+@btn-h-lg: 32px;
+@btn-h-lg-padding: 0 20px;
+@btn-h-lg-border-width: @btn-base-border-width;
+@btn-h-lg-font-size: 14px;      // (可选项)
+
+@btn-h-xl-enable: true;
+@btn-h-xl: 40px;
+@btn-h-xl-padding: 0 30px;
+@btn-h-xl-border-width: @btn-base-border-width;
+@btn-h-xl-font-size: 18px;      // (可选项)
+
+// Button width
+@btn-w-xs-enable: true;
+@btn-w-xs: 60px;
+
+@btn-w-sm-enable: true;
+@btn-w-sm: 100px;
+
+@btn-w-lg-enable: true;
+@btn-w-lg: 150px;
+
+@btn-w-xl-enable: true;
+@btn-w-xl: 190px;
+
+@btn-w-full-enable: true;
+@btn-w-full: 100%;
+
+// Button padding
+@btn-p-xs-enable: true;
+@btn-p-xs: 5px;
+
+@btn-p-sm-enable: true;
+@btn-p-sm: 10px;
+
+@btn-p-lg-enable: true;
+@btn-p-lg: 30px;
+
+@btn-p-xl-enable: true;
+@btn-p-xl: 80px;
+
+// *Text
+// ----------------------------------------
+
+@txt-base-width: 100px;
+@txt-base-height: 26px;
+@txt-base-font-size: 12px;
+@txt-base-line-height: 16px;
+@txt-base-border-width: 1px;
+@txt-base-border-style: solid;
+@txt-base-border-color: #ccc;
+@txt-base-hover-border-color: #a5a5a5;
+@txt-base-focus-border-color: #35b558;
+
+// Text radius
+@txt-base-radius: 4px;
+
+// Text height
+@txt-h-xs-enable: true;
+@txt-h-xs: @btn-h-xs;
+@txt-h-xs-line-height: @txt-base-line-height;
+@txt-h-xs-font-size: ;          // (可选项)
+
+@txt-h-sm-enable: true;
+@txt-h-sm: @btn-h-sm;
+@txt-h-sm-line-height: @txt-base-line-height;
+@txt-h-sm-font-size: ;          // (可选项)
+
+@txt-h-lg-enable: true;
+@txt-h-lg: @btn-h-lg;
+@txt-h-lg-line-height: @txt-base-line-height;
+@txt-h-lg-font-size: ;          // (可选项)
+
+@txt-h-xl-enable: true;
+@txt-h-xl: @btn-h-xl;
+@txt-h-xl-line-height: 18px;    // (可选项)
+@txt-h-xl-font-size: 14px;
+
+// Text width
+@txt-w-xs-enable: true;
+@txt-w-xs: 60px;
+
+@txt-w-sm-enable: true;
+@txt-w-sm: 80px;
+
+@txt-w-lg-enable: true;
+@txt-w-lg: 240px;
+
+@txt-w-xl-enable: true;
+@txt-w-xl: 300px;
+
+@txt-w-full-enable: true;
+@txt-w-full: 100%;
+
+// *TEL Text
+// ----------------------------------------
+
+@tel-txt-enable: true;
+@tel-txt-area-width: 60px;
+@tel-txt-num-width: 120px;
+@tel-txt-ext-width: 60px;
+@tel-txt-dash-margin: 5px;
+@tel-txt-dase-color: #ccc;
+@tel-txt-dase-line-height: @txt-base-height;
+
+// Tel height
+@tel-h-xs-enable: true;
+@tel-h-xs: @txt-h-xs;
+@tel-h-xs-line-height: @txt-h-xs-line-height;
+@tel-h-xs-font-size: ;      // (可选项)
+
+@tel-h-sm-enable: true;
+@tel-h-sm: @txt-h-sm;
+@tel-h-sm-line-height: @txt-h-sm-line-height;
+@tel-h-sm-font-size: ;      // (可选项)
+
+@tel-h-lg-enable: true;
+@tel-h-lg: @txt-h-lg;
+@tel-h-lg-line-height: @txt-h-lg-line-height;
+@tel-h-lg-font-size: ;      // (可选项)
+
+@tel-h-xl-enable: true;
+@tel-h-xl: @txt-h-xl;
+@tel-h-xl-line-height: @txt-h-xl-line-height;
+@tel-h-xl-font-size: ;      // (可选项)
+
+// *Text Section
+// ----------------------------------------
+
+@txt-section-enable: true;
+@txt-section-margin: 8px;
+@txt-section-color: #666;
+@txt-section-family: @font-family-base;
+@txt-section-font-size: 14px;
+@txt-section-line-height: @txt-base-height;
+@txt-section-dash-color: #ccc;
+
+// *Select
+// ----------------------------------------
+
+@select-base-width: 120px;
+@select-base-height: 26px;
+@select-base-font-size: 12px;
+@select-base-border-width: @txt-base-border-width;
+@select-base-border-style: @txt-base-border-style;
+@select-base-border-color: @txt-base-border-color;
+@select-base-hover-border-color: @txt-base-hover-border-color;
+@select-base-focus-border-color: @txt-base-focus-border-color;
+
+// Select height
+@select-h-xs-enable: true;
+@select-h-xs: @txt-h-xs;
+@select-h-xs-padding: ;         // (可选项)
+@select-h-xs-font-size: ;       // (可选项)
+
+@select-h-sm-enable: true;
+@select-h-sm: @txt-h-sm;
+@select-h-sm-padding: ;         // (可选项)
+@select-h-sm-font-size: ;       // (可选项)
+
+@select-h-lg-enable: true;
+@select-h-lg: @txt-h-lg;
+@select-h-lg-padding: 2px;      // (可选项)
+@select-h-lg-font-size: ;       // (可选项)
+
+@select-h-xl-enable: true;
+@select-h-xl: @txt-h-xl;
+@select-h-xl-padding: 3px;      // (可选项)
+@select-h-xl-font-size: 14px;   // (可选项)
+
+// Select width
+@select-w-xs-enable: true;
+@select-w-xs: 80px;
+
+@select-w-sm-enable: true;
+@select-w-sm: 100px;
+
+@select-w-lg-enable: true;
+@select-w-lg: 140px;
+
+@select-w-xl-enable: true;
+@select-w-xl: 180px;
+
+// * Textarea
+// ----------------------------------------
+
+@textarea-base-resize: vertical;
+@textarea-base-padding: 5px;
+@textarea-base-border-width: @txt-base-border-width;
+@textarea-base-border-style: @txt-base-border-style;
+@textarea-base-border-color: @txt-base-border-color;
+@textarea-base-hover-border-color: @txt-base-hover-border-color;
+@textarea-base-focus-border-color: @txt-base-focus-border-color;
