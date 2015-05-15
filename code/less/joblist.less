@@ -1,0 +1,43 @@
+// style createjob
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Base
+// JobManage
+// 
+
+// * Base
+// ----------------------------------------
+@charset "utf-8";
+
+@import (reference) "core/core.less";
+
+// 使用.cf清除浮动会将所有要清除浮动的样式合并, 如要单独清除浮动请使用.clearfix
+.clearfix {
+    .clearfix-mixin;
+}
+#container {
+    min-height: 440px;
+}
+.jobList {
+    header {
+        .cf;
+        margin-bottom: 15px;
+        h2 {
+            float: left;
+            margin-bottom: 0;
+        }
+        .btn {
+            float: right;
+        }
+    }
+    .dataNull {
+        margin-top: 45px;
+    }
+}
