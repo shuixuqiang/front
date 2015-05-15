@@ -1261,7 +1261,16 @@ textarea.resize-both {
   font-size: 14px;
 }
 .form-createJob .item-cont {
+  position: relative;
   margin-left: 84px;
+}
+.form-createJob .note {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0;
+  line-height: 20px;
+  white-space: nowrap;
 }
 .form-createJob .txt {
   width: 270px;
