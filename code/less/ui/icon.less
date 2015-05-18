@@ -22,16 +22,56 @@
 /* font icon */
 .f-icon {
     display: inline-block;
-    font: normal normal normal @font-icon-def-size/1 FontAwesome; 
-    font-size: inherit; 
+    font: normal normal normal @font-icon-def-size/1 FontAwesome;
+    font-size: inherit;
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
 }
 
+// * Web Icons
+// ----------------------------------------
+
+
+
 // *Icons
 // ----------------------------------------
+
+/* 18x18 */
+.i-right-sm, .i-close-sm, .i-off-sm,
+ .i-del, .i-edit-sm,
+.i-chart {
+    width: 18px;
+    height: 18px;
+}
+.i-right-sm {
+    background-position: -108px -62px;
+}
+.i-close-sm {
+    background-position: -126px -62px;
+}
+.i-off-sm {
+    background-position: -144px -62px;
+}
+.i-del {
+    background-position: 0 -62px;
+    &.hover {
+        background-position: -18px -62px;
+    }
+}
+.i-edit-sm {
+    background-position: -36px -62px;
+    &.hover {
+        background-position:  -54px -62px;
+    }
+}
+.i-chart {
+    background-position: -72px -62px;
+    &.hover {
+        background-position: -90px -62px;
+    }
+}
 
 /* 28x28 */
 .webuploader-pick {

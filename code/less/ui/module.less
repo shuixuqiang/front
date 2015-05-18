@@ -8,9 +8,109 @@
 
 // CSS Menu
 //
-// 
-// 
-// 
+// Job
+//
+//
 
-// *
+// * Job
 // ----------------------------------------
+
+.mod-job {
+    .clearfix-mixin;
+    height: 60px;
+    padding: 0 12px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    border-left: 2px solid #6ec786;
+    .box-shadow(3px 3px 3px rgba(0,0,0,.1));
+
+    .job-name {
+        float: left;
+        max-width: 500px;
+        color: #333;
+        font-size: 20px;
+        line-height: 60px;
+    }
+    .job-operate {
+        float: right;
+        margin-top: 10px;
+        .icon {
+            display: block;
+            width: 18px;
+            height: 18px;
+            margin: 0 auto 2px;
+        }
+    }
+    .job-toolbar {
+        float: left;
+        margin-right: 20px;
+        padding-right: 20px;
+        border-right: 1px solid #d8d8d8;
+        a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 0 6px;
+            padding: 3px 0;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+            line-height: 14px;
+            &:hover {
+                color: #ff5c00;
+            }
+        }
+        .switch {
+            color: #35B558;
+            .icon {
+                .i-right-sm;
+            }
+            &:hover {
+                color: #FF5C00;
+                .icon {
+                    .i-close-sm;
+                }
+            }
+            &.off {
+                color: #FF5C00;
+                .icon {
+                    .i-off-sm;
+                }
+                &:hover {
+                    color: #35B558;
+                    .icon {
+                        .i-right-sm;
+                    }
+                }
+            }
+        }
+    }
+    .statistic {
+        float: left;
+        height: 40px;
+        margin: 0 6px;
+        padding: 0 10px;
+        text-align: center;
+        line-height: 14px;
+        strong {
+            display: inline-block;
+            margin-bottom: 2px;
+            color: #35b558;
+            font-weight: normal;
+            font-size: 20px;
+            line-height: 1;
+        }
+    }
+    .result {
+        float: left;
+        display: block;
+        height: 40px;
+        margin: 0 6px;
+        color: #666;
+        text-align: center;
+        line-height: 16px;
+        &:hover {
+            color: #2d85ca;
+        }
+    }
+}

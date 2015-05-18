@@ -158,9 +158,6 @@ table {
 a {
   color: #0e90d2;
   text-decoration: none;
-  -webkit-transition: color 0.5s;
-  -moz-transition: color 0.5s;
-  transition: color 0.5s;
 }
 a:hover {
   color: #095f8a;
@@ -1123,6 +1120,43 @@ textarea.resize-both {
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0);
 }
+/* 18x18 */
+.i-right-sm,
+.i-close-sm,
+.i-off-sm,
+.i-del,
+.i-edit-sm,
+.i-chart {
+  width: 18px;
+  height: 18px;
+}
+.i-right-sm {
+  background-position: -108px -62px;
+}
+.i-close-sm {
+  background-position: -126px -62px;
+}
+.i-off-sm {
+  background-position: -144px -62px;
+}
+.i-del {
+  background-position: 0 -62px;
+}
+.i-del.hover:hover {
+  background-position: -18px -62px;
+}
+.i-edit-sm {
+  background-position: -36px -62px;
+}
+.i-edit-sm.hover:hover {
+  background-position: -54px -62px;
+}
+.i-chart {
+  background-position: -72px -62px;
+}
+.i-chart.hover:hover {
+  background-position: -90px -62px;
+}
 /* 28x28 */
 .webuploader-pick {
   display: inline-block;
@@ -1744,6 +1778,117 @@ table.table-center > tfoot > tr > td {
   width: 100%;
   height: 2px;
   background: #35B558;
+}
+.mod-job {
+  height: 60px;
+  padding: 0 12px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-left: 2px solid #6ec786;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.mod-job:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
+.mod-job .job-name {
+  float: left;
+  max-width: 500px;
+  color: #333;
+  font-size: 20px;
+  line-height: 60px;
+}
+.mod-job .job-operate {
+  float: right;
+  margin-top: 10px;
+}
+.mod-job .job-operate .icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin: 0 auto 2px;
+}
+.mod-job .job-toolbar {
+  float: left;
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #d8d8d8;
+}
+.mod-job .job-toolbar a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 6px;
+  padding: 3px 0;
+  color: #666;
+  font-size: 12px;
+  text-align: center;
+  line-height: 14px;
+}
+.mod-job .job-toolbar a:hover {
+  color: #ff5c00;
+}
+.mod-job .job-toolbar .switch {
+  color: #35B558;
+}
+.mod-job .job-toolbar .switch .icon {
+  width: 18px;
+  height: 18px;
+  background-position: -108px -62px;
+}
+.mod-job .job-toolbar .switch:hover {
+  color: #FF5C00;
+}
+.mod-job .job-toolbar .switch:hover .icon {
+  width: 18px;
+  height: 18px;
+  background-position: -126px -62px;
+}
+.mod-job .job-toolbar .switch.off {
+  color: #FF5C00;
+}
+.mod-job .job-toolbar .switch.off .icon {
+  width: 18px;
+  height: 18px;
+  background-position: -144px -62px;
+}
+.mod-job .job-toolbar .switch.off:hover {
+  color: #35B558;
+}
+.mod-job .job-toolbar .switch.off:hover .icon {
+  width: 18px;
+  height: 18px;
+  background-position: -108px -62px;
+}
+.mod-job .statistic {
+  float: left;
+  height: 40px;
+  margin: 0 6px;
+  padding: 0 10px;
+  text-align: center;
+  line-height: 14px;
+}
+.mod-job .statistic strong {
+  display: inline-block;
+  margin-bottom: 2px;
+  color: #35b558;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 1;
+}
+.mod-job .result {
+  float: left;
+  display: block;
+  height: 40px;
+  margin: 0 6px;
+  color: #666;
+  text-align: center;
+  line-height: 16px;
+}
+.mod-job .result:hover {
+  color: #2d85ca;
 }
 .icon,
 .webuploader-pick {
