@@ -435,9 +435,9 @@ label input[type="radio"] {
 }
 /* button */
 .btn {
-  height: 26px;
-  padding: 0 15px;
-  font-size: 12px;
+  height: 32px;
+  padding: 0 20px;
+  font-size: 14px;
   border: 1px solid #eaeaea;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -468,7 +468,7 @@ span.btn:active {
 a.btn,
 span.btn {
   display: inline-block;
-  line-height: 24px;
+  line-height: 30px;
   text-align: center;
   white-space: nowrap;
   text-decoration: none;
@@ -610,23 +610,23 @@ span.btn.sm {
 }
 .btn.lg {
   /* large */
-  height: 32px;
-  padding: 0 20px;
-  font-size: 14px;
-}
-a.btn.lg,
-span.btn.lg {
-  line-height: 30px;
-}
-.btn.xl {
-  /* extra large */
   height: 40px;
   padding: 0 30px;
   font-size: 18px;
 }
+a.btn.lg,
+span.btn.lg {
+  line-height: 38px;
+}
+.btn.xl {
+  /* extra large */
+  height: 48px;
+  padding: 0 40px;
+  font-size: 16px;
+}
 a.btn.xl,
 span.btn.xl {
-  line-height: 38px;
+  line-height: 46px;
 }
 /* button width */
 .btn.w-xs {
@@ -738,8 +738,8 @@ textarea[disabled]:active {
   line-height: 16px;
 }
 .txt.xl {
-  height: 40px;
-  padding: 11px 11px;
+  height: 48px;
+  padding: 15px 15px;
   font-size: 14px;
   line-height: 18px;
 }
@@ -809,12 +809,12 @@ textarea[disabled]:active {
   line-height: 32px;
 }
 .tel-xl .txt {
-  height: 40px;
-  padding: 11px 11px;
+  height: 48px;
+  padding: 15px 15px;
   line-height: 18px;
 }
 .tel-xl i {
-  line-height: 40px;
+  line-height: 48px;
 }
 /* txt section */
 .txt-section {
@@ -906,7 +906,7 @@ select:focus,
   padding: 2px;
 }
 .select.xl {
-  height: 40px;
+  height: 48px;
   padding: 3px;
   font-size: 14px;
 }
