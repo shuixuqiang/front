@@ -1142,19 +1142,19 @@ textarea.resize-both {
 .i-del {
   background-position: 0 -62px;
 }
-.i-del.hover:hover {
+.i-del.hover {
   background-position: -18px -62px;
 }
 .i-edit-sm {
   background-position: -36px -62px;
 }
-.i-edit-sm.hover:hover {
+.i-edit-sm.hover {
   background-position: -54px -62px;
 }
 .i-chart {
   background-position: -72px -62px;
 }
-.i-chart.hover:hover {
+.i-chart.hover {
   background-position: -90px -62px;
 }
 /* 28x28 */
