@@ -9,7 +9,7 @@
 // CSS Menu
 //
 // Job
-//
+// Paging
 //
 
 // * Job
@@ -111,6 +111,103 @@
         line-height: 16px;
         &:hover {
             color: #2d85ca;
+        }
+    }
+    // 进入测评
+    .job-test {
+        ul {
+            .cf;
+        }
+        li {
+            float: left;
+            height: 40px;
+            padding: 0 30px;
+            border-right: 1px solid #d8d8d8;
+            font-size: 14px;
+            text-align: center;
+            &:last-child {
+                padding-right: 0;
+                border-right: 0 none;
+                line-height: 40px;
+                .btn {
+                    width: 110px;
+                    padding: 0;
+                    vertical-align: baseline;
+                }
+            }
+        }
+        p {
+            margin-top: 5px;
+            color: #999;
+            font-size: 12px;
+            em {
+                color: #35B558;
+            }
+        }
+        strong {
+            color: #35B558;
+            font-size: 20px;
+            font-weight: normal;
+            line-height: 40px;
+        }
+    }
+}
+
+// * Paging
+// ----------------------------------------
+
+.paging-wrap {
+    padding: 14px 0;
+    .cf;
+}
+.paging {
+    float: right;
+    line-height: 22px;
+    text-align: center;
+    a {
+        display: block;
+        color: #333;
+    }
+    >ol {
+        float: left;
+        li {
+            float: left;
+            min-width: 24px;
+            height: 24px;
+            margin: 0 2px;
+            padding: 2px;
+            background: #fff;
+            border: 1px solid #ddd;
+            line-height: 18px;
+            cursor: default;
+            &:hover {
+                border-color: #35b558;
+            }
+            &.active {
+                background: #35B558;
+                border-color: #35B558;
+                color: #fff;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .pageup, .pagedown {
+        float: left;
+        width: 66px;
+        height: 24px;
+        margin: 0 2px;
+        background: #fff;
+        border: 1px solid #ddd;
+        &:hover {
+            border-color: #35b558;
+        }
+        &.disabled {
+            &, &:hover, & a, &:hover a {
+                border-color: #e4e4e4;
+                color: #999;
+            }
         }
     }
 }

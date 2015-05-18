@@ -1,4 +1,3 @@
-// 公用插件
 (function($) {
 	/* -----------------------------------------/
 	 * 功能：提交为空校验
@@ -66,12 +65,12 @@
 	$.fn.popupshow = function(options) {
 
 		var settings = $.extend({
-			'popupId': '', //弹出层id
-			'node': '', //要插入的节点,可选
-			'htmlUrl': '', //要载入的html,可选
+			'popupId': null, //弹出层id
+			'node': null, //要插入的节点,可选
+			'htmlUrl': null, //要载入的html,可选
 			'maskId': null, //遮罩id,默认不显示
 			'position': 'fixed', //定位类别,可选
-			'closeCallback': null //关闭回调
+			'closeCallback': null //关闭回调,可选
 		}, options);
 
 		var $popup = $("#" + settings.popupId);
@@ -84,9 +83,9 @@
 			//关闭弹层
 			$("#" + settings.popupId + " .close").click(_close);
 
-		} else if (settings.node) {
+		} else if (settings.node !== null) {
 			$('body').append($node);
-			if (settings.htmlUrl) {
+			if (settings.htmlUrl !== null) {
 				$node.load(settings.htmlUrl, function() {
 					_popupPsotion(settings.popupId, settings.position);
 					//关闭弹层
@@ -98,7 +97,7 @@
 		}
 
 		//判断是否启用遮罩
-		if (settings.maskId != null) {
+		if (settings.maskId !== null) {
 			var $mask = $("#" + settings.maskId);
 			if ($mask.length > 0) {
 				$mask.show();
@@ -110,7 +109,7 @@
 
 		//关闭弹层
 		function _close() {
-			if (settings.closeCallback != null) {
+			if (settings.closeCallback !== null) {
                 settings.closeCallback();
 			} else {
 				var _popup = $(this).parents("#" + settings.popupId);
@@ -163,3 +162,26 @@
 		})
 	}
 })(jQuery);
+
+var COMMON = {
+    init: function() {
+        this.bindEle();
+        this.filtersort();
+    },
+    bindEle: function() {
+
+    },
+    filtersort: function() {
+        // 筛选选中效果
+        var $fs = $('.filtersort');
+        $fs.find('dl').each(function() {
+            $(this).find('dd li a').bind("click", function() {
+                $(this).parent("li").addClass("active").siblings().removeClass("active");
+            });
+        })
+    }
+}
+
+$(function() {
+    COMMON.init();
+})

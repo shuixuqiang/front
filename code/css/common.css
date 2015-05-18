@@ -1890,6 +1890,99 @@ table.table-center > tfoot > tr > td {
 .mod-job .result:hover {
   color: #2d85ca;
 }
+.mod-job .job-test li {
+  float: left;
+  height: 40px;
+  padding: 0 30px;
+  border-right: 1px solid #d8d8d8;
+  font-size: 14px;
+  text-align: center;
+}
+.mod-job .job-test li:last-child {
+  padding-right: 0;
+  border-right: 0 none;
+  line-height: 40px;
+}
+.mod-job .job-test li:last-child .btn {
+  width: 110px;
+  padding: 0;
+  vertical-align: baseline;
+}
+.mod-job .job-test p {
+  margin-top: 5px;
+  color: #999;
+  font-size: 12px;
+}
+.mod-job .job-test p em {
+  color: #35B558;
+}
+.mod-job .job-test strong {
+  color: #35B558;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 40px;
+}
+.paging-wrap {
+  padding: 14px 0;
+}
+.paging {
+  float: right;
+  line-height: 22px;
+  text-align: center;
+}
+.paging a {
+  display: block;
+  color: #333;
+}
+.paging > ol {
+  float: left;
+}
+.paging > ol li {
+  float: left;
+  min-width: 24px;
+  height: 24px;
+  margin: 0 2px;
+  padding: 2px;
+  background: #fff;
+  border: 1px solid #ddd;
+  line-height: 18px;
+  cursor: default;
+}
+.paging > ol li:hover {
+  border-color: #35b558;
+}
+.paging > ol li.active {
+  background: #35B558;
+  border-color: #35B558;
+  color: #fff;
+}
+.paging > ol li.active a {
+  color: #fff;
+}
+.paging .pageup,
+.paging .pagedown {
+  float: left;
+  width: 66px;
+  height: 24px;
+  margin: 0 2px;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+.paging .pageup:hover,
+.paging .pagedown:hover {
+  border-color: #35b558;
+}
+.paging .pageup.disabled,
+.paging .pagedown.disabled,
+.paging .pageup.disabled:hover,
+.paging .pagedown.disabled:hover,
+.paging .pageup.disabled a,
+.paging .pagedown.disabled a,
+.paging .pageup.disabled:hover a,
+.paging .pagedown.disabled:hover a {
+  border-color: #e4e4e4;
+  color: #999;
+}
 .icon,
 .webuploader-pick {
   background-image: url(../img/ui/element.png);
@@ -1904,7 +1997,10 @@ table.table-center > tfoot > tr > td {
 .clearfix:after,
 .form-createJob:after,
 #userNav ul:after,
-.wrap:after {
+.mod-job .job-test ul:after,
+.paging-wrap:after,
+.wrap:after,
+.filtersort ul:after {
   display: table;
   clear: both;
   content: " ";
@@ -1985,4 +2081,46 @@ table.table-center > tfoot > tr > td {
 #checking #container {
   min-height: 490px;
   padding-top: 92px;
+}
+.filtersort {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.filtersort dl {
+  height: 36px;
+  margin-bottom: 20px;
+}
+.filtersort dt {
+  float: left;
+  width: 78px;
+  border-right: 1px solid #cdcdcd;
+  color: #333;
+  font-size: 16px;
+  line-height: 36px;
+}
+.filtersort dd {
+  overflow: hidden;
+  margin-left: 88px;
+  padding: 4px 0;
+}
+.filtersort ul {
+  margin-left: -1px;
+}
+.filtersort li {
+  float: left;
+  margin: 5px 0;
+  padding: 0 12px;
+  border-left: 1px solid #b2b2b2;
+  line-height: 18px;
+}
+.filtersort li a {
+  display: inline-block;
+  padding: 0 10px;
+  color: #b2b2b2;
+}
+.filtersort li a:hover {
+  color: #35B558;
+}
+.filtersort li.active a {
+  color: #35B558;
 }
