@@ -1,0 +1,113 @@
+// style testentry
+//
+// @project
+// @copyright
+// @author      zhanghaibin
+// @version     1.0
+//
+
+// CSS Menu
+//
+// Base
+// Overview
+//
+
+// * Base
+// ----------------------------------------
+
+@charset "utf-8";
+
+@import (reference) "core/core.less";
+
+// 使用.cf清除浮动会将所有要清除浮动的样式合并, 如要单独清除浮动请使用.clearfix
+.clearfix {
+    .clearfix-mixin;
+}
+#container {
+
+}
+hr {
+    margin: 40px 0;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #e8e8e8 transparent #dad8d8 transparent;
+}
+
+// * Overview
+// ----------------------------------------
+
+.overview {
+    .cf;
+    padding: 60px 0;
+    .ov-text {
+        float: left;
+        width: 640px;
+        color: #333;
+        line-height: 20px;
+        >.wrap {
+            margin: -60px 0;
+        }
+    }
+    dt {
+        font-size: 16px;
+    }
+    .ov-laborage, .ov-location {
+        & {
+            float: left;
+            margin: 0 20px 10px 0;
+            dt {
+                float: left;
+            }
+            dd {
+                float: left;
+                font-size: 14px;
+            }
+        }
+    }
+    .ov-laborage dd {
+        color: #c60000;
+    }
+    .ov-logo {
+        float: right;
+        width: 360px;
+        border-left: 1px solid #e8e8e8;
+        text-align: right;
+        >.wrap {
+            margin: -60px 0;
+            padding-left: 156px;
+        }
+        .qy-logo {
+            display: inline-block;
+            margin-bottom: 38px;
+        }
+        p {
+            color: #666;
+            font-size: 12px;
+            line-height: 1.5;
+            text-align: left;
+            word-wrap: break-word;
+        }
+    }
+    // item
+    .ov-item {
+        .clear;
+        dt {
+            margin-bottom: 18px;
+        }
+        dd {
+            padding-left: 10px;
+            border-left: 3px solid #35b558;
+        }
+        ul {
+            margin-bottom: 10px;
+        }
+        li {
+            color: #666;
+            line-height: 20px;
+        }
+    }
+    .ov-item-caption {
+        margin-bottom: 6px;
+        font-size: 14px;
+    }
+}

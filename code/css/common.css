@@ -214,8 +214,10 @@ a:hover {
 .show-table {
   display: table !important;
 }
-.disabled:hover {
+.disabled:hover,
+.disabled:hover a {
   cursor: default !important;
+  cursor: not-allowed !important;
 }
 /* color */
 .lightColor {
@@ -1794,6 +1796,9 @@ table.table-center > tfoot > tr > td {
   content: " ";
 }
 .mod-job .job-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   float: left;
   max-width: 500px;
   color: #333;
@@ -1871,12 +1876,17 @@ table.table-center > tfoot > tr > td {
   line-height: 14px;
 }
 .mod-job .statistic strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   display: inline-block;
+  width: 92px;
   margin-bottom: 2px;
   color: #35b558;
   font-weight: normal;
   font-size: 20px;
   line-height: 1;
+  vertical-align: bottom;
 }
 .mod-job .result {
   float: left;
@@ -1889,6 +1899,20 @@ table.table-center > tfoot > tr > td {
 }
 .mod-job .result:hover {
   color: #2d85ca;
+}
+.mod-job .job-company,
+.mod-job .job-location,
+.mod-job .job-company p,
+.mod-job .job-location p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mod-job .job-company {
+  width: 176px;
+}
+.mod-job .job-location {
+  width: 120px;
 }
 .mod-job .job-test li {
   float: left;
@@ -1967,6 +1991,7 @@ table.table-center > tfoot > tr > td {
   margin: 0 2px;
   background: #fff;
   border: 1px solid #ddd;
+  line-height: 22px;
 }
 .paging .pageup:hover,
 .paging .pagedown:hover {
@@ -1983,6 +2008,37 @@ table.table-center > tfoot > tr > td {
   border-color: #e4e4e4;
   color: #999;
 }
+.mod-scale-chart {
+  overflow: hidden;
+  width: 100%;
+}
+.mod-scale-chart li {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  float: left;
+  height: 50px;
+  border-right: 2px solid #fff;
+  color: #fff;
+  font-size: 20px;
+  line-height: 50px;
+  text-align: center;
+}
+.mod-scale-chart li:last-child {
+  border-right: 0 none;
+}
+.mod-scale-chart .bar {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100%;
+}
+.mod-scale-chart .score {
+  margin-top: 2px;
+}
 .icon,
 .webuploader-pick {
   background-image: url(../img/ui/element.png);
@@ -1997,8 +2053,9 @@ table.table-center > tfoot > tr > td {
 .clearfix:after,
 .form-createJob:after,
 #userNav ul:after,
-.mod-job .job-test ul:after,
+.mod-job .job-test:after,
 .paging-wrap:after,
+.mod-scale-chart ul:after,
 .wrap:after,
 .filtersort ul:after {
   display: table;

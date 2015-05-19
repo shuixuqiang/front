@@ -110,7 +110,7 @@
 		//关闭弹层
 		function _close() {
 			if (settings.closeCallback !== null) {
-                settings.closeCallback();
+				settings.closeCallback();
 			} else {
 				var _popup = $(this).parents("#" + settings.popupId);
 				var _mark = _popup.attr("popmark");
@@ -133,7 +133,7 @@
 				popupW = $popup.width(),
 				popupH = $popup.height(),
 				scrollT = $win.scrollTop();
-                scrollL = $win.scrollLeft();
+			scrollL = $win.scrollLeft();
 
 			if (position == "fixed") {
 				var popupTop = (winH - popupH) / 2,
@@ -164,24 +164,124 @@
 })(jQuery);
 
 var COMMON = {
-    init: function() {
-        this.bindEle();
-        this.filtersort();
-    },
-    bindEle: function() {
+	init: function() {
+		this.bindEle();
+		this.filtersort();
+	},
+	bindEle: function() {
 
-    },
-    filtersort: function() {
-        // 筛选选中效果
-        var $fs = $('.filtersort');
-        $fs.find('dl').each(function() {
-            $(this).find('dd li a').bind("click", function() {
-                $(this).parent("li").addClass("active").siblings().removeClass("active");
-            });
-        })
-    }
-}
+	},
+	filtersort: function() {
+		// 筛选选中效果
+		var $fs = $('.filtersort');
+		$fs.find('dl').each(function() {
+			$(this).find('dd li a').bind("click", function() {
+				$(this).parent("li").addClass("active").siblings().removeClass("active");
+			});
+		})
+	},
+	scaleChart: function(target, data) {
+		var dataLen = 0,
+			scoreLen = 0;
+
+		for (prop in data) {
+			dataLen++;
+		}
+		// 如果数据长度为0则返回
+		if (!dataLen) return;
+
+		var scaleChart = $('<ul>'),
+			scoreChart = $('<ul class="score">');
+
+		$.each(data, function(key, val) {
+			var scale_li = $('<li>'),
+				scale_bar = $('<div class="bar">'),
+				score_li = $('<li>'),
+				score_bar = $('<div class="bar">');
+			// 创建权重图表
+			scale_bar.css({
+				backgroundColor: val.color
+			}).html(key);
+			scale_li.css({
+				width: val.scale + "%"
+			}).append(scale_bar).appendTo(scaleChart);
+			scale_bar.animate({
+				width: "100%"
+			}, 600);
+
+			// 创建得分图表
+			if (val.score) {
+				scoreLen++;
+				score_bar.css({
+					backgroundColor: val.color
+				}).html(val.score + "分");
+				score_li.css({
+					width: val.scale + "%"
+				}).append(score_bar).appendTo(scoreChart);
+				score_bar.animate({
+					width: val.score + "%"
+				}, 600);
+			}
+		});
+		// 插入权重图表
+		target.html(scaleChart);
+		// 插入得分图表
+		if (scoreLen == dataLen) {
+			target.append(scoreChart);
+		}
+	}
+};
+
+//COMMON.scaleChart = function(target, data) {
+//	var dataLen = 0,
+//		scoreLen = 0;
+//	for (prop in data) {
+//		dataLen++;
+//	}
+//	// 如果数据长度为0则返回
+//	if (!dataLen) return;
+//
+//	var scaleChart = $('<ul>'),
+//		scoreChart = $('<ul class="score">');
+//
+//	$.each(data, function(key, val) {
+//		var scale_li = $('<li>'),
+//			scale_bar = $('<div class="bar">'),
+//			score_li = $('<li>'),
+//			score_bar = $('<div class="bar">');
+//		// 创建权重图表
+//		scale_bar.css({
+//			backgroundColor: val.color
+//		}).html(key);
+//		scale_li.css({
+//			width: val.scale + "%"
+//		}).append(scale_bar).appendTo(scaleChart);
+//		scale_bar.animate({
+//			width: "100%"
+//		}, 600);
+//
+//		// 创建得分图表
+//		if (val.score) {
+//			scoreLen++;
+//			score_bar.css({
+//				backgroundColor: val.color
+//			}).html(val.score + "分");
+//			score_li.css({
+//				width: val.scale + "%"
+//			}).append(score_bar).appendTo(scoreChart);
+//			score_bar.animate({
+//				width: val.score + "%"
+//			}, 600);
+//		}
+//	});
+//	// 插入权重图表
+//	target.html(scaleChart);
+//	// 插入得分图表
+//	if (scoreLen == dataLen) {
+//		target.append(scoreChart);
+//	}
+//}
 
 $(function() {
-    COMMON.init();
+	COMMON.init();
 })

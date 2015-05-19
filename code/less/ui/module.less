@@ -10,6 +10,7 @@
 //
 // Job
 // Paging
+// ScaleChart
 //
 
 // * Job
@@ -25,6 +26,7 @@
     .box-shadow(3px 3px 3px rgba(0,0,0,.1));
 
     .job-name {
+        .text-overflow;
         float: left;
         max-width: 500px;
         color: #333;
@@ -93,12 +95,15 @@
         text-align: center;
         line-height: 14px;
         strong {
+            .text-overflow;
             display: inline-block;
+            width: 92px;
             margin-bottom: 2px;
             color: #35b558;
             font-weight: normal;
             font-size: 20px;
             line-height: 1;
+            vertical-align: bottom;
         }
     }
     .result {
@@ -113,11 +118,20 @@
             color: #2d85ca;
         }
     }
+    .job-company, .job-location {
+        &, & p {
+            .text-overflow;
+        }
+    }
+    .job-company {
+        width: 176px;
+    }
+    .job-location {
+        width: 120px;
+    }
     // 进入测评
     .job-test {
-        ul {
-            .cf;
-        }
+        .cf;
         li {
             float: left;
             height: 40px;
@@ -200,6 +214,7 @@
         margin: 0 2px;
         background: #fff;
         border: 1px solid #ddd;
+        line-height: 22px;
         &:hover {
             border-color: #35b558;
         }
@@ -209,5 +224,41 @@
                 color: #999;
             }
         }
+    }
+}
+
+// * ScaleChart
+// ----------------------------------------
+
+.mod-scale-chart {
+    overflow: hidden;
+    width: 100%;
+    ul {
+        .cf;
+    }
+    li {
+        position: relative;
+        .text-overflow;
+        float: left;
+        height: 50px;
+        border-right: 2px solid #fff;
+        color: #fff;
+        font-size: 20px;
+        line-height: 50px;
+        text-align: center;
+        &:last-child {
+            border-right: 0 none;
+        }
+    }
+    .bar {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 100%;
+        height: 100%;
+    }
+    .score {
+        margin-top: 2px;
     }
 }
