@@ -93,7 +93,7 @@ input[type="radio"] {
     height: 13px;
     margin: @chk-radio-margin;
     cursor: pointer;
-    
+
     &[disabled],
     &[disabled]:hover,
     &[disabled]:focus,
@@ -122,11 +122,11 @@ label {
         .radius(@btn-radius);
     }
     .radius-set(@btn-radius);
-    .transition(background-color .8s,border-color .8s,color .8s;);
-    
+    .transition(background-color .8s,border-color .8s;);
+
     &, a&, span& {
         .btn-style(@btn-base-bg-type; @btn-base-background; @btn-base-border-color; @btn-base-color;
-            @btn-base-hover-background; @btn-base-hover-border-color; @btn-base-hover-color; 
+            @btn-base-hover-background; @btn-base-hover-border-color; @btn-base-hover-color;
             @btn-base-active-background; @btn-base-active-border-color; @btn-base-active-color);
     }
     a&, span& {
@@ -141,7 +141,7 @@ label {
             text-decoration: none;
         }
     }
-    
+
     &.disabled, &[disabled],
     &.disabled:hover, &[disabled]:hover,
     &.disabled:focus, &[disabled]:focus,
@@ -158,36 +158,36 @@ label {
     // 默认按钮
 	&, a&, span& {
         .btn-style(@btn-def-bg-type; @btn-def-background; @btn-def-border-color; @btn-def-color;
-            @btn-def-hover-background; @btn-def-hover-border-color; @btn-def-hover-color; 
+            @btn-def-hover-background; @btn-def-hover-border-color; @btn-def-hover-color;
             @btn-def-active-background; @btn-def-active-border-color; @btn-def-active-color);
 	}
 }
 .btn-primary {
     // 主要按钮
     &, a&, span& {
-        .btn-style(@btn-primary-bg-type; @btn-primary-background; @btn-primary-border-color; 
-            @btn-primary-color; @btn-primary-hover-background; @btn-primary-hover-border-color; @btn-primary-hover-color; 
+        .btn-style(@btn-primary-bg-type; @btn-primary-background; @btn-primary-border-color;
+            @btn-primary-color; @btn-primary-hover-background; @btn-primary-hover-border-color; @btn-primary-hover-color;
             @btn-primary-active-background; @btn-primary-active-border-color; @btn-primary-active-color);
     }
 }
 .btn-warn {
     // 警示性按钮
     &, a&, span& {
-        .btn-style(@btn-warn-bg-type; @btn-warn-background; @btn-warn-border-color; @btn-warn-color; 
-            @btn-warn-hover-background; @btn-warn-hover-border-color; @btn-warn-hover-color; 
+        .btn-style(@btn-warn-bg-type; @btn-warn-background; @btn-warn-border-color; @btn-warn-color;
+            @btn-warn-hover-background; @btn-warn-hover-border-color; @btn-warn-hover-color;
             @btn-warn-active-background; @btn-warn-active-border-color; @btn-warn-active-color);
     }
 }
 .btn-text {
     // 文字按钮
     &, a&, span& {
-        .btn-style(@btn-text-bg-type; @btn-text-background; @btn-text-border-color; @btn-text-color; 
-            @btn-text-hover-background; @btn-text-hover-border-color; @btn-text-hover-color; 
+        .btn-style(@btn-text-bg-type; @btn-text-background; @btn-text-border-color; @btn-text-color;
+            @btn-text-hover-background; @btn-text-hover-border-color; @btn-text-hover-color;
             @btn-text-active-background; @btn-text-active-border-color; @btn-text-active-color);
     }
     &.btn.disabled, &.btn[disabled] {
         &, &:hover, &:focus, &:active {
-            .btn-disabled(transparent; transparent; #999) !important;           
+            .btn-disabled(transparent; transparent; #999) !important;
         }
     }
 }
@@ -252,7 +252,7 @@ label {
     &[disabled]:focus,
     &[disabled]:active {
         background: #f8f8f8 !important;
-        border-color: lighten(@txt-base-border-color, 5%) !important; 
+        border-color: lighten(@txt-base-border-color, 5%) !important;
         .box-shadow(none) !important;
         cursor: default !important;
         cursor: not-allowed !important;
@@ -290,8 +290,8 @@ label {
 .txt-size-w(@txt-w-full-enable; @class-name: w-full; @txt-w-full);
 
 /* tel text */
-.txt-tel(@tel-txt-enable; @class-name: txt-tel; 
-    @tel-txt-area-width; @tel-txt-num-width; @tel-txt-ext-width; 
+.txt-tel(@tel-txt-enable; @class-name: txt-tel;
+    @tel-txt-area-width; @tel-txt-num-width; @tel-txt-ext-width;
     @tel-txt-dash-margin; @tel-txt-dase-color; @tel-txt-dase-line-height
 );
 
@@ -302,8 +302,8 @@ label {
 .tel-size-h(@tel-h-xl-enable; @class-name: tel-xl; @tel-h-xl; @tel-h-xl-line-height; @tel-h-xl-font-size);
 
 /* txt section */
-.txt-section(@txt-section-enable; @class-name: txt-section; 
-    @txt-section-margin; @txt-section-color; @txt-section-family; 
+.txt-section(@txt-section-enable; @class-name: txt-section;
+    @txt-section-margin; @txt-section-color; @txt-section-family;
     @txt-section-font-size; @txt-section-line-height; @txt-section-dash-color
 );
 
@@ -368,7 +368,7 @@ textarea {
 	outline: 0;
 	vertical-align: top;
     resize: @textarea-base-resize;
-    
+
 	&.resize-none {
     	   resize: none;
 	}

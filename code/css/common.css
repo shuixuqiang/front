@@ -230,7 +230,7 @@ a:hover {
 }
 .warnColor {
   /* 警告色 */
-  color: #ff0000 !important;
+  color: #ff7575 !important;
 }
 .successColor {
   /* 成功色 */
@@ -444,9 +444,9 @@ label input[type="radio"] {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  -webkit-transition: background-color 0.8s, border-color 0.8s, color 0.8s;
-  -moz-transition: background-color 0.8s, border-color 0.8s, color 0.8s;
-  transition: background-color 0.8s, border-color 0.8s, color 0.8s;
+  -webkit-transition: background-color 0.8s, border-color 0.8s;
+  -moz-transition: background-color 0.8s, border-color 0.8s;
+  transition: background-color 0.8s, border-color 0.8s;
 }
 .btn,
 a.btn,
@@ -519,22 +519,22 @@ span.btn-def:active {
 .btn-primary,
 a.btn-primary,
 span.btn-primary {
-  background: #2d85ca;
-  border-color: #2d85ca;
-  color: #ffffff;
+  background: #e0ede3;
+  border-color: #35b558;
+  color: #35b558;
 }
 .btn-primary:hover,
 a.btn-primary:hover,
 span.btn-primary:hover {
-  background: #4a9bdb;
-  border-color: #4a9bdb;
+  background: #35b558;
+  border-color: #35b558;
   color: #ffffff;
 }
 .btn-primary:active,
 a.btn-primary:active,
 span.btn-primary:active {
-  background: #4a9bdb;
-  border-color: #4a9bdb;
+  background: #35b558;
+  border-color: #35b558;
   color: #ffffff;
 }
 .btn-warn,
@@ -1198,6 +1198,9 @@ textarea.resize-both {
   display: none;
 }
 /* form */
+.form legend {
+  display: none;
+}
 .form .legend {
   display: block;
   width: 100%;
@@ -1328,6 +1331,35 @@ textarea.resize-both {
 }
 .form-createJob .txt {
   width: 270px;
+}
+.form-role .form-item {
+  text-align: center;
+}
+.form-role .radio-role {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  height: 130px;
+  margin: 0 20px;
+  padding: 35px 0;
+  color: #333;
+  font-size: 20px;
+  line-height: 30px;
+}
+.form-role .radio-role .radio {
+  opacity: 0!important;
+  width: 0!important;
+  height: 0!important;
+  line-height: 0!important;
+  font-size: 0!important;
+}
+.form-role .radio-role:hover {
+  color: #fff;
+}
+.form-role .radio-role.active,
+.form-role .radio-role.active:hover {
+  background-color: #35B558;
+  color: #fff;
 }
 .table {
   width: 100%;
@@ -2149,6 +2181,7 @@ table.table-center > tfoot > tr > td {
 }
 .clearfix:after,
 .form-createJob:after,
+.form-role .form-item:after,
 #userNav ul:after,
 .mod-job .job-test:after,
 .paging-wrap:after,

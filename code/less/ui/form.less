@@ -13,6 +13,7 @@
 // Theme
 // Form-qiye
 // Form-createJob
+// Form-role
 
 // *Form Variable
 // ----------------------------------------
@@ -30,6 +31,9 @@
 
 /* form */
 .form {
+    legend {
+        display: none;
+    }
     .legend {
         display: block;
         width: 100%;
@@ -50,7 +54,7 @@
         color: @item-label-color;
         line-height: @item-line-height;
         text-align: right;
-        
+
         em {
             margin: 0 5px;
             color: @item-label-em-color;
@@ -86,7 +90,7 @@
 /* form-lable-auto */
 .form.form-lable-auto {
     .form-item {
-        
+
     }
     .item-label {
         float: left;
@@ -171,5 +175,40 @@
     }
     .txt {
         width: 270px;
+    }
+}
+
+// *Form-role
+// ----------------------------------------
+
+.form-role {
+    .form-item {
+        .cf;
+        text-align: center;
+    }
+    .radio-role {
+        position: relative;
+        display: inline-block;
+        width: 400px;
+        height: 130px;
+        margin: 0 20px;
+        padding: 35px 0;
+        color: #333;
+        font-size: 20px;
+        line-height: 30px;
+        .radio {
+            opacity: 0!important;
+            width: 0!important;
+            height: 0!important;
+            line-height: 0!important;
+            font-size: 0!important;
+        }
+        &:hover {
+            color: #fff;
+        }
+        &.active, &.active:hover {
+            background-color: #35B558;
+            color: #fff;
+        }
     }
 }
