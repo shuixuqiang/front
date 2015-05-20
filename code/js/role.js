@@ -4,7 +4,7 @@ var role = {
 	},
 	bindEle: function() {
 	    $('#roleSelect>label').bind("click", this.roleSelect);
-	    $('#submit').bind("click", this.submitData);
+	    $('#submitRole').bind("click", this.submitData);
 	},
     roleSelect: function() {
         var $this = $(this),
@@ -18,7 +18,7 @@ var role = {
         var $learner = $('#learner'),
             $company = $('#company');
         if ($learner.prop("checked") || $company.prop("checked")) {
-            $("#formRole").submit();
+            $('#formRole').submit();
         } else {
             alert("请选择角色！");
         }

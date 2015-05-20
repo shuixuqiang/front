@@ -1,6 +1,7 @@
 var testlist = {
 	init: function() {
 		this.bindEle();
+		this.interleave("statistic");
 	},
 	bindEle: function() {
 		$('#statistic .t-view').bind("click", this.unfold);
@@ -22,6 +23,14 @@ var testlist = {
 				scorelist.hide();
 			}
 		}
+	},
+	interleave: function(id) {
+        var $this = $('#' + id),
+            $tr = $this.children('tbody').children('tr'),
+            trLen = $tr.length;
+        for (var i = 0; i <= trLen; i += 4) {
+            $tr.eq(i).addClass("bg-odd");
+        }
 	}
 }
 
