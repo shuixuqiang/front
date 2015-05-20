@@ -1212,10 +1212,7 @@ textarea.resize-both {
   content: " ";
 }
 .form .form-item {
-  margin: 20px 0;
-}
-.form .form-item:first-child {
-  margin-top: 0;
+  margin: 0 0 20px 0;
 }
 .form .item-label {
   float: left;
@@ -1272,6 +1269,17 @@ textarea.resize-both {
   float: left;
   margin-left: 0;
 }
+.note-absolute,
+.form-qiye .note,
+.form-createJob .note,
+.form-userinfo .note {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
 .form-qiye .w-full {
   width: 600px;
 }
@@ -1287,17 +1295,8 @@ textarea.resize-both {
 .form-qiye .item-cont {
   position: relative;
 }
-.form-qiye .note {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding: 0;
-  line-height: 20px;
-  white-space: nowrap;
-}
 .form-qiye .form-group .form-item {
   float: left;
-  margin: 0;
 }
 .form-qiye .form-group .form-item:first-child {
   margin-right: 30px;
@@ -1321,48 +1320,26 @@ textarea.resize-both {
   position: relative;
   margin-left: 84px;
 }
-.form-createJob .note {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  padding: 0;
-  line-height: 20px;
-  white-space: nowrap;
-}
 .form-createJob .txt {
   width: 270px;
 }
-.form-role .form-item {
-  text-align: center;
+.form-userinfo .item-label {
+  font-size: 14px;
 }
-.form-role .radio-role {
+.form-userinfo .item-cont {
   position: relative;
-  display: inline-block;
-  width: 400px;
-  height: 130px;
-  margin: 0 20px;
-  padding: 35px 0;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  color: #333;
-  font-size: 20px;
-  line-height: 30px;
 }
-.form-role .radio-role .radio {
-  opacity: 0!important;
-  width: 0!important;
-  height: 0!important;
-  line-height: 0!important;
-  font-size: 0!important;
+.form-userinfo .item-cont > .txt,
+.form-userinfo .item-cont > .select {
+  float: left;
+  vertical-align: baseline;
 }
-.form-role .radio-role:hover {
-  color: #fff;
+.form-userinfo .form-group .form-item {
+  float: left;
+  margin-right: 30px;
 }
-.form-role .radio-role.active,
-.form-role .radio-role.active:hover {
-  background-color: #35B558;
-  color: #fff;
+.form-userinfo .btn-submit {
+  margin-top: 10px;
 }
 .table {
   width: 100%;
@@ -2012,6 +1989,13 @@ table.table-center > tfoot > tr > td {
 .mod-job .result:hover {
   color: #2d85ca;
 }
+.mod-job .result.disabled {
+  opacity: .6;
+}
+.mod-job .result.disabled,
+.mod-job .result.disabled:hover {
+  color: #666;
+}
 .mod-job .job-company,
 .mod-job .job-location,
 .mod-job .job-company p,
@@ -2184,7 +2168,6 @@ table.table-center > tfoot > tr > td {
 }
 .clearfix:after,
 .form-createJob:after,
-.form-role .form-item:after,
 #userNav ul:after,
 .mod-job .job-test:after,
 .paging-wrap:after,
@@ -2313,4 +2296,27 @@ table.table-center > tfoot > tr > td {
 }
 .filtersort li.active a {
   color: #35B558;
+}
+.rolelink {
+  padding-top: 20px;
+  text-align: center;
+}
+.rolelink a {
+  display: inline-block;
+  width: 400px;
+  height: 130px;
+  margin: 0 20px;
+  padding: 35px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 20px;
+  line-height: 30px;
+}
+.rolelink a:hover {
+  color: #fff;
+}
+.rolelink .note {
+  padding-top: 20px;
 }

@@ -22,6 +22,9 @@ var jobList = {
             // icon 高亮事件
             $this.find('.job-operate a:not(:first)').bind("mouseover", _mouseover).bind("mouseout", _mouseout);
 
+            // 解绑 icon 高亮事件
+            $this.find('.job-operate a:not(:first).disabled').unbind("mouseover");
+
             // 开启按钮事件
             var $switch = $this.find('.switch');
             if (!$switch.hasClass("off")) {
@@ -40,8 +43,6 @@ var jobList = {
                 });
             }
         });
-
-
     }
 }
 $(function() {

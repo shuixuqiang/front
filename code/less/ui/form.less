@@ -13,12 +13,12 @@
 // Theme
 // Form-qiye
 // Form-createJob
-// Form-role
+// Form-userinfo
 
-// *Form Variable
+// * Form Variable
 // ----------------------------------------
 
-@form-item-margin: 20px 0;          // item上下间距
+@form-item-margin: 0 0 20px 0;          // item上下间距
 @item-line-height: 32px;
 @item-label-width: 110px;           // label宽度
 @item-label-color: #333;            // label颜色
@@ -26,7 +26,7 @@
 @item-cont-margin-left: 120px;
 @form-inline-margin: 0 10px 15px 0;
 
-// *Form Base
+// * Form Base
 // ----------------------------------------
 
 /* form */
@@ -44,9 +44,6 @@
     .form-item {
         &:extend(.form .form-group all);
         margin: @form-item-margin;
-        &:first-child {
-            margin-top: 0;
-        }
     }
     .item-label {
         float: left;
@@ -89,9 +86,6 @@
 }
 /* form-lable-auto */
 .form.form-lable-auto {
-    .form-item {
-
-    }
     .item-label {
         float: left;
         margin-right: 10px;
@@ -103,9 +97,17 @@
     }
 }
 
-// *Form-qiye
+// * Form-qiye
 // ----------------------------------------
 
+.note-absolute {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+    line-height: 20px;
+    white-space: nowrap;
+}
 .form-qiye {
     .w-full {
         width: 600px;
@@ -122,22 +124,16 @@
     .item-cont {
         position: relative;
     }
-    .note {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 0;
-        line-height: 20px;
-        white-space: nowrap;
-    }
     .form-group {
         .form-item {
             float: left;
-            margin: 0;
             &:first-child {
                 margin-right: 30px;
             }
         }
+    }
+    .note {
+        &:extend(.note-absolute);
     }
     .btn-submit {
         clear: both;
@@ -146,7 +142,7 @@
     }
 }
 
-// *Form-createJob
+// * Form-createJob
 // ----------------------------------------
 
 .form-createJob {
@@ -166,51 +162,37 @@
         margin-left: 84px;
     }
     .note {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 0;
-        line-height: 20px;
-        white-space: nowrap;
+        &:extend(.note-absolute);
     }
     .txt {
         width: 270px;
     }
 }
 
-// *Form-role
+// * Form-userinfo
 // ----------------------------------------
 
-.form-role {
-    .form-item {
-        .cf;
-        text-align: center;
+.form-userinfo {
+    .item-label {
+        font-size: 14px;
     }
-    .radio-role {
+    .item-cont {
         position: relative;
-        display: inline-block;
-        width: 400px;
-        height: 130px;
-        margin: 0 20px;
-        padding: 35px 0;
-        .radius(6px);
-        color: #333;
-        font-size: 20px;
-        line-height: 30px;
-        .radio {
-            opacity: 0!important;
-            width: 0!important;
-            height: 0!important;
-            line-height: 0!important;
-            font-size: 0!important;
+        >.txt, >.select {
+            float: left;
+            vertical-align: baseline;
         }
-        &:hover {
-            color: #fff;
+    }
+    .form-group {
+        .form-item {
+            float: left;
+            margin-right: 30px;
         }
-        &.active, &.active:hover {
-            background-color: #35B558;
-            color: #fff;
-        }
+    }
+    .btn-submit {
+        margin-top: 10px;
+    }
+    .note {
+        &:extend(.note-absolute);
     }
 }
-
