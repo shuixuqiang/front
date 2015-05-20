@@ -11,6 +11,7 @@
 // Job
 // Paging
 // ScaleChart
+// SortCtrl
 //
 
 // * Job
@@ -260,5 +261,27 @@
     }
     .score {
         margin-top: 2px;
+    }
+}
+
+// * SortCtrl
+// ----------------------------------------
+
+.mod-sortctrl {
+    display: inline-block;
+    width: 16px;
+    vertical-align: middle;
+    line-height: 5px;
+    .arrow {
+        display: block;
+        .mc;
+        .arrow-style(10px; #9f9f9f);
+        &.top-solid {
+            margin-bottom: 2px;
+        }
+    }
+    &.sortup .top-solid,
+    &.sortdown .bottom-solid {
+        border-color: #35B558;
     }
 }

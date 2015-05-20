@@ -10,14 +10,14 @@
 //
 // Variable
 // Base
-// 
-// 
+// Statistic
+//
 
 // *Table Variable
 // ----------------------------------------
 
-@table-border: 1px solid #d2d2d2;
-@table-th-td-border: 1px solid #d2d2d2;
+@table-border: 1px solid #e4e4e4;
+@table-th-td-border: 1px solid #e4e4e4;
 @table-th-bg-color: #f5f5f5;
 @interleave-odd-bg-color: #f5f5f5;
 @interleave-even-bg-color: #f5f5f5;
@@ -32,11 +32,11 @@
     max-width: 100%;
     margin-bottom: 10px;
     border: @table-border;
-    
+
     >thead, >tbody, >tfoot {
         >tr {
             >th, >td {
-                padding: 8px;
+                padding: 14px;
                 border: @table-th-td-border;
                 border-width: 1px 1px 0 1px;
                 line-height: 20px;
@@ -113,19 +113,6 @@ table>tfoot>.table-left>td,
 table>thead>tr>.table-left,
 table>tbody>tr>.table-left,
 table>tfoot>tr>.table-left {
-
-// 以下注释内容为混合对齐样式
-//.table-right>thead>tr>.table-left,
-//.table-right>tbody>tr>.table-left,
-//.table-right>tfoot>tr>.table-left,
-//
-//.table-left>thead>.table-center>.table-left,
-//.table-left>tbody>.table-center>.table-left,
-//.table-left>tfoot>.table-center>.table-left,
-//
-//.table-right>thead>.table-center>.table-left,
-//.table-right>tbody>.table-center>.table-left,
-//.table-right>tfoot>.table-center>.table-left {
     text-align: left;
 }
 
@@ -146,19 +133,6 @@ table>tfoot>.table-right>td,
 table>thead>tr>.table-right,
 table>tbody>tr>.table-right,
 table>tfoot>tr>.table-right {
-
-// 以下注释内容为混合对齐样式
-//.table-left>thead>tr>.table-right,
-//.table-left>tbody>tr>.table-right,
-//.table-left>tfoot>tr>.table-right,
-//
-//.table-left>thead>.table-center>.table-right,
-//.table-left>tbody>.table-center>.table-right,
-//.table-left>tfoot>.table-center>.table-right,
-//
-//.table-right>thead>.table-center>.table-right,
-//.table-right>tbody>.table-center>.table-right,
-//.table-right>tfoot>.table-center>.table-right {
     text-align: right;
 }
 
@@ -168,29 +142,6 @@ table.table-center>tbody>tr>th,
 table.table-center>tbody>tr>td,
 table.table-center>tfoot>tr>th,
 table.table-center>tfoot>tr>td {
-    
-// 以下注释内容为混合对齐样式
-//.table-left>thead>.table-center>th,
-//.table-left>thead>.table-center>td,
-//.table-left>tbody>.table-center>th,
-//.table-left>tbody>.table-center>td,
-//.table-left>tfoot>.table-center>th,
-//.table-left>tfoot>.table-center>td,
-//
-//.table-right>thead>.table-center>th,
-//.table-right>thead>.table-center>td,
-//.table-right>tbody>.table-center>th,
-//.table-right>tbody>.table-center>td,
-//.table-right>tfoot>.table-center>th,
-//.table-right>tfoot>.table-center>td,
-//
-//.table-left>thead>tr>.table-center,
-//.table-left>tbody>tr>.table-center,
-//.table-left>tfoot>tr>.table-center,
-//
-//.table-right>thead>tr>.table-center,
-//.table-right>tbody>tr>.table-center,
-//.table-right>tfoot>tr>.table-center {
     text-align: center;
 }
 
@@ -201,6 +152,85 @@ table.table-center>tfoot>tr>td {
             >th, >td {
                 background-color: @table-danger-bg-color !important;
             }
+        }
+    }
+}
+
+// *Table Statistic
+// ----------------------------------------
+
+.table-statistic {
+    color: #666;
+    font-size: 14px;
+    .box-shadow(3px 3px 3px rgba(0,0,0,.1));
+    // 查看报告
+    .viewlink {
+        color: #666;
+        font-size: 12px;
+        .icon {
+            position: relative;
+            top: -1px;
+        }
+        &:hover {
+            color: #35B558;
+            .icon {
+                background-position: -180px -62px;
+            }
+        }
+    }
+    // 奇数行变色
+    .bg-odd td {
+        background-color: #F9F9F9;
+    }
+    >thead>tr {
+        >th {
+            background-color: #eee;
+            color: #000;
+            font-weight: normal;
+        }
+    }
+    >tbody>tr:nth-child(even) {
+        display: none;
+    }
+    // 得分详情列表
+    .t-scorelist {
+        padding: 0;
+        table {
+            width: 100%;
+        }
+        th, td {
+            padding: 6px;
+        }
+        tr>th:last-child,
+        tr>td:last-child {
+            padding-left: 40px;
+        }
+        thead {
+            th {
+                background-color: #eee;
+                border: 1px solid #e4e4e4;
+                border-width: 1px 0;
+                color: #666;
+                font-weight: normal;
+            }
+        }
+    }
+    // 得分
+    .t-score {
+        position: relative;
+        padding: 0 80px 0 75px;
+    }
+    // 详情按钮
+    .t-view {
+        .user-select-none;
+        position: absolute;
+        right: 10px;
+        font-size: 12px;
+        vertical-align: middle;
+        cursor: pointer;
+        .arrow {
+            margin-right: 4px;
+            .arrow-style(10px; #9f9f9f);
         }
     }
 }

@@ -3,11 +3,10 @@ var testentry = {
 		this.bindEle();
 		this.chart();
 	},
-	bindEle: function() {
-	},
+	bindEle: function() {},
 	chart: function() {
-        var $scaleChart = $('#scaleChart');
-        COMMON.scaleChart($scaleChart, scaleObj);
+		var $scaleChart = $('#scaleChart');
+		COMMON.scaleChart($scaleChart, scaleObj);
 	}
 }
 

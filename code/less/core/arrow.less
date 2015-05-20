@@ -20,8 +20,8 @@
     font-size: 0 !important;
     line-height: 0 !important;
     vertical-align: middle;
-    
-    >*, &[class*="-hollow"]:empty:before,
+
+    &[class*="-solid"], >*, &[class*="-hollow"]:empty:before,
     &[class*="-hollow"]:empty:after {
         width: 0 !important;
         height: 0 !important;
@@ -73,13 +73,13 @@
 .arrow {
     &[class*="-solid"] {
         border-style: solid;
-        border-width: @arrow-base-width;
+        border-width: @arrow-base-width / 2;
         border-color: @arrow-base-color;
     }
     &[class*="-hollow"] {
         >*, &:empty:before, &:empty:after {
             border-style: solid;
-            border-width: @arrow-base-width;
+            border-width: @arrow-base-width / 2;
             border-color: @arrow-base-color;
             display: block;
         }
@@ -88,7 +88,7 @@
         }
         >small, &:empty:after {
             position: absolute;
-            border-width: @arrow-base-width - @arrow-base-border-width;
+            border-width: @arrow-base-width / 2 - @arrow-base-border-width;
             border-color: @arrow-base-hollow-color;
         }
     }

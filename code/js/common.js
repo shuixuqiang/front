@@ -199,30 +199,18 @@ var COMMON = {
 			var scale_li = $('<li>'),
 				scale_bar = $('<div class="bar">');
 			// 创建权重图表
-			scale_bar.css({
-				backgroundColor: val.color
-			}).html(key);
-			scale_li.css({
-				width: val.scale + "%"
-			}).append(scale_bar).appendTo(scaleChart);
-			scale_bar.animate({
-				width: "100%"
-			}, 600);
+			scale_bar.css({backgroundColor: val.color}).html(key);
+			scale_li.css({width: val.scale + "%"}).append(scale_bar).appendTo(scaleChart);
+			scale_bar.animate({width: "100%"}, 600);
 
 			// 创建得分图表
 			if (dataLen == scoreLen) {
 			    var score_li = $('<li>'),
                     score_bar = $('<div class="bar">');
-    				score_bar.css({
-					backgroundColor: val.color
-				}).html(val.score + "分");
+    				score_bar.css({backgroundColor: val.color}).html(val.score + "分");
 
-				score_li.css({
-					width: val.scale + "%"
-				}).append(score_bar).appendTo(scoreChart);
-				score_bar.animate({
-					width: val.score + "%"
-				}, 600);
+				score_li.css({width: val.scale + "%"}).append(score_bar).appendTo(scoreChart);
+				score_bar.animate({width: val.score + "%"}, 600);
 			}
 		});
 
