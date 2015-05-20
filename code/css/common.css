@@ -1463,6 +1463,9 @@ table.table-center > tfoot > tr > td {
   color: #000;
   font-weight: normal;
 }
+.table-statistic > tbody > tr:nth-child(even) {
+  display: none;
+}
 .table-statistic .t-scorelist {
   padding: 0;
 }
@@ -1473,6 +1476,10 @@ table.table-center > tfoot > tr > td {
 .table-statistic .t-scorelist td {
   padding: 6px;
 }
+.table-statistic .t-scorelist tr > th:last-child,
+.table-statistic .t-scorelist tr > td:last-child {
+  padding-left: 40px;
+}
 .table-statistic .t-scorelist thead th {
   background-color: #eee;
   border: 1px solid #e4e4e4;
@@ -1482,15 +1489,23 @@ table.table-center > tfoot > tr > td {
 }
 .table-statistic .t-score {
   position: relative;
-  padding: 0 80px 0 108px;
+  padding: 0 80px 0 75px;
 }
 .table-statistic .t-view {
-  display: inline-block;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  right: 10px;
   font-size: 12px;
   vertical-align: middle;
+  cursor: pointer;
 }
 .table-statistic .t-view .arrow {
-  margin-right: 2px;
+  margin-right: 4px;
+  border-width: 5px;
+  border-color: #9f9f9f;
 }
 .popup {
   position: fixed;
