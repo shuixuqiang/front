@@ -192,6 +192,9 @@ a:hover {
 .float-right {
   float: right !important;
 }
+.float-none {
+  float: none !important;
+}
 .block {
   display: block !important;
 }
@@ -201,23 +204,14 @@ a:hover {
 .hidden {
   visibility: hidden !important;
 }
-/* show */
-.show {
-  display: block !important;
-}
-.show-inline {
-  display: inline !important;
-}
-.show-inlineblock {
-  display: inline-block !important;
-}
-.show-table {
-  display: table !important;
-}
 .disabled:hover,
 .disabled:hover a {
   cursor: default !important;
   cursor: not-allowed !important;
+}
+.full-block {
+  display: block;
+  width: 100% !important;
 }
 /* color */
 .lightColor {
@@ -355,6 +349,7 @@ input,
 button,
 a.btn,
 span.btn,
+label.btn,
 select,
 textarea {
   -webkit-box-sizing: border-box;
@@ -365,6 +360,7 @@ input,
 button,
 span.btn,
 a.btn,
+label.btn,
 select,
 label {
   vertical-align: middle;
@@ -450,25 +446,29 @@ label input[type="radio"] {
 }
 .btn,
 a.btn,
-span.btn {
+span.btn,
+label.btn {
   background: #eaeaea;
   border-color: #eaeaea;
   color: #666666;
 }
 .btn:hover,
 a.btn:hover,
-span.btn:hover {
+span.btn:hover,
+label.btn:hover {
   background: #eeeeee;
   color: #999999;
 }
 .btn:active,
 a.btn:active,
-span.btn:active {
+span.btn:active,
+label.btn:active {
   background: #eeeeee;
   color: #999999;
 }
 a.btn,
-span.btn {
+span.btn,
+label.btn {
   display: inline-block;
   line-height: 30px;
   text-align: center;
@@ -477,7 +477,8 @@ span.btn {
   cursor: pointer;
 }
 a.btn:hover,
-span.btn:hover {
+span.btn:hover,
+label.btn:hover {
   text-decoration: none;
 }
 .btn.disabled,
@@ -497,84 +498,96 @@ span.btn:hover {
 /* button theme */
 .btn-def,
 a.btn-def,
-span.btn-def {
+span.btn-def,
+label.btn-def {
   background: #35b558;
   border-color: #35b558;
   color: #ffffff;
 }
 .btn-def:hover,
 a.btn-def:hover,
-span.btn-def:hover {
+span.btn-def:hover,
+label.btn-def:hover {
   background: #66d178;
   border-color: #66d178;
   color: #ffffff;
 }
 .btn-def:active,
 a.btn-def:active,
-span.btn-def:active {
+span.btn-def:active,
+label.btn-def:active {
   background: #66d178;
   border-color: #66d178;
   color: #ffffff;
 }
 .btn-primary,
 a.btn-primary,
-span.btn-primary {
+span.btn-primary,
+label.btn-primary {
   background: #e0ede3;
   border-color: #35b558;
   color: #35b558;
 }
 .btn-primary:hover,
 a.btn-primary:hover,
-span.btn-primary:hover {
+span.btn-primary:hover,
+label.btn-primary:hover {
   background: #35b558;
   border-color: #35b558;
   color: #ffffff;
 }
 .btn-primary:active,
 a.btn-primary:active,
-span.btn-primary:active {
+span.btn-primary:active,
+label.btn-primary:active {
   background: #35b558;
   border-color: #35b558;
   color: #ffffff;
 }
 .btn-warn,
 a.btn-warn,
-span.btn-warn {
+span.btn-warn,
+label.btn-warn {
   background: #ff5c00;
   border-color: #ff5c00;
   color: #ffffff;
 }
 .btn-warn:hover,
 a.btn-warn:hover,
-span.btn-warn:hover {
+span.btn-warn:hover,
+label.btn-warn:hover {
   background: #ff8530;
   border-color: #ff8530;
   color: #ffffff;
 }
 .btn-warn:active,
 a.btn-warn:active,
-span.btn-warn:active {
+span.btn-warn:active,
+label.btn-warn:active {
   background: #ff8530;
   border-color: #ff8530;
   color: #ffffff;
 }
 .btn-text,
 a.btn-text,
-span.btn-text {
+span.btn-text,
+label.btn-text {
   background: transparent;
   border-color: transparent;
   color: #666666;
 }
 .btn-text:hover,
 a.btn-text:hover,
-span.btn-text:hover {
+span.btn-text:hover,
+label.btn-text:hover {
   background: transparent;
   border-color: transparent;
   color: #999999;
 }
 .btn-text:active,
 a.btn-text:active,
-span.btn-text:active {
+span.btn-text:active,
+label.btn-text:active {
   background: transparent;
   border-color: transparent;
   color: #999999;
@@ -592,24 +605,6 @@ span.btn-text:active {
   color: #999999 !important;
 }
 /* button height */
-.btn.xs {
-  /* extra small */
-  height: 22px;
-  padding: 0 15px;
-}
-a.btn.xs,
-span.btn.xs {
-  line-height: 20px;
-}
-.btn.sm {
-  /* small */
-  height: 24px;
-  padding: 0 15px;
-}
-a.btn.sm,
-span.btn.sm {
-  line-height: 22px;
-}
 .btn.lg {
   /* large */
   height: 40px;
@@ -617,7 +612,8 @@ span.btn.sm {
   font-size: 18px;
 }
 a.btn.lg,
-span.btn.lg {
+span.btn.lg,
+label.btn.lg {
   line-height: 38px;
 }
 .btn.xl {
@@ -627,7 +623,8 @@ span.btn.lg {
   font-size: 16px;
 }
 a.btn.xl,
-span.btn.xl {
+span.btn.xl,
+label.btn.xl {
   line-height: 46px;
 }
 /* button width */
@@ -652,17 +649,17 @@ span.btn.xl {
   padding: 0 !important;
 }
 /* button padding */
-.btn.p-xs {
-  padding: 0 5px;
+/* button file */
+.btn-file {
+  position: relative;
 }
-.btn.p-sm {
-  padding: 0 10px;
-}
-.btn.p-lg {
-  padding: 0 30px;
-}
-.btn.p-xl {
-  padding: 0 80px;
+.btn-file input[type="file"] {
+  overflow: hidden;
+  opacity: 0 !important;
+  width: 0!important;
+  height: 0!important;
+  line-height: 0!important;
+  font-size: 0!important;
 }
 .txt[disabled],
 select[disabled],
@@ -689,7 +686,7 @@ textarea[disabled]:active {
 }
 /* input text */
 .txt {
-  width: 100px;
+  width: 110px;
   height: 26px;
   padding: 5px 5px;
   font-size: 12px;
@@ -724,26 +721,10 @@ textarea[disabled]:active {
   border-radius: 4px;
 }
 /* text height */
-.txt.xs {
-  height: 22px;
-  padding: 3px 3px;
-  line-height: 16px;
-}
-.txt.sm {
-  height: 24px;
-  padding: 4px 4px;
-  line-height: 16px;
-}
 .txt.lg {
   height: 32px;
   padding: 8px 8px;
   line-height: 16px;
-}
-.txt.xl {
-  height: 48px;
-  padding: 15px 15px;
-  font-size: 14px;
-  line-height: 18px;
 }
 /* text width */
 .txt.w-xs {
@@ -786,38 +767,6 @@ textarea[disabled]:active {
   vertical-align: middle;
 }
 /* tel height*/
-.tel-xs .txt {
-  height: 22px;
-  padding: 3px 3px;
-  line-height: 16px;
-}
-.tel-xs i {
-  line-height: 22px;
-}
-.tel-sm .txt {
-  height: 24px;
-  padding: 4px 4px;
-  line-height: 16px;
-}
-.tel-sm i {
-  line-height: 24px;
-}
-.tel-lg .txt {
-  height: 32px;
-  padding: 8px 8px;
-  line-height: 16px;
-}
-.tel-lg i {
-  line-height: 32px;
-}
-.tel-xl .txt {
-  height: 48px;
-  padding: 15px 15px;
-  line-height: 18px;
-}
-.tel-xl i {
-  line-height: 48px;
-}
 /* txt section */
 .txt-section {
   display: inline-block;
@@ -897,20 +846,9 @@ select:focus,
   box-shadow: 0 0 5px #51cc73;
 }
 /* select height */
-.select.xs {
-  height: 22px;
-}
-.select.sm {
-  height: 24px;
-}
 .select.lg {
   height: 32px;
   padding: 2px;
-}
-.select.xl {
-  height: 48px;
-  padding: 3px;
-  font-size: 14px;
 }
 /* select width */
 .select.w-xs {
@@ -1305,6 +1243,18 @@ textarea.resize-both {
   clear: both;
   float: none;
   text-align: right;
+}
+.form-qiye .btn-file {
+  font-size: 14px;
+}
+.form-qiye .tips {
+  margin-bottom: 20px;
+  padding: 5px 0;
+  background-color: #e0ede3;
+  color: #999;
+  font-size: 12px;
+  text-align: center;
+  line-height: 20px;
 }
 .form-createJob .form-group {
   float: left;
@@ -2155,6 +2105,33 @@ table.table-center > tfoot > tr > td {
 .mod-sortctrl.sortdown .bottom-solid {
   border-color: #35B558;
 }
+#checking #container {
+  min-height: 490px;
+  padding-top: 92px;
+}
+.rolelink {
+  padding-top: 20px;
+  text-align: center;
+}
+.rolelink a {
+  display: inline-block;
+  width: 400px;
+  height: 130px;
+  margin: 0 20px;
+  padding: 35px 0;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 20px;
+  line-height: 30px;
+}
+.rolelink a:hover {
+  color: #fff;
+}
+.rolelink .note {
+  padding-top: 20px;
+}
 .icon,
 .webuploader-pick {
   background-image: url(../img/ui/element.png);
@@ -2234,7 +2211,7 @@ table.table-center > tfoot > tr > td {
 }
 .qy-logo input {
   clear: both;
-  opacity: 0 !important;
+  display: block !important;
   width: 0 !important;
   height: 0 !important;
   line-height: 0 !important;
@@ -2250,10 +2227,6 @@ table.table-center > tfoot > tr > td {
 }
 .dataNull .icon {
   margin-right: 15px;
-}
-#checking #container {
-  min-height: 490px;
-  padding-top: 92px;
 }
 .filtersort {
   padding: 10px 0;
@@ -2296,27 +2269,4 @@ table.table-center > tfoot > tr > td {
 }
 .filtersort li.active a {
   color: #35B558;
-}
-.rolelink {
-  padding-top: 20px;
-  text-align: center;
-}
-.rolelink a {
-  display: inline-block;
-  width: 400px;
-  height: 130px;
-  margin: 0 20px;
-  padding: 35px 0;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  color: #333;
-  font-size: 20px;
-  line-height: 30px;
-}
-.rolelink a:hover {
-  color: #fff;
-}
-.rolelink .note {
-  padding-top: 20px;
 }

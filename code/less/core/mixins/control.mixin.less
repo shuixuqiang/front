@@ -36,7 +36,7 @@
     background: @background repeat-x 0 0;
     .border-color-set(@border-color);
     color: @color;
-    
+
     &:hover {
         background-position: @hover-bg;
         .border-color-set(@hover-brc);
@@ -53,7 +53,7 @@
     background: @background;
     border-color: @border-color;
     color: @color;
-    
+
     &:hover {
         background: @hover-bg;
         .border-color-set(@hover-brc);
@@ -71,7 +71,7 @@
     .gradient(@background);
     .border-color-set(@border-color);
     color: @color;
-    
+
     &:hover {
         background: @hover-bg;
         .border-color-set(@hover-brc);
@@ -92,7 +92,7 @@
         font-size: @font-size;
     }
     .font-size(@font-size);
-    a&, span& {
+    a&, span&, label& {
         line-height: @height - @border-width * 2;
     }
 }

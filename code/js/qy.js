@@ -2,6 +2,7 @@ var qy_submit = {
 	init: function() {
 		this.bindEle();
 		this.logoUp();
+		this.layDate();
 		$('#qyLogo-btn').click(function() {
 			$('#qyLogo .note.errTxt').remove();
 		});
@@ -9,12 +10,18 @@ var qy_submit = {
 	bindEle: function() {
 		$('#qySubmit').bind("click", this.submitCheck);
 	},
+	layDate: function() {
+	    laydate({
+	        elem: '#regTime',
+	        event: 'focus'
+	    })
+	},
 	logoUp: function() {
 		var uploader = WebUploader.create({
 			// 选完文件后，是否自动上传。
 			auto: true,
 			// swf文件路径
-			//			swf: 'http://127.0.0.1:8020' + '/js/plugin/Uploader.swf',
+			swf: '/js/plugin/Uploader.swf',
 			// 文件接收服务端。
 			server: '/company/ajaxUpload',
 			pick: '#qyLogo-btn',
@@ -57,39 +64,80 @@ var qy_submit = {
 		});
 	},
 	submitCheck: function() {
+	    var formNum = 8, formCount = 0;
+
 		var $name = $('#qyName'),
 			$overview = $('#qyOverview'),
 			$tel = $('#qyTel'),
 			$contact = $('#qyContact'),
 			$email = $('#qyEmail'),
-			$logo = $('#qyLogo-btn :file');
+			$logo = $('#qyLogo-btn :file'),
+			$companyName = $('#companyName'),
+			$regTime = $('#regTime'),
+			$id = $('#companyIdPic');
 		var emailVal = $email.val().trim();
 		var check = /^[A-Z_a-z0-9-\.]+@([A-Z_a-z0-9-]+\.)+[a-z0-9A-Z]{2,4}$/.test(emailVal);
 
 		$name.submitEmptyCheck({
-			note: "请输入企业名称"
-		});
-		$overview.submitEmptyCheck({
-			note: "请输入企业简介"
-		});
-		$tel.submitEmptyCheck({
-			note: "请输入联系人电话"
-		});
-		$contact.submitEmptyCheck({
-			note: "请输入联系人姓名"
-		});
-		$email.submitEmptyCheck({
-			note: "请输入联系人邮箱",
+			note: "请输入企业名称",
 			callback: function() {
-				if (!check) {
-					var note = $('<div class="note errTxt">您输入的邮箱格式不正确</div>');
-					$email.parent().append(note);
-					return false;
-				} else {
-					$("#frm").submit();
-				}
+                formCount += 1;
 			}
 		});
+		$overview.submitEmptyCheck({
+			note: "请输入企业简介",
+            callback: function() {
+                formCount += 1;
+            }
+		});
+        $tel.submitEmptyCheck({
+            note: "请输入联系人电话",
+            callback: function() {
+                formCount += 1;
+            }
+        });
+        $contact.submitEmptyCheck({
+            note: "请输入联系人电话",
+            callback: function() {
+                formCount += 1;
+            }
+        });
+        $email.submitEmptyCheck({
+            note: "请输入联系人邮箱",
+            callback: function() {
+                if (!check) {
+                    $email.siblings('.note.errTxt').remove();
+                    var note = $('<div class="note errTxt">您输入的邮箱格式不正确</div>');
+                    $email.parent().append(note);
+                    return false;
+                } else {
+                    formCount += 1;
+                }
+            }
+        });
+        $companyName.submitEmptyCheck({
+            note: "请输入企业注册名称",
+            callback: function() {
+                formCount += 1;
+            }
+        });
+        $regTime.submitEmptyCheck({
+            note: "请输入企业注册时间",
+            callback: function() {
+                formCount += 1;
+            }
+        });
+        var idTarget = $id.parents('.item-cont');
+        $id.submitEmptyCheck({
+            note: "请上传营业执照扫描件",
+            target: idTarget,
+            callback: function() {
+                formCount += 1;
+            }
+        });
+        if (formCount == formNum) {
+            $('#frm').submit();
+        }
 	}
 }
 

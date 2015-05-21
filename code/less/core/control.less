@@ -5,23 +5,16 @@
 // @author      zhanghaibin
 // @version     1.0
 //
-//
-// Menu
-//
-// Base
-// Common
-// - common
-// - mask
-// - position
-// - loading img
 
 // *Base
 // ----------------------------------------
+
 /* control base */
 input,
 button,
 a.btn,
 span.btn,
+label.btn,
 select,
 textarea {
     .box-sizing(@box-sizing: border-box);
@@ -30,6 +23,7 @@ input,
 button,
 span.btn,
 a.btn,
+label.btn,
 select,
 label {
 	vertical-align: middle;
@@ -124,12 +118,12 @@ label {
     .radius-set(@btn-radius);
     .transition(background-color .8s,border-color .8s;);
 
-    &, a&, span& {
+    &, a&, span&, label& {
         .btn-style(@btn-base-bg-type; @btn-base-background; @btn-base-border-color; @btn-base-color;
             @btn-base-hover-background; @btn-base-hover-border-color; @btn-base-hover-color;
             @btn-base-active-background; @btn-base-active-border-color; @btn-base-active-color);
     }
-    a&, span& {
+    a&, span&, label& {
         display: inline-block;
         line-height: @btn-base-height - @btn-base-border-width * 2;
         text-align: center;
@@ -156,7 +150,7 @@ label {
 
 .btn-def {
     // 默认按钮
-	&, a&, span& {
+	&, a&, span&, label& {
         .btn-style(@btn-def-bg-type; @btn-def-background; @btn-def-border-color; @btn-def-color;
             @btn-def-hover-background; @btn-def-hover-border-color; @btn-def-hover-color;
             @btn-def-active-background; @btn-def-active-border-color; @btn-def-active-color);
@@ -164,7 +158,7 @@ label {
 }
 .btn-primary {
     // 主要按钮
-    &, a&, span& {
+    &, a&, span&, label& {
         .btn-style(@btn-primary-bg-type; @btn-primary-background; @btn-primary-border-color;
             @btn-primary-color; @btn-primary-hover-background; @btn-primary-hover-border-color; @btn-primary-hover-color;
             @btn-primary-active-background; @btn-primary-active-border-color; @btn-primary-active-color);
@@ -172,7 +166,7 @@ label {
 }
 .btn-warn {
     // 警示性按钮
-    &, a&, span& {
+    &, a&, span&, label& {
         .btn-style(@btn-warn-bg-type; @btn-warn-background; @btn-warn-border-color; @btn-warn-color;
             @btn-warn-hover-background; @btn-warn-hover-border-color; @btn-warn-hover-color;
             @btn-warn-active-background; @btn-warn-active-border-color; @btn-warn-active-color);
@@ -180,7 +174,7 @@ label {
 }
 .btn-text {
     // 文字按钮
-    &, a&, span& {
+    &, a&, span&, label& {
         .btn-style(@btn-text-bg-type; @btn-text-background; @btn-text-border-color; @btn-text-color;
             @btn-text-hover-background; @btn-text-hover-border-color; @btn-text-hover-color;
             @btn-text-active-background; @btn-text-active-border-color; @btn-text-active-color);
@@ -242,6 +236,19 @@ label {
 .btn-size-p(@btn-p-sm-enable; @class-name: p-sm; @btn-p-sm);
 .btn-size-p(@btn-p-lg-enable; @class-name: p-lg; @btn-p-lg);
 .btn-size-p(@btn-p-xl-enable; @class-name: p-xl; @btn-p-xl);
+
+/* button file */
+.btn-file {
+    position: relative;
+    input[type="file"] {
+        overflow: hidden;
+        opacity: 0 !important;
+        width: 0!important;
+        height: 0!important;
+        line-height: 0!important;
+        font-size: 0!important;
+    }
+}
 
 // *Text
 // ----------------------------------------

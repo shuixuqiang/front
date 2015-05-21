@@ -30,25 +30,39 @@ var createJob = {
 		})
 	},
 	submitCheck: function() {
+		var formNum = 4,
+			formCount = 0;
 		var $name = $('#jobName'),
 			$laborage = $('#laborage'),
 			$location = $('#location');
 		var editorLen = editor.getValue();
 
 		$name.submitEmptyCheck({
-			note: "请输入职位名称"
+			note: "请输入职位名称",
+			callback: function() {
+                formCount += 1;
+			}
 		});
 		$laborage.submitEmptyCheck({
-			note: "请输入职位工资"
+			note: "请输入职位工资",
+			callback: function() {
+                formCount += 1;
+			}
 		});
 		$location.submitEmptyCheck({
 			note: "请输入工作地点",
+			callback: function() {
+                formCount += 1;
+			}
 		});
-		
 		$('#editor').parents('.item-cont').find('.note.errTxt').remove();
 		if (!editorLen) {
 			$('#editor').parents('.item-cont').append('<div class="note errTxt">请输入职位描述</div>');
 		} else {
+            formCount += 1;
+		}
+
+		if (formCount == formNum) {
 			$('#formJob').submit();
 		}
 	}
