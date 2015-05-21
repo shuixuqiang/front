@@ -12,6 +12,8 @@
 // Paging
 // ScaleChart
 // SortCtrl
+// Range
+// PowerChart
 //
 
 // * Job
@@ -289,5 +291,78 @@
     &.sortup .top-solid,
     &.sortdown .bottom-solid {
         border-color: #35B558;
+    }
+}
+
+// * Range
+// ----------------------------------------
+
+.mod-range {
+    position: relative;
+    display: inline-block;
+    width: 140px;
+    height: 3px;
+    background-color: #ccc;
+    vertical-align: middle;
+    cursor: pointer;
+    .range-bar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        width: 0;
+        height: 100%;
+        background-color: #35b558;
+    }
+    .range-ctrl {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: block;
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+        cursor: pointer;
+    }
+}
+
+// * Power Chart
+// ----------------------------------------
+
+.mod-power-chart {
+    ul {
+        .cf;
+        width: 100%;
+    }
+    li {
+        float: left;
+        height: 100%;
+        background-color: #e8e8e8;
+    }
+    .power-standard {
+        height: 41px;
+        .general {
+            background-color: #9ce7e2;
+        }
+        .skilled {
+            background-color: #2db0aa;
+        }
+        .proficient {
+            background-color: #086f73;
+        }
+    }
+    .power-accord, .power-not-accord {
+        height: 20px;
+        border-top: 1px solid #e8e8e8;
+    }
+    .power-accord {
+        .highlight {
+            background-color: #a4d358;
+        }
+    }
+    .power-not-accord {
+        .highlight {
+            background-color: #f05368;
+        }
     }
 }

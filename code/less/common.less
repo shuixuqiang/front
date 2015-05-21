@@ -18,6 +18,7 @@
 // Common
 // DataNull
 // FilterSort
+// RequireImport
 
 // * Variable
 // ----------------------------------------
@@ -29,6 +30,12 @@
     background-image: url(../img/ui/element.png);
     -webkit-background-size: 250px 200px;
     background-size: 250px 200px;
+}
+.mod-range .range-ctrl {
+    background-image: url(../img/ui/control.png);
+    background-repeat: no-repeat;
+    -webkit-background-size: 100px 50px;
+    background-size: 100px 50px;
 }
 
 // * Transition
@@ -70,8 +77,8 @@
 // ----------------------------------------
 
 .caption {
-    margin-bottom: 20px;
-    color: #666;
+    margin-bottom: 30px;
+    color: #333;
     font-size: 30px;
     font-weight: normal;
     line-height: 1.2;
@@ -171,3 +178,38 @@
         }
     }
 }
+
+// * Require Import
+// ----------------------------------------
+
+.require-import {
+    color: #666;
+    font-size: 12px;
+    line-height: 16px;
+    .icon {
+        position: relative;
+        top: -1px;
+        width: 16px;
+        height: 16px;
+        margin-right: 10px;
+        background-image: none;
+        background-color: #e8e8e8;
+        .radius(50%);
+    }
+    &.general {
+        .icon {
+            background-color: #9ce7e2;
+        }
+    }
+    &.skilled {
+        .icon {
+            background-color: #2db0aa;
+        }
+    }
+    &.proficient {
+        .icon {
+            background-color: #086f73;
+        }
+    }
+}
+

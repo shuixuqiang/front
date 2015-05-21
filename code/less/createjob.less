@@ -9,8 +9,10 @@
 // CSS Menu
 //
 // Base
-// JobManage
-// 
+// PowerRequire
+// OtherRequire
+// PowerModule
+//
 
 // * Base
 // ----------------------------------------
@@ -23,13 +25,13 @@
     .clearfix-mixin;
 }
 #container {
-    
+
 }
 hr {
     margin: 40px 0;
     border-width: 1px 0;
     border-style: solid;
-    border-color: #e8e8e8 transparent #dad8d8 transparent; 
+    border-color: #e8e8e8 transparent #dad8d8 transparent;
 }
 // 编辑器样式
 .simditor {
@@ -47,6 +49,148 @@ hr {
     .simditor-wrapper {
         .simditor-placeholder {
             font-size: 14px;
+        }
+    }
+}
+
+// * Power Require
+// ----------------------------------------
+
+.power-require {
+    margin-bottom: 30px;
+    >header {
+        margin-bottom: 30px;
+        .cf;
+        .caption {
+            float: left;
+            margin-bottom: 0;
+        }
+    }
+}
+// power require note
+.pr-note {
+    float: right;
+    margin-top: 10px;
+    li {
+        float: left;
+        margin-right: 20px;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+// power require list
+.pr-list {
+    .mod-power {
+        margin-bottom: 20px;
+    }
+}
+
+
+// * Other Require
+// ----------------------------------------
+
+.other-require {
+    >header {
+        &:extend(.power-require>header all);
+    }
+}
+
+// other require list
+.or-list {
+    li {
+        .text-overflow;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #fff;
+        border-left: 3px solid #35B558;
+        line-height: 30px;
+        color: #333;
+        font-size: 16px;
+
+        .addScore {
+            margin-right: 20px;
+            color: #35B558;
+            font-weight: normal;
+        }
+    }
+}
+
+// * Power Module
+// ----------------------------------------
+
+.mod-power {
+    .cf;
+    padding: 25px 0;
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+    .box-shadow(3px 3px 3px rgba(0,0,0,.1));
+
+    .power-control, .power-chart {
+        height: 220px;
+        padding: 0 20px;
+    }
+    .power-control {
+        float: left;
+        width: 272px;
+        border-right: 1px solid #e4e4e4;
+        h3 {
+            .text-overflow;
+            margin-bottom: 10px;
+            color: #d32024;
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 1;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        h5 {
+            .text-overflow;
+            margin-bottom: 40px;
+            color: #333;
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+    .power-import {
+        margin-bottom: 65px;
+        color: #333;
+        font-size: 14px;
+        line-height: 18px;
+        padding-bottom: 10px;
+        .mod-range {
+            margin: 0 4px;
+        }
+    }
+    .power-ctrl-btns {
+        float: right;
+        .btn {
+            float: left;
+            height: 30px;
+            margin-left: 8px;
+            padding: 0 14px;
+        }
+    }
+    .power-chart {
+        margin-left: 273px;
+        >h4 {
+            margin-bottom: 14px;
+            color: #333;
+            font-size: 14px;
+            font-weight: normal;
+        }
+    }
+    .mod-power-chart {
+        margin-bottom: 46px;
+    }
+    .power-import-note {
+        position: relative;
+        height: 100px;
+        .btn-edit {
+            position: absolute;
+            right: 0;
+            bottom: 0;
         }
     }
 }

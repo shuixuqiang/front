@@ -436,7 +436,7 @@ label input[type="radio"] {
   height: 32px;
   padding: 0 20px;
   font-size: 14px;
-  border: 1px solid #eaeaea;
+  border: 1px solid #e2e2e2;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -448,8 +448,8 @@ label input[type="radio"] {
 a.btn,
 span.btn,
 label.btn {
-  background: #eaeaea;
-  border-color: #eaeaea;
+  background: #e2e2e2;
+  border-color: #e2e2e2;
   color: #666666;
 }
 .btn:hover,
@@ -2105,12 +2105,57 @@ table.table-center > tfoot > tr > td {
 .mod-sortctrl.sortdown .bottom-solid {
   border-color: #35B558;
 }
+.mod-power {
+  padding: 25px 0;
+  background-color: #fff;
+  border: 1px solid #e4e4e4;
+  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+.mod-power .power-control,
+.mod-power .power-chart {
+  height: 220px;
+  padding: 0 20px;
+}
+.mod-power .power-control {
+  float: left;
+  width: 272px;
+  border-right: 1px solid #e4e4e4;
+}
+.mod-power .power-chart {
+  margin-left: 273px;
+}
+.mod-range {
+  position: relative;
+  width: 150px;
+  height: 3px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+.mod-range .range-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #35b558;
+}
+.mod-range .range-ctrl {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: block;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
 #checking #container {
   min-height: 490px;
   padding-top: 92px;
 }
 .rolelink {
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
 }
 .rolelink a {
@@ -2138,6 +2183,12 @@ table.table-center > tfoot > tr > td {
   -webkit-background-size: 250px 200px;
   background-size: 250px 200px;
 }
+.mod-range .range-ctrl {
+  background-image: url(../img/ui/control.png);
+  background-repeat: no-repeat;
+  -webkit-background-size: 100px 50px;
+  background-size: 100px 50px;
+}
 .trs-3s {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
@@ -2149,6 +2200,7 @@ table.table-center > tfoot > tr > td {
 .mod-job .job-test:after,
 .paging-wrap:after,
 .mod-scale-chart ul:after,
+.mod-power:after,
 .wrap:after,
 .filtersort ul:after {
   display: table;
@@ -2178,8 +2230,8 @@ table.table-center > tfoot > tr > td {
   background: #f3f3f3;
 }
 .caption {
-  margin-bottom: 20px;
-  color: #666;
+  margin-bottom: 30px;
+  color: #333;
   font-size: 30px;
   font-weight: normal;
   line-height: 1.2;
@@ -2269,4 +2321,30 @@ table.table-center > tfoot > tr > td {
 }
 .filtersort li.active a {
   color: #35B558;
+}
+.require-import {
+  color: #666;
+  font-size: 12px;
+  line-height: 16px;
+}
+.require-import .icon {
+  position: relative;
+  top: -1px;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  background-image: none;
+  background-color: #e8e8e8;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+.require-import.general .icon {
+  background-color: #9ce7e2;
+}
+.require-import.skilled .icon {
+  background-color: #2db0aa;
+}
+.require-import.proficient .icon {
+  background-color: #086f73;
 }
