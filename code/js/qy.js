@@ -97,7 +97,7 @@ var qy_submit = {
             }
         });
         $contact.submitEmptyCheck({
-            note: "请输入联系人电话",
+            note: "请输入联系人",
             callback: function() {
                 formCount += 1;
             }
