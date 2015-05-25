@@ -1,0 +1,89 @@
+/**
+ * style form
+ *
+ * @project
+ * @copyright
+ * @author      
+ * @version 	1.0
+ *
+ */
+
+/**
+ * CSS Menu
+ *
+ * Form
+ * Theme
+ */
+
+/* Form
+ ---------------------------------------- */
+
+.form {
+	margin-bottom: 10px;
+}
+.form .lenged {
+	display: block;
+	width: 100%;
+	margin: 10px 0;
+}
+.formGroup,
+.form .item {
+	*zoom: 1;
+}
+.formGroup:after,
+.form .item:after {
+	display: table;
+	clear: both;
+	content: " ";
+}
+.form .item {
+	margin: 10px 0;
+}
+.form .item-label {
+	float: left;
+	clear: left;
+	/*width: 110px;*/
+	margin-right: 10px;
+	color: #333;
+	line-height: 26px;
+	text-align: right;
+}
+.form .item-cont {
+	/*margin-left: 120px;*/
+	line-height: 26px;
+}
+
+.form .item-label em {
+	margin: 0 5px;
+	color: #f00;
+	font-family: simsun;
+}
+.form .item-cont>.txt,
+.form .item-cont>.btn,
+.form .item-cont>.txt-tel,
+.form .item-cont>.select,
+.form .item-cont>select {
+	margin-right: 10px;
+}
+.form .item-cont>.radio,
+.form .item-cont>.chk {
+	margin-right: 5px;
+}
+.form .item-cont>label {
+	margin-right: 20px;
+}
+.form .item-cont .fixedTel,
+.form .item-cont .or{
+	margin-right: 10px;
+}
+/* form-inline */
+.form.form-inline .item {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	margin: 0 10px 15px 0;
+	vertical-align: top;
+}
+
+/* Theme
+ ---------------------------------------- */

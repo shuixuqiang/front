@@ -1,0 +1,179 @@
+/**
+ * style popup
+ *
+ * @project
+ * @copyright
+ * @author      
+ * @version 	1.0
+ *
+ */
+
+/**
+ * CSS Menu
+ *
+ * Popup
+ * Theme
+ * Layout
+ */
+
+/* Popup
+ ---------------------------------------- */
+
+.popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 990;
+	background: #fff;
+	border: 1px solid #d2d2d2;
+	-webkit-box-shadow:2px 2px 4px #333;
+	-moz-box-shadow:2px 2px 4px #333;
+	box-shadow:2px 2px 4px #333;
+}
+.popup .close {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-position: 0 -114px;
+	cursor: pointer;
+}
+.popup .close:hover {
+	background-position: -17px -114px;
+}
+.popup .hd {
+	height: 30px;
+	padding: 0 30px 0 8px;
+	background: #eee;
+	line-height: 30px;
+	cursor: default ;
+}
+.popup .hd h2 {
+	color: #333;
+	font-size: 14px;
+}
+.popup .bd {
+	*zoom: 1;
+	padding: 10px;
+}
+.popup .bd:after {
+	display: table;
+	clear: both;
+	content: " ";
+}
+.popup .btn-wrap {
+	padding: 10px 0;
+	text-align: center;
+}
+
+/* Theme
+ ---------------------------------------- */
+
+.popup-primary .hd{
+	background: #eee;
+}
+.popup-info .hd {
+	background: none;
+}
+
+/* Feedback
+ ---------------------------------------- */
+
+.pop-feedback,
+.pop-order {
+	width: 700px;
+}
+.pop-feedback .form fieldset,
+.pop-order .form fieldset {
+	float: left;
+	width: 300px;
+	margin: 0 20px;
+}
+.pop-feedback .form .lenged,
+.pop-order .form .lenged {
+	font-size: 14px;
+	font-weight: 700;
+}
+.pop-feedback .form .item,
+.pop-order .form .item {
+	margin: 5px 0;
+}
+.pop-feedback .item-mood label,
+.pop-order .item-interest label {
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	margin-right: 2px;
+	padding: 1px;
+	cursor: pointer;
+}.pop-order .item-interest ul {
+	width: 297px;
+	border: 1px solid #999;
+	border-width: 1px 0 0 1px;
+}
+.pop-order .item-interest li {
+	float: left;
+	width: 98px;
+	border: 1px solid #999;
+	border-width: 0 1px 1px 0;
+	
+}
+.pop-order .item-interest li:hover,
+.pop-order .item-interest li.sect {
+	background: #f59235;
+	color: #fff;
+}
+.pop-order .item-interest label {
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	line-height: 50px;
+}
+.pop-feedback .item-mood label.on {
+	padding: 0;
+	border: 1px solid #999;
+}
+.pop-feedback .item-mood label input,
+.pop-order .item-interest label input {
+	display: none;
+}
+.pop-feedback .item-mood label img {
+	vertical-align: bottom;
+}
+.pop-feedback .formGroup-contact .item,
+.pop-order .formGroup-contact .item {
+	float: left;
+	margin-right: 5px;
+}
+.pop-feedback .formGroup-contact .item-cont,
+.pop-order .formGroup-contact .item-cont {
+	float: left;
+}
+.pop-order .item-interest .sect .other {
+	line-height: 22px;
+	text-align: left;
+	text-indent: 10px;
+}
+.pop-order .item-interest .sect .other .txt {
+	display: block;
+	width: 70px;
+	margin-left:10px;
+	border: 0;
+}
+
+/* Weixin
+ ---------------------------------------- */
+
+.pop-weixin {
+	display: none;
+}
+.pop-weixin .bd {
+	padding: 0 30px 30px;
+}
+
+/* Layout
+ ---------------------------------------- */
