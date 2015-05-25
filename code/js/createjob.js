@@ -23,10 +23,10 @@ var createJob = {
 	init: function() {
 		this.bindEle();
 
-        var $scale = $('.power-import-scale');
-        $('.mod-range').range({
-            scale: $scale
-        });
+        //var $scale = $('.power-import-scale');
+        //$('.mod-range').range({
+        //    scale: $scale
+        //});
 	},
 	bindEle: function() {
 		$('#jobSubmit').bind("click", this.submitCheck);
@@ -70,10 +70,26 @@ var createJob = {
 		if (formCount == formNum) {
 			$('#formJob').submit();
 		}
-	}
+	},
+    //弹出层效果，依赖jquery.popupshow.js
+    btnEdit:function(btn){
+        btn.on('click',function(){
+            var feedbackNode = $("<div class='addprofessional' id='pop-addprofessional'>");
+
+            $(this).popupshow({
+                popupId: "pop-addprofessional",
+                node: feedbackNode,
+                htmlUrl: "addprofessional.html",
+                maskId: "mask",
+                position: "fixed"
+            })
+        })
+    }
+
 }
 
 $(function() {
 
 	createJob.init();
+	createJob.btnEdit($('.power-require .addnew'));
 });

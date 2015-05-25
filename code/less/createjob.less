@@ -58,6 +58,7 @@ hr {
 
 .power-require {
     margin-bottom: 30px;
+    position: relative;
     >header {
         margin-bottom: 30px;
         .cf;
@@ -83,7 +84,7 @@ hr {
 .pr-list {
     .mod-power {
         margin-bottom: 20px;
-    }
+      }
 }
 
 
@@ -212,4 +213,83 @@ hr {
             width: 120px;
         }
     }
+}
+//========================================各种弹出层
+//添加专业弹出层
+.addprofessional{
+  background: #fff;
+  z-index: 910;
+  width:948px;
+  height: 448px;
+  border:1px solid #cccccc;
+//  阴影效果待添加
+  header{
+    //清浮动方法还有更好的，不熟悉
+    border-bottom:2px solid #e1e1e1;
+    overflow: hidden;
+    height: 56px;
+    line-height: 56px;
+    h2{
+      float: left;
+      width:400px;
+      padding-left:10px ;
+      font:16px/56px "微软雅黑";
+      border-bottom: 1px solid #f3f3f3;
+    }
+    .close{
+      float: right;
+      padding-right: 25px;
+      height: 56px;
+      width:18px;
+      background: url("../img/ui/close.jpg") no-repeat left 19px;
+
+    }
+  }
+  .content{
+    padding:0 22px 0 19px;
+    .system-professional{
+      overflow: hidden;
+      h3{
+        height: 50px;
+        font:14px/50px "微软雅黑";
+      }
+
+    }
+    .my-professional{
+      overflow: hidden;
+      h3{
+        height: 42px;
+        font:14px/42px "微软雅黑";
+      }
+
+    }
+    .adduser-defined{
+      h3{
+        height: 36px;
+        font:14px/36px "微软雅黑";
+      }
+      .btn-reverse{
+        margin:5px 0 6px 0;
+      }
+
+    }
+    .probtn{
+      display: block;
+      float: left;
+      margin-bottom: 19px;
+      margin-right: 10px;
+      background-color:#eaf7ee;
+      height: 40px;
+      font:18px/40px "微软雅黑";
+      padding:0 40px;
+      color:#35b558;
+      border-radius: 3px;
+      border:1px solid #35b558;
+    }
+    .probtn.active{
+      background: #35b558;
+      color:#fff;
+    }
+
+  }
 }

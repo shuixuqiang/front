@@ -31,6 +31,7 @@ hr {
 }
 .power-require {
   margin-bottom: 30px;
+  position: relative;
 }
 .power-require > header,
 .other-require > header {
@@ -172,4 +173,72 @@ hr {
   right: 0;
   bottom: 0;
   width: 120px;
+}
+.addprofessional {
+  background: #fff;
+  z-index: 910;
+  width: 948px;
+  height: 448px;
+  border: 1px solid #cccccc;
+}
+.addprofessional header {
+  border-bottom: 2px solid #e1e1e1;
+  overflow: hidden;
+  height: 56px;
+  line-height: 56px;
+}
+.addprofessional header h2 {
+  float: left;
+  width: 400px;
+  padding-left: 10px ;
+  font: 16px/56px "微软雅黑";
+  border-bottom: 1px solid #f3f3f3;
+}
+.addprofessional header .close {
+  float: right;
+  padding-right: 25px;
+  height: 56px;
+  width: 18px;
+  background: url("../img/ui/close.jpg") no-repeat left 19px;
+}
+.addprofessional .content {
+  padding: 0 22px 0 19px;
+}
+.addprofessional .content .system-professional {
+  overflow: hidden;
+}
+.addprofessional .content .system-professional h3 {
+  height: 50px;
+  font: 14px/50px "微软雅黑";
+}
+.addprofessional .content .my-professional {
+  overflow: hidden;
+}
+.addprofessional .content .my-professional h3 {
+  height: 42px;
+  font: 14px/42px "微软雅黑";
+}
+.addprofessional .content .adduser-defined h3 {
+  height: 36px;
+  font: 14px/36px "微软雅黑";
+}
+.addprofessional .content .adduser-defined .btn-reverse {
+  margin: 5px 0 6px 0;
+}
+.addprofessional .content .probtn {
+  display: block;
+  float: left;
+  margin-bottom: 19px;
+  margin-right: 10px;
+  background-color: #eaf7ee;
+  height: 40px;
+  font: 18px/40px "微软雅黑";
+  padding: 0 40px;
+  color: #35b558;
+  border-radius: 3px;
+  border: 1px solid #35b558;
+}
+.addprofessional .content .probtn.active {
+  background: #35b558;
+  color: #fff;
 }

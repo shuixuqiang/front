@@ -2105,31 +2105,13 @@ table.table-center > tfoot > tr > td {
 .mod-sortctrl.sortdown .bottom-solid {
   border-color: #35B558;
 }
-.mod-power {
-  padding: 25px 0;
-  background-color: #fff;
-  border: 1px solid #e4e4e4;
-  -webkit-box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
-}
-.mod-power .power-control,
-.mod-power .power-chart {
-  height: 220px;
-  padding: 0 20px;
-}
-.mod-power .power-control {
-  float: left;
-  width: 272px;
-  border-right: 1px solid #e4e4e4;
-}
-.mod-power .power-chart {
-  margin-left: 273px;
-}
 .mod-range {
   position: relative;
-  width: 150px;
+  display: inline-block;
+  width: 140px;
   height: 3px;
   background-color: #ccc;
+  vertical-align: middle;
   cursor: pointer;
 }
 .mod-range .range-bar {
@@ -2137,7 +2119,7 @@ table.table-center > tfoot > tr > td {
   top: 0;
   left: 0;
   display: block;
-  width: 100%;
+  width: 0;
   height: 100%;
   background-color: #35b558;
 }
@@ -2148,7 +2130,39 @@ table.table-center > tfoot > tr > td {
   display: block;
   width: 10px;
   height: 10px;
+  margin-left: -5px;
   cursor: pointer;
+}
+.mod-power-chart ul {
+  width: 100%;
+}
+.mod-power-chart li {
+  float: left;
+  height: 100%;
+  background-color: #e8e8e8;
+}
+.mod-power-chart .power-standard {
+  height: 41px;
+}
+.mod-power-chart .power-standard .general {
+  background-color: #9ce7e2;
+}
+.mod-power-chart .power-standard .skilled {
+  background-color: #2db0aa;
+}
+.mod-power-chart .power-standard .proficient {
+  background-color: #086f73;
+}
+.mod-power-chart .power-accord,
+.mod-power-chart .power-not-accord {
+  height: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+.mod-power-chart .power-accord .highlight {
+  background-color: #a4d358;
+}
+.mod-power-chart .power-not-accord .highlight {
+  background-color: #f05368;
 }
 #checking #container {
   min-height: 490px;
@@ -2200,7 +2214,7 @@ table.table-center > tfoot > tr > td {
 .mod-job .job-test:after,
 .paging-wrap:after,
 .mod-scale-chart ul:after,
-.mod-power:after,
+.mod-power-chart ul:after,
 .wrap:after,
 .filtersort ul:after {
   display: table;

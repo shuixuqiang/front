@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>所有职位</title>
+		<link rel="stylesheet" href="css/common.min.css" />
+		<link rel="stylesheet" href="css/joblist.min.css" />
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/common.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header id="header">
+				<div class="wrap">
+					<div id="logo">
+						<a href="#"><img src="img/ui/logo.png" alt="" /></a>
+						<h1>职业技能测试平台</h1>
+					</div>
+					<div id="userNav">
+						<ul>
+							<li><a href="">登录</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- loading -->
+				<div id="loading"></div>
+				<!-- loading end -->
+			</header>
+			<div id="container">
+				<div class="wrap">
+					<!-- job list -->
+					<div class="jobList">
+						<header>
+							<h2 class="caption">我测评的职位</h2>
+						</header>
+						<!-- filtersort -->
+						<div class="filtersort">
+							<dl>
+								<dt>公司名称</dt>
+								<dd>
+									<ul>
+									<li class="active"><a href="#">不限</a></li>
+										<li><a href="#">公司名称</a></li>
+										<li><a href="#">公司名称</a></li>
+										<li><a href="#">公司名称</a></li>
+										<li><a href="#">公司名称</a></li>
+										<li><a href="#">公司名称</a></li>
+									</ul>
+								</dd>
+							</dl>
+							<dl>
+								<dt>发布时间</dt>
+								<dd>
+								<ul>
+									<li class="active"><a href="#">不限</a></li>
+									<li><a href="#">今天</a></li>
+									<li><a href="#">本周</a></li>
+									<li><a href="#">本月</a></li>
+								</ul>
+							</dd>
+							</dl>
+						</div>
+						<!-- filtersort end -->
+					</div>
+					<!-- job list end -->
+					<!-- statistic -->
+					<table class="table table-statistic" id="statistic">
+						<colgroup>
+							<col width="140" />
+							<col width="140" />
+							<col width="" />
+							<col width="200" />
+							<col width="80" />
+							<col width="100" />
+							<col width="120" />
+							<col width="110" />
+						</colgroup>
+						<thead>
+							<tr>
+								<th>用户名</th>
+								<th>测评时间<a class="mod-sortctrl sortup" href="#"><i class="arrow top-solid"></i><i class="arrow bottom-solid"></i></a></th>
+								<th colspan="3">专业得分<a class="mod-sortctrl sortdown" href="#"><i class="arrow top-solid"></i><i class="arrow bottom-solid"></i></a></th>
+								<th>附加分<a class="mod-sortctrl sortup" href="#"><i class="arrow top-solid"></i><i class="arrow bottom-solid"></i></a></th>
+								<th>总得分<a class="mod-sortctrl sortdown" href="#"><i class="arrow top-solid"></i><i class="arrow bottom-solid"></i></a></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>user1</td>
+								<td>2015-05-01</td>
+								<td colspan="3">
+									<div class="t-score">85+90+60 <span class="t-view"><i class="arrow bottom-solid"></i>详情</span></div>
+								</td>
+								<td>3</td>
+								<td class="successColor">86</td>
+								<td><a href="#" target="_blank" class="viewlink"><i class="icon i-file"></i>&nbsp;查看报告</a></td>
+							</tr>
+							<tr data-scorelist="">
+								<td></td>
+								<td></td>
+								<td colspan="3" class="t-scorelist">
+									<table>
+										<thead>
+											<tr>
+												<th>技能</th>
+												<th width="170">知识点掌握比例</th>
+												<th width="110">得分</th>
+											</tr>
+										</thead
+										<tbody>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>user1</td>
+								<td>2015-05-01</td>
+								<td colspan="3">
+									<div class="t-score">85+90+60 <span class="t-view"><i class="arrow bottom-solid"></i>详情</span></div>
+								</td>
+								<td>3</td>
+								<td class="successColor">86</td>
+								<td><a href="#" target="_blank" class="viewlink"><i class="icon i-file"></i>&nbsp;查看报告</a></td>
+							</tr>
+							<tr data-scorelist="">
+								<td></td>
+								<td></td>
+								<td colspan="3" class="t-scorelist">
+									<table>
+										<thead>
+											<tr>
+												<th>技能</th>
+												<th width="170">知识点掌握比例</th>
+												<th width="110">得分</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>user1</td>
+								<td>2015-05-01</td>
+								<td colspan="3">
+									<div class="t-score">85+90+60 <span class="t-view"><i class="arrow bottom-solid"></i>详情</span></div>
+								</td>
+								<td>3</td>
+								<td class="successColor">86</td>
+								<td><a href="#" target="_blank" class="viewlink"><i class="icon i-file"></i>&nbsp;查看报告</a></td>
+							</tr>
+							<tr data-scorelist="">
+								<td></td>
+								<td></td>
+								<td colspan="3" class="t-scorelist">
+									<table>
+										<thead>
+											<tr>
+												<th>技能</th>
+												<th width="170">知识点掌握比例</th>
+												<th width="110">得分</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr><tr>
+								<td>user1</td>
+								<td>2015-05-01</td>
+								<td colspan="3">
+									<div class="t-score">85+90+60 <span class="t-view"><i class="arrow bottom-solid"></i>详情</span></div>
+								</td>
+								<td>3</td>
+								<td class="successColor">86</td>
+								<td><a href="#" target="_blank" class="viewlink"><i class="icon i-file"></i>&nbsp;查看报告</a></td>
+							</tr>
+							<tr data-scorelist="">
+								<td></td>
+								<td></td>
+								<td colspan="3" class="t-scorelist">
+									<table>
+										<thead>
+											<tr>
+												<th>技能</th>
+												<th width="170">知识点掌握比例</th>
+												<th width="110">得分</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr><tr>
+								<td>user1</td>
+								<td>2015-05-01</td>
+								<td colspan="3">
+									<div class="t-score">85+90+60 <span class="t-view"><i class="arrow bottom-solid"></i>详情</span></div>
+								</td>
+								<td>3</td>
+								<td class="successColor">86</td>
+								<td><a href="#" target="_blank" class="viewlink"><i class="icon i-file"></i>&nbsp;查看报告</a></td>
+							</tr>
+							<tr data-scorelist="">
+								<td></td>
+								<td></td>
+								<td colspan="3" class="t-scorelist">
+									<table>
+										<thead>
+											<tr>
+												<th>技能</th>
+												<th width="170">知识点掌握比例</th>
+												<th width="110">得分</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+											<tr>
+												<td>Javascript</td>
+												<td>70%</td>
+												<td>85</td>
+											</tr>
+										</tbody>
+									</table>
+								</td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- statistic end -->
+				</div>
+			</div>
+			<footer id="footer">
+
+			</footer>
+		</div>
+		<script src="js/testlist.js"></script>
+	</body>
+</html>
