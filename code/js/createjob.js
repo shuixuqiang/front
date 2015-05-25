@@ -22,6 +22,11 @@ var editor = new Simditor({
 var createJob = {
 	init: function() {
 		this.bindEle();
+
+        var $scale = $('.power-import-scale');
+        $('.mod-range').range({
+            scale: $scale
+        });
 	},
 	bindEle: function() {
 		$('#jobSubmit').bind("click", this.submitCheck);

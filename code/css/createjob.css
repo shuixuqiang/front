@@ -117,6 +117,10 @@ hr {
   font-size: 14px;
   line-height: 18px;
   padding-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .mod-power .power-import .mod-range {
   margin: 0 4px;
@@ -144,10 +148,28 @@ hr {
 }
 .mod-power .power-import-note {
   position: relative;
+  padding-right: 130px;
   height: 100px;
+}
+.mod-power .power-import-note li {
+  margin-bottom: 23px;
+}
+.mod-power .power-import-note li:last-child {
+  margin-bottom: 0;
+}
+.mod-power .power-import-note li > strong {
+  display: block;
+  margin-left: 178px;
+  color: #333;
+  font-weight: normal;
+}
+.mod-power .power-import-note .require-import {
+  float: left;
+  color: #999;
 }
 .mod-power .power-import-note .btn-edit {
   position: absolute;
   right: 0;
   bottom: 0;
+  width: 120px;
 }

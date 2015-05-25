@@ -132,8 +132,8 @@
 				winH = $win.height(),
 				popupW = $popup.width(),
 				popupH = $popup.height(),
-				scrollT = $win.scrollTop();
-			scrollL = $win.scrollLeft();
+				scrollT = $win.scrollTop(),
+                scrollL = $win.scrollLeft();
 
 			if (position == "fixed") {
 				var popupTop = (winH - popupH) / 2,
@@ -160,7 +160,89 @@
 		$(window).resize(function() {
 			_popupPsotion(settings.popupId, settings.position);
 		})
-	}
+	};
+
+    /* -----------------------------------------/
+     * 功能：范围控件
+     * 参数：
+     * 返回：
+     * 作者：ZHANGHAIBIN
+    / ---------------------------------------- */
+    $.fn.range = function(options) {
+        var settings = $.extend({
+            'bar': '.range-bar',    // 进度条
+            'ctrl': '.range-ctrl',  // 滑块
+            'scale': null,          // 比率
+            'def': null             // 默认比率
+        }, options);
+
+        var $this = $(this),
+            $bar = $this.children(settings.bar),
+            $ctrl = $this.children(settings.ctrl);
+
+        // 如果默认值不为空
+        if (settings.def !== null) {
+            def(settings.def);
+        }
+
+        // 绑定滑块移动事件
+        $ctrl.bind("mousedown", moveEvent);
+        $this.bind("click", function(e){
+            var gangeW = $this.width(),
+                gangeL = $this.offset().left,
+                percent = gangeW / 100;
+            move(e, gangeW, gangeL, percent);
+        });
+        // 鼠标抬起后解绑鼠标移动事件
+        $('body').bind("mouseup", function() {
+            $(this).unbind("mousemove");
+        });
+
+        // 设置默认值
+        function def(scale) {
+            if (settings.scale !== null) {
+                settings.scale.html(scale);
+            }
+            $bar.width(scale + "%");
+            $ctrl.css({left: scale + "%"});
+        }
+        // 滑块移动事件
+        function moveEvent() {
+            var gangeW = $this.width(),
+                gangeL = $this.offset().left,
+                percent = gangeW / 100;
+
+            $('body').bind("mousemove", function(e) {
+                move(e, gangeW, gangeL, percent);
+            });
+        }
+        // 滑块移动函数
+        function move(e, width, left, percent) {
+            var nowCtrlL = e.pageX - left;
+            // 滑块移动范围
+            if (nowCtrlL > -1 && nowCtrlL <= width) {
+                var _ctrlL = Math.ceil(e.pageX - left);
+                var _scale = Math.ceil(_ctrlL / percent);
+
+                // 分数
+                if (settings.scale !== null) {
+                    settings.scale.html(_scale);
+                }
+                // 滑块和进度条样式
+                $ctrl.css({left: _scale + "%"});
+                $bar.width(_scale + "%");
+            }
+            stopSelect();
+        }
+        // 禁止选中内容
+        function stopSelect() {
+            if (window.getSelection) {
+                window.getSelection().removeAllRanges(); //w3c
+            } else if (document.selection) {
+                document.selection.empty(); //IE
+            }
+        }
+    };
 })(jQuery);
 
 var COMMON = {
@@ -185,9 +267,9 @@ var COMMON = {
 			scoreLen = 0;
 		for (prop in data) {
 			dataLen++;
-            if (data[prop].score) {
-                scoreLen++;
-            }
+			if (data[prop].score) {
+				scoreLen++;
+			}
 		}
 		// 如果数据长度为0则返回
 		if (!dataLen) return;
@@ -199,18 +281,30 @@ var COMMON = {
 			var scale_li = $('<li>'),
 				scale_bar = $('<div class="bar">');
 			// 创建权重图表
-			scale_bar.css({backgroundColor: val.color}).html(key);
-			scale_li.css({width: val.scale + "%"}).append(scale_bar).appendTo(scaleChart);
-			scale_bar.animate({width: "100%"}, 600);
+			scale_bar.css({
+				backgroundColor: val.color
+			}).html(key);
+			scale_li.css({
+				width: val.scale + "%"
+			}).append(scale_bar).appendTo(scaleChart);
+			scale_bar.animate({
+				width: "100%"
+			}, 600);
 
 			// 创建得分图表
 			if (dataLen == scoreLen) {
-			    var score_li = $('<li>'),
-                    score_bar = $('<div class="bar">');
-    				score_bar.css({backgroundColor: val.color}).html(val.score + "分");
+				var score_li = $('<li>'),
+					score_bar = $('<div class="bar">');
+				score_bar.css({
+					backgroundColor: val.color
+				}).html(val.score + "分");
 
-				score_li.css({width: val.scale + "%"}).append(score_bar).appendTo(scoreChart);
-				score_bar.animate({width: val.score + "%"}, 600);
+				score_li.css({
+					width: val.scale + "%"
+				}).append(score_bar).appendTo(scoreChart);
+				score_bar.animate({
+					width: val.score + "%"
+				}, 600);
 			}
 		});
 

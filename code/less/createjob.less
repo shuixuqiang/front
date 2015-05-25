@@ -159,6 +159,7 @@ hr {
         font-size: 14px;
         line-height: 18px;
         padding-bottom: 10px;
+        .user-select-none;
         .mod-range {
             margin: 0 4px;
         }
@@ -186,11 +187,29 @@ hr {
     }
     .power-import-note {
         position: relative;
+        padding-right: 130px;
         height: 100px;
+        li {
+            margin-bottom: 23px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            >strong {
+                display: block;
+                margin-left: 178px;
+                color: #333;
+                font-weight: normal;
+            }
+        }
+        .require-import {
+            float: left;
+            color: #999;
+        }
         .btn-edit {
             position: absolute;
             right: 0;
             bottom: 0;
+            width: 120px;
         }
     }
 }
