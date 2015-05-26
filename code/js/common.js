@@ -70,7 +70,8 @@
 			'htmlUrl': null, //要载入的html,可选
 			'maskId': null, //遮罩id,默认不显示
 			'position': 'fixed', //定位类别,可选
-			'closeCallback': null //关闭回调,可选
+			'closeCallback': null, //关闭回调,可选
+            'callback': null // 弹出回调
 		}, options);
 
 		var $popup = $("#" + settings.popupId);
@@ -82,7 +83,9 @@
 			_popupPsotion(settings.popupId, settings.position);
 			//关闭弹层
 			$("#" + settings.popupId + " .close").click(_close);
-
+            if (settings.callback !== null) {
+                settings.callback();
+            }
 		} else if (settings.node !== null) {
 			$('body').append($node);
 			if (settings.htmlUrl !== null) {
@@ -90,6 +93,10 @@
 					_popupPsotion(settings.popupId, settings.position);
 					//关闭弹层
 					$("#" + settings.popupId + " .close").click(_close);
+
+                    if (settings.callback !== null) {
+                        settings.callback();
+                    }
 				});
 			}
 		} else {
@@ -251,27 +258,15 @@
      / ---------------------------------------- */
     $.fn.tickSelect=function(){
         $this=$(this);
-        var setResult=[]//返回选择结果集合
+        var selIndex=0//返回选择结果索引
         var allLi=$this.find('li');
         var counts=allLi.size()//勾选个数
-        //初始化
-        for(var i=0;i<counts;i++){
-            if(allLi.eq(i).hasClass('active')){
-                setResult.push(true);
-            }else{
-                setResult.push(false);
-            }
-        }
         allLi.on('click',function(){
+            allLi.removeClass('active');
             $(this).toggleClass('active');
-            var index=$(this).index();//当前元素的索引值
-            if($(this).hasClass('active')){
-                setResult[index]=true;
-            }else{
-                setResult[index]=false;
-            }
+            selIndex=$(this).index();//当前元素的索引值
         })
-        return setResult;
+        return selIndex;
     };
 })(jQuery);
 

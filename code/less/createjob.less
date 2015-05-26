@@ -252,7 +252,7 @@ hr {
   .content{
     padding:0 22px 0 19px;
     max-height: 500px;
-    overflow: scroll;
+    overflow-y: auto;
     .system-professional{
       overflow: hidden;
       h3{
@@ -303,8 +303,10 @@ hr {
 .editmajor{
   background: #fff;
   z-index: 910;
-  width:945px;
-//  height: 448px;
+//  width:945px;
+  width:965px;
+  max-height: 600px;
+  overflow-y: auto;
   border:1px solid #cccccc;
   >header{//照抄的前面的
     //清浮动方法还有更好的，不熟悉
@@ -380,17 +382,81 @@ hr {
       li{
         float: left;
         padding-left: 14px;
+
       }
-      .select-head li:hover{
+      .select-head li a:hover{
         cursor: pointer;
         color:#38761d;
-
       }
-//      tickSelect区域
+      .select-head li.active{
+        a{
+          background: #35b558;
+          color:#fff;
+        }
+      }
+    }
+    //自定义技能点添加
+    .myskills .text{
+      width:100%;
+      height: 100%;
+      border:none;
+    }
+    
+    
+    
+    .newAdd{
+      clear:both;
+      .tickUnit.proneed{
+        margin-right:0 ;
+        margin-bottom: 0;
+      }
+    }
+    .newAdd .operation{
+      clear:both;
+      width:293px;
+      height:30px ;
+      border:1px solid #cccccc;
+      border-radius: 0 0 2px 2px;
+      padding-left: 200px;
+      a{
+        display: inline-block;
+        width:38px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+      }
 
+      a:nth-of-type(2){
+        color:red;
+      }
 
     }
-
+    .btn-reverse{
+      color:#35b558;
+    }
+  }
+  footer{
+    position: relative;
+    height: 80px;
+    border-top:2px solid #e1e1e1 ;
+    margin-top: 39px;
+    .savemypro{
+      position: absolute;
+      left:28px;
+      top:30px;
+      input{
+        width:18px;
+        height: 18px;
+      }
+      label{
+        font-size: 14px;
+      }
+    }
+    .btn-reverse{
+      position: absolute;
+      right: 24px;
+      top:20px;
+    }
 
   }
 }

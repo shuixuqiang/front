@@ -81,8 +81,131 @@ var createJob = {
                 node: feedbackNode,
                 htmlUrl: "addprofessional.html",
                 maskId: "mask",
-                position: "fixed"
+                position: "fixed",
+                callback:function(){
+                    $('.system-professional .probtn').on('click',function(){
+                        $('.system-professional .probtn').removeClass('active');
+                        $(this).addClass('active');
+                    })
+                    $('.my-professional .probtn').on('click',function(){
+                        $('.my-professional .probtn').removeClass('active');
+                        $(this).addClass('active');
+                    })
+                }
             })
+
+
+        })
+    },
+    //编辑弹出层
+    btnEdit2:function(btn){
+        btn.on('click',function(){
+            var feedbackNode = $("<div class='editmajor' id='pop-editmajor'>");
+            $(this).popupshow({
+                popupId: "pop-editmajor",
+                node: feedbackNode,
+                htmlUrl: "editmajor.html",
+                maskId: "mask",
+                callback: function(){
+                    <!--每个单独点击-->
+                    $('.tickUnit').each(function(i,elem){
+
+                        $(elem).tickSelect();
+                    })
+                    //全选======
+                    $('.list ').each(function(s,elem){
+                        selectAll($(elem));
+                    })
+                    //全选四个按钮功能实现
+                    function selectAll(iblock){
+                        var ihead=iblock.find('.select-head');
+                        var ibody=iblock.find('.tickSelect');
+                        var iheadLi=ihead.find('li');
+                        var selectLength=iheadLi.size();
+                        //添加点击事件
+                        for(var i=0;i<selectLength;i++){
+                            (function(i){
+                                iheadLi.eq(i).on('click',function(){
+                                    iheadLi.removeClass('active');
+                                    $(this).addClass('active');
+                                    //全选123
+                                    if(i==selectLength-1){
+                                        ibody.find('.tickUnit li').removeClass('active');
+                                    }
+                                    else{
+                                        for(var j=0;j<selectLength-1;j++){
+                                            if(iheadLi.eq(j).hasClass('active')){
+                                                ibody.find('.tickUnit li').removeClass('active');
+                                                ibody.find('.tickUnit').each(function(k,elem){
+                                                    $(elem).find('li').eq(j+1).addClass('active');
+                                                })
+                                            }
+                                        }
+                                    }
+                                })
+                            })(i);
+                        }
+
+                    }
+                    //自定义技能点监听事件
+                    var mydefineNodes=$('.myskills .tickUnit');
+                    delMyNode(mydefineNodes);
+                    // 删除每一个节点
+                    function delMyNode(mydefineNodes){
+                        var length=mydefineNodes.size();
+                        for(var i=0;i<length;i++){
+                            (function(i){
+                                var delNode=mydefineNodes.eq(i);
+                                var delbtn=delNode.find('li').eq(0);
+                                delbtn.on('click',function(){
+                                    if($(this).hasClass('active'))
+                                        delNode.remove();
+                                })
+                            })(i);
+                        }
+                    }
+                    // 添加自定义知识点
+                    $('#addSkill').on('click',function(){
+                        var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
+                            '<input type="text" value="输入新的自定义知识点" class="text"/></div> ' +
+                            '<ul class="selectArea"> <li class="style2"></li> <li class="style2"></li>'+
+                            '<li class=" style2"></li> <li class="style2"></li> </ul> </div> <div class="operation">'+
+                            '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
+                        $('.myskills').append(strHtml);
+                        //新节点添加js效果================
+                        var newNode=$('.newAdd .tickUnit');
+                        newNode.each(function(i,elem){
+                            $(elem).tickSelect();
+                        })
+                        newNode.find('li').eq(0).on('click',function(){
+                            $(this).removeClass('active');
+                            newNode.find('.name').html('');
+                        });
+
+
+                        //取消确认按钮=================
+                        var opA=$('.newAdd .operation a');
+                        //取消按钮
+                        opA.eq(0).on('click',function(){
+                            $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
+                        })
+                        //确认按钮
+                        opA.eq(1).on('click',function(){
+                            var node=$('.myskills .newAdd .tickUnit').clone(true);
+                            $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
+                            $('.myskills .tickSelect').append(node);
+                            //新节点删除功能
+                            node.find('li').eq(0).on('click',function(){
+                                node.remove();
+                            });
+
+                        })
+
+                    })
+
+                }
+            })
+
 
 
         })
@@ -93,24 +216,6 @@ var createJob = {
 $(function() {
 	createJob.init();
 	createJob.btnEdit($('.power-require .addnew'));
-    //添加专业点击效果
-    $('body').delegate('#pop-addprofessional .system-professional .probtn ','click',function(){
-        var probtnAll=$(this);
-        var num=probtnAll.size();
-        for(var i=0;i<num;i++){
-            probtnAll.eq(i).on('click',function(){
-                probtnAll.each(function(i,elem){
-                    $(elem).removeClass('active');
-                });
-                $(this).addClass('active');
-            })
-        }
-    });
-
-
-
-//    编辑专业需求js=这里有问题===
-//    $('tickUnit').tickSelect();
-
+	createJob.btnEdit2($('.power-require .btn-edit'));
 
 });
