@@ -19,7 +19,7 @@
 @charset "utf-8";
 
 @import (reference) "core/core.less";
-
+@import (reference) "ui/tickSelect.less";
 // 使用.cf清除浮动会将所有要清除浮动的样式合并, 如要单独清除浮动请使用.clearfix
 .clearfix {
     .clearfix-mixin;
@@ -218,16 +218,17 @@ hr {
 ////添加专业弹出层------------------------------
 .addprofessional{
   background: #fff;
-  z-index: 910;
+  overflow: hidden;
+  z-index: 920;
   width:948px;
-  height: 448px;
+//  height: 448px;
   border:1px solid #cccccc;
 //  阴影效果待添加
   header{
     //清浮动方法还有更好的，不熟悉
     border-bottom:2px solid #e1e1e1;
     overflow: hidden;
-    height: 56px;
+//    height: 56px;
     line-height: 56px;
     h2{
       float: left;
@@ -242,11 +243,16 @@ hr {
       height: 56px;
       width:18px;
       background: url("../img/ui/close.jpg") no-repeat left 19px;
+      &:hover{
+        cursor: pointer;
+      }
 
     }
   }
   .content{
     padding:0 22px 0 19px;
+    max-height: 500px;
+    overflow: scroll;
     .system-professional{
       overflow: hidden;
       h3{
@@ -294,3 +300,97 @@ hr {
   }
 }
 ////编辑专业需求弹出层------------------------------
+.editmajor{
+  background: #fff;
+  z-index: 910;
+  width:945px;
+//  height: 448px;
+  border:1px solid #cccccc;
+  >header{//照抄的前面的
+    //清浮动方法还有更好的，不熟悉
+    border-bottom:2px solid #e1e1e1;
+    overflow: hidden;
+    height: 56px;
+    line-height: 56px;
+    h2{
+      float: left;
+      width:400px;
+      padding-left:10px ;
+      font:16px/56px "微软雅黑";
+      border-bottom: 1px solid #f3f3f3;
+    }
+    .close{
+      float: right;
+      padding-right: 25px;
+      height: 56px;
+      width:18px;
+      background: url("../img/ui/close.jpg") no-repeat left 19px;
+    }
+  }
+  .content{
+
+    padding:0 19px;
+    .head{
+      overflow: hidden;
+      margin-top: 20px;
+      h2{
+        float: left;
+        width:209px;
+        height:23px ;
+        font:23px/23px "微软雅黑";
+        color:red;
+      }
+      ul{
+        float: left;
+        height: 23px;
+        padding-left:132px ;
+        overflow: hidden;
+      }
+      li{
+        padding-left: 48px;
+        float: left;
+        height: 23px;
+        font:12px/23px "宋体";
+        &:nth-of-type(1){
+          background: url("../img/ui/1.jpg") no-repeat 20px 3px;
+        };
+        &:nth-of-type(2){
+          background: url("../img/ui/2.jpg") no-repeat 20px 3px;
+        };
+        &:nth-of-type(3){
+          background: url("../img/ui/3.jpg") no-repeat 20px 3px;
+        };
+        &:nth-of-type(4){
+          background: url("../img/ui/4.jpg") no-repeat 20px 3px;
+        };
+      }
+
+    }
+    .list{
+      .select-head{
+        height: 48px;
+        font:14px/48px "微软雅黑";
+        overflow: hidden;
+        h3,ul{
+          float: left;
+          overflow: hidden;
+        }
+      }
+
+      li{
+        float: left;
+        padding-left: 14px;
+      }
+      .select-head li:hover{
+        cursor: pointer;
+        color:#38761d;
+
+      }
+//      tickSelect区域
+
+
+    }
+
+
+  }
+}

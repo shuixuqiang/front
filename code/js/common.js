@@ -243,6 +243,36 @@
             }
         }
     };
+    /* -----------------------------------------/
+     * 功能：勾选功能
+     * 参数：
+     * 返回：选择的结果集合
+     * 作者：TANGCIWEI
+     / ---------------------------------------- */
+    $.fn.tickSelect=function(){
+        $this=$(this);
+        var setResult=[]//返回选择结果集合
+        var allLi=$this.find('li');
+        var counts=allLi.size()//勾选个数
+        //初始化
+        for(var i=0;i<counts;i++){
+            if(allLi.eq(i).hasClass('active')){
+                setResult.push(true);
+            }else{
+                setResult.push(false);
+            }
+        }
+        allLi.on('click',function(){
+            $(this).toggleClass('active');
+            var index=$(this).index();//当前元素的索引值
+            if($(this).hasClass('active')){
+                setResult[index]=true;
+            }else{
+                setResult[index]=false;
+            }
+        })
+        return setResult;
+    };
 })(jQuery);
 
 var COMMON = {

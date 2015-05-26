@@ -1,10 +1,439 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>创建职位</title>
+    <link rel="stylesheet" href="js/plugin/simditor/simditor.css"/>
+    <!--<link rel="stylesheet" href="css/common.min.css" />-->
+    <!--<link rel="stylesheet" href="css/createjob.min.css" />-->
+    <link rel="stylesheet/less" href="less/common.less" />
+    <link rel="stylesheet/less" href="less/createjob.less" />
+    <link rel="stylesheet/less" href="less/ui/tickSelect.less" />
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/plugin/less-1.7.0.min.js"></script>
+    <script src="js/plugin/simditor/module.min.js"></script>
+    <script src="js/plugin/simditor/hotkeys.min.js"></script>
+    <script src="js/plugin/simditor/uploader.min.js"></script>
+    <script src="js/plugin/simditor/simditor.min.js"></script>
+    <script src="js/common.js"></script>
 </head>
 <body>
+    <div class="editmajor">
+        <header>
+            <h2>编辑专业需求</h2>
+            <div class="close"></div>
+        </header>
+        <div class="content">
+            <div class="head">
+                <h2>HTML5</h2>
+                <ul>
+                    <li >不做强制要求</li>
+                    <li >权重1-需要掌握</li>
+                    <li >权重2-需要熟练掌握</li>
+                    <li >权重3-职位核心技能</li>
+                </ul>
+            </div>
+            <!--基本技能-->
+            <section class="list">
+                <div class="select-head">
+                    <h3>基本技能点</h3>
+                    <ul >
+                        <li class="">全选1&nbsp;&nbsp;|</li>
+                        <li class="active">全选2&nbsp;&nbsp;|</li>
+                        <li class="">全选3&nbsp;&nbsp;|</li>
+                        <li class="">全不选</li>
+                    </ul>
+                </div>
+                <div class="tickSelect">
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                </div>
 
+            </section>
+            <!--=============-->
+            <section class="list">
+                <div class="select-head">
+                    <h3>进阶技能</h3>
+                    <ul >
+                        <li class="">全选1&nbsp;&nbsp;|</li>
+                        <li class="active">全选2&nbsp;&nbsp;|</li>
+                        <li class="">全选3&nbsp;&nbsp;|</li>
+                        <li class="">全不选</li>
+                    </ul>
+                </div>
+                <div class="tickSelect">
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <!--=======高级技能=======-->
+            <section class="list">
+                <div class="select-head">
+                    <h3>高级技能</h3>
+                    <ul >
+                        <li class="">全选1&nbsp;&nbsp;|</li>
+                        <li class="active">全选2&nbsp;&nbsp;|</li>
+                        <li class="">全选3&nbsp;&nbsp;|</li>
+                        <li class="">全不选</li>
+                    </ul>
+                </div>
+                <div class="tickSelect">
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+            <!--========自定义技能点==========-->
+            <section class="list" >
+                <div class="select-head">
+                    <h3>自定义技能</h3>
+                    <ul >
+                        <li class="">全选1&nbsp;&nbsp;|</li>
+                        <li class="active">全选2&nbsp;&nbsp;|</li>
+                        <li class="">全选3&nbsp;&nbsp;|</li>
+                        <li class="">全不选</li>
+                    </ul>
+                </div>
+                <div class="tickSelect">
+                    <div class="tickUnit proneed" >
+                        <div class="name">自定义技能</div>
+                        <ul class="selectArea">
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed" >
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                    <div class="tickUnit proneed">
+                        <div class="name">基本结构</div>
+                        <ul class="selectArea">
+                            <li class=""></li>
+                            <li class="active"></li>
+                            <li class=""></li>
+                            <li class="active"></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+        <footer>
+
+        </footer>
+    </div>
+
+
+
+<!--用的时候删除-->
+    <script src="js/createjob.js"></script>
+    <script>
+        <!--临时测试-->
+        $('.tickUnit').each(function(i,elem){
+            $(elem).tickSelect();
+        })
+    </script>
 </body>
 </html>

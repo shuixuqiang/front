@@ -83,13 +83,34 @@ var createJob = {
                 maskId: "mask",
                 position: "fixed"
             })
+
+
         })
     }
 
 }
 
 $(function() {
-
 	createJob.init();
 	createJob.btnEdit($('.power-require .addnew'));
+    //添加专业点击效果
+    $('body').delegate('#pop-addprofessional .system-professional .probtn ','click',function(){
+        var probtnAll=$(this);
+        var num=probtnAll.size();
+        for(var i=0;i<num;i++){
+            probtnAll.eq(i).on('click',function(){
+                probtnAll.each(function(i,elem){
+                    $(elem).removeClass('active');
+                });
+                $(this).addClass('active');
+            })
+        }
+    });
+
+
+
+//    编辑专业需求js=这里有问题===
+//    $('tickUnit').tickSelect();
+
+
 });
