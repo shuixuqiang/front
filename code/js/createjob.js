@@ -73,6 +73,7 @@ var createJob = {
 	},
     //弹出层效果，依赖jquery.popupshow.js
     btnEdit:function(btn){
+        var This=this;
         btn.on('click',function(){
             var feedbackNode = $("<div class='addprofessional' id='pop-addprofessional'>");
 
@@ -83,13 +84,11 @@ var createJob = {
                 maskId: "mask",
                 position: "fixed",
                 callback:function(){
-                    $('.system-professional .probtn').on('click',function(){
-                        $('.system-professional .probtn').removeClass('active');
-                        $(this).addClass('active');
-                    })
-                    $('.my-professional .probtn').on('click',function(){
-                        $('.my-professional .probtn').removeClass('active');
-                        $(this).addClass('active');
+                    $('#pop-addprofessional .probtn').on('click',function(){
+                        $('#mask').remove();
+                        $('#pop-addprofessional').remove();
+                        This.btnEdit2( $(this));
+                        $(this).trigger('click');
                     })
                 }
             })
