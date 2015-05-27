@@ -71,7 +71,7 @@
 			'maskId': null, //遮罩id,默认不显示
 			'position': 'fixed', //定位类别,可选
 			'closeCallback': null, //关闭回调,可选
-            'callback': null, // 弹出回调
+            'callback': null // 弹出回调
 
 		}, options);
 

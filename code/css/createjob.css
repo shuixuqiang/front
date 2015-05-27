@@ -246,7 +246,8 @@ hr {
   background: #35b558;
   color: #fff;
 }
-.editmajor {
+.editmajor,
+.myprofessional {
   background: #fff;
   z-index: 910;
   width: 965px;
@@ -254,99 +255,125 @@ hr {
   overflow-y: auto;
   border: 1px solid #cccccc;
 }
-.editmajor > header {
+.editmajor > header,
+.myprofessional > header {
   border-bottom: 2px solid #e1e1e1;
   overflow: hidden;
   height: 56px;
   line-height: 56px;
 }
-.editmajor > header h2 {
+.editmajor > header h2,
+.myprofessional > header h2 {
   float: left;
   width: 400px;
   padding-left: 10px ;
   font: 16px/56px "微软雅黑";
   border-bottom: 1px solid #f3f3f3;
 }
-.editmajor > header .close {
+.editmajor > header .close,
+.myprofessional > header .close {
   float: right;
   padding-right: 25px;
   height: 56px;
   width: 18px;
   background: url("../img/ui/close.jpg") no-repeat left 19px;
 }
-.editmajor .content {
+.editmajor > header .close:hover,
+.myprofessional > header .close:hover {
+  cursor: pointer;
+}
+.editmajor .content,
+.myprofessional .content {
   padding: 0 19px;
 }
-.editmajor .content .head {
+.editmajor .content .head,
+.myprofessional .content .head {
   overflow: hidden;
   margin-top: 20px;
 }
-.editmajor .content .head h2 {
+.editmajor .content .head h2,
+.myprofessional .content .head h2 {
   float: left;
   width: 209px;
   height: 23px ;
   font: 23px/23px "微软雅黑";
   color: red;
 }
-.editmajor .content .head ul {
+.editmajor .content .head ul,
+.myprofessional .content .head ul {
   float: left;
   height: 23px;
   padding-left: 132px ;
   overflow: hidden;
 }
-.editmajor .content .head li {
+.editmajor .content .head li,
+.myprofessional .content .head li {
   padding-left: 48px;
   float: left;
   height: 23px;
   font: 12px/23px "宋体";
 }
-.editmajor .content .head li:nth-of-type(1) {
+.editmajor .content .head li:nth-of-type(1),
+.myprofessional .content .head li:nth-of-type(1) {
   background: url("../img/ui/1.jpg") no-repeat 20px 3px;
 }
-.editmajor .content .head li:nth-of-type(2) {
+.editmajor .content .head li:nth-of-type(2),
+.myprofessional .content .head li:nth-of-type(2) {
   background: url("../img/ui/2.jpg") no-repeat 20px 3px;
 }
-.editmajor .content .head li:nth-of-type(3) {
+.editmajor .content .head li:nth-of-type(3),
+.myprofessional .content .head li:nth-of-type(3) {
   background: url("../img/ui/3.jpg") no-repeat 20px 3px;
 }
-.editmajor .content .head li:nth-of-type(4) {
+.editmajor .content .head li:nth-of-type(4),
+.myprofessional .content .head li:nth-of-type(4) {
   background: url("../img/ui/4.jpg") no-repeat 20px 3px;
 }
-.editmajor .content .list .select-head {
+.editmajor .content .list .select-head,
+.myprofessional .content .list .select-head {
   height: 48px;
   font: 14px/48px "微软雅黑";
   overflow: hidden;
 }
 .editmajor .content .list .select-head h3,
-.editmajor .content .list .select-head ul {
+.myprofessional .content .list .select-head h3,
+.editmajor .content .list .select-head ul,
+.myprofessional .content .list .select-head ul {
   float: left;
   overflow: hidden;
 }
-.editmajor .content .list li {
+.editmajor .content .list li,
+.myprofessional .content .list li {
   float: left;
   padding-left: 14px;
 }
-.editmajor .content .list .select-head li a:hover {
+.editmajor .content .list .select-head li a:hover,
+.myprofessional .content .list .select-head li a:hover {
   cursor: pointer;
   color: #38761d;
 }
-.editmajor .content .list .select-head li.active a {
+.editmajor .content .list .select-head li.active a,
+.myprofessional .content .list .select-head li.active a {
   background: #35b558;
   color: #fff;
 }
-.editmajor .content .myskills .text {
+.editmajor .content .myskills .text,
+.myprofessional .content .myskills .text {
   width: 100%;
   height: 100%;
   border: none;
 }
-.editmajor .content .newAdd {
+.editmajor .content .newAdd,
+.myprofessional .content .newAdd {
   clear: both;
 }
-.editmajor .content .newAdd .tickUnit.proneed {
+.editmajor .content .newAdd .tickUnit.proneed,
+.myprofessional .content .newAdd .tickUnit.proneed {
   margin-right: 0 ;
   margin-bottom: 0;
 }
-.editmajor .content .newAdd .operation {
+.editmajor .content .newAdd .operation,
+.myprofessional .content .newAdd .operation {
   clear: both;
   width: 293px;
   height: 30px ;
@@ -354,39 +381,72 @@ hr {
   border-radius: 0 0 2px 2px;
   padding-left: 200px;
 }
-.editmajor .content .newAdd .operation a {
+.editmajor .content .newAdd .operation a,
+.myprofessional .content .newAdd .operation a {
   display: inline-block;
   width: 38px;
   height: 30px;
   text-align: center;
   line-height: 30px;
 }
-.editmajor .content .newAdd .operation a:nth-of-type(2) {
+.editmajor .content .newAdd .operation a:nth-of-type(2),
+.myprofessional .content .newAdd .operation a:nth-of-type(2) {
   color: red;
 }
-.editmajor .content .btn-reverse {
+.editmajor .content .btn-reverse,
+.myprofessional .content .btn-reverse {
   color: #35b558;
 }
-.editmajor footer {
+.editmajor footer,
+.myprofessional footer {
   position: relative;
   height: 80px;
   border-top: 2px solid #e1e1e1 ;
   margin-top: 39px;
 }
-.editmajor footer .savemypro {
+.editmajor footer .savemypro,
+.myprofessional footer .savemypro {
   position: absolute;
   left: 28px;
   top: 30px;
 }
-.editmajor footer .savemypro input {
+.editmajor footer .savemypro input,
+.myprofessional footer .savemypro input {
   width: 18px;
   height: 18px;
 }
-.editmajor footer .savemypro label {
+.editmajor footer .savemypro label,
+.myprofessional footer .savemypro label {
   font-size: 14px;
 }
-.editmajor footer .btn-reverse {
+.editmajor footer .btn-reverse,
+.myprofessional footer .btn-reverse {
   position: absolute;
   right: 24px;
   top: 20px;
+}
+.myprofessional .pro-name {
+  height: 56px;
+  width: 306px;
+  border: 1px solid #cccccc;
+  margin-left: 20px ;
+  margin-top: 22px;
+}
+.myprofessional .pro-name input {
+  width: 100%;
+  height: 56px ;
+  font: 24px/56px "微软雅黑";
+  color: red;
+  padding-left: 9px;
+}
+.myprofessional .content .head {
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+.myprofessional .content .head h3 {
+  float: left;
+}
+.myprofessional .content .head ul {
+  float: right;
 }

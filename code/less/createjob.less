@@ -215,7 +215,7 @@ hr {
     }
 }
 //========================================各种弹出层
-////添加专业弹出层------------------------------
+////添加专业弹出层----addprofessinal.html页面用到--------------------------
 .addprofessional{
   background: #fff;
   overflow: hidden;
@@ -299,8 +299,8 @@ hr {
 
   }
 }
-////编辑专业需求弹出层------------------------------
-.editmajor{
+////编辑专业需求弹出层---------editmajor.html页面有用到;myprofessional.html---------------------
+.editmajor,.myprofessional{
   background: #fff;
   z-index: 910;
 //  width:945px;
@@ -327,6 +327,9 @@ hr {
       height: 56px;
       width:18px;
       background: url("../img/ui/close.jpg") no-repeat left 19px;
+      &:hover{
+        cursor: pointer;
+      }
     }
   }
   .content{
@@ -458,5 +461,35 @@ hr {
       top:20px;
     }
 
+  }
+}
+////myprofessional.html略加修改---------------------
+.myprofessional{
+  .pro-name{
+    height: 56px;
+    width: 306px;
+    border:1px solid #cccccc;
+    margin-left:20px ;
+    margin-top: 22px;
+    input{
+      width:100%;
+      height:56px ;
+      font:24px/56px "微软雅黑";
+      color:red;
+      padding-left: 9px;
+    }
+  }
+  .content{
+    .head{
+      overflow: hidden;
+      padding-top: 20px;
+      padding-bottom: 28px;
+      h3{
+        float: left;
+      }
+      ul{
+        float: right;
+      }
+    }
   }
 }
