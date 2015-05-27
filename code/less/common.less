@@ -242,28 +242,12 @@
       width:30px;
       height: 30px;
     }
-    li.style1{
-
-      &:nth-of-type(1){
-        background:#e8e8e8;
-      };
-      &:nth-of-type(2){
-        background:#9ce7e2;
-      };
-      &:nth-of-type(3){
-        background:#2db0aa;
-      };
-      &:nth-of-type(4){
-        background:#086f73;
-      };
-
-      &.active{
-        background-image:url("../img/ui/tickActive.png") ;
-      };
+    li.active{
+      background-image:url("../img/ui/tickActive.png") ;
     }
-    li.style2{
+    li.style1{
       &:nth-of-type(1){
-        background:url("../img/ui/defineTick.jpg") no-repeat 0 0 ;
+        background:#e8e8e8;
       };
       &:nth-of-type(2){
         background:#9ce7e2;
@@ -273,16 +257,26 @@
       };
       &:nth-of-type(4){
         background:#086f73;
-      };
-      &:nth-of-type(1).active{
-        background:#e8e8e8;
       };
       &.active{
         background-image:url("../img/ui/tickActive.png") ;
       }
-
     }
-
+  }
+  li.color1{
+    background:#e8e8e8;
+  }
+  li.color2{
+    background:#9ce7e2;
+  }
+  li.color3{
+    background:#2db0aa;
+  }
+  li.color4{
+    background:#086f73;
+  }
+  li.del{
+    background: url("../img/ui/defineTick.jpg") no-repeat;
   }
 }
 .proneed{

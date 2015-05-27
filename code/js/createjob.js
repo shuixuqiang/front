@@ -105,6 +105,7 @@ var createJob = {
     },
     //编辑专业需求弹出层edimajor.html页面
     btnEdit2:function(btn){
+        var This=this;
         btn.on('click',function(){
             $(this).popupshow({
                 popupId: "pop-editmajor",
@@ -169,74 +170,52 @@ var createJob = {
                         }
                     }
                     // 添加自定义知识点
-                    $('#addSkill').on('click',function(){
-                        var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
-                            '<input type="text" value=""  placeholder="输入新的自定义知识点" class="text"/></div> ' +
-                            '<ul class="selectArea"> <li class="style2"></li> <li class="style2"></li>'+
-                            '<li class=" style2"></li> <li class="style2"></li> </ul> </div> <div class="operation">'+
-                            '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
-                        //添加新节点========
-                        $('.myskills').append(strHtml);
-                        $(this).attr('disabled',true);
-                        //新节点添加js效果================
-                        var newNode=$('.newAdd .tickUnit');
-                        newNode.each(function(i,elem){
-                            $(elem).tickSelect();
-                        })
-                        newNode.find('li').eq(0).on('click',function(){
-                            $(this).removeClass('active');
-                            newNode.find('.name').html('');
-                        });
-                        var This=$(this);
-                        //取消确认按钮=================
-                        var opA=$('.newAdd .operation a');
-                        //取消按钮
-                        opA.eq(0).on('click',function(){
-                            $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
+                    This.userDefined($('#addSkill'));
 
-                            This.attr('disabled',false);
-                        })
-                        //确认按钮
-                        opA.eq(1).on('click',function(){
-                            var newNodeHtml=$('.myskills .newAdd .text').val();
-                            //对输入内容限制条件======
-                            var tips=textFilter(newNodeHtml);
-                            if(tips==-1){
-                                var addNode=' <div class="tickUnit proneed">'+
-                                    '<div class="name">'+newNodeHtml+'</div>'+
-                                '<ul class="selectArea"><li class="active style1"></li> <li class="style1"></li> ' +
-                                    '<li class=" style1"></li> <li class="style1"></li> </ul> </div>';
-
-                                $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-                                $('.myskills .tickSelect').append(addNode);
-                                //新节点删除功能
-                                $(addNode).find('li').eq(0).on('click',function(){
-                                    addNode.remove();
-                                });
-                                //新节点不可编辑
-
-
-                                This.attr('disabled',false);
-                            }else{
-                                alert(tips);
-                            }
-                            function textFilter(str){
-                                var result=-1;
-                                //var re=//g;正则，更好的判断方法
-                                if(str.length>100){
-                                    result="您输入的字符过长，请重新输入";
-                                }else if(str==""||str=="输入新的自定义知识点"){
-                                    result="请输入内容";
-                                }
-                                return result;
-                            }
-
-
-                        })
-
-                    })
-                    //    保存并添加按钮事件
+                    // 保存并添加按钮事件=============================
                     $('#editmajor-submit').on('click',function(){
+                        //遍历结果数组
+                        var basicDegree=[];
+                        var advanceDegree=[];
+                        var highDegree=[];
+                        var definedDegree=[];
+                        var defineName=[];
+                        //遍历========
+                        search($('.basic-skills .tickUnit'),basicDegree);
+                        search($('.advance-skills .tickUnit'),advanceDegree);
+                        search($('.high-skills .tickUnit'),highDegree);
+                        //前三个遍历方法
+                        function search(obj,result){
+                            obj.each(function(i,elem){
+                                var allLi=$(elem).find('li');
+                                for(var i=0;i<allLi.length;i++){
+                                    if(allLi.eq(i).hasClass('active')){
+                                        result.push(i);
+                                        break;
+                                    }
+                                }
+                            });
+                        }
+                        //自定义遍历name和degree
+                        $('.myskills .tickUnit').each(function(i,elem){
+                            //保存name
+                            var temp=$(elem).find('.name').html();
+                            defineName.push(temp);
+                            //保存degree
+                            var allLi=$(elem).find('li');
+                            for(var i=0;i<allLi.length;i++){
+                                if(allLi.eq(i).hasClass('active')){
+                                    definedDegree.push(i);
+
+                                    break;
+                                }
+                            }
+                        });
+                        //test=============
+                        //alert(defineName)
+                        //利用上面四个数组组织数据====================
+
+
                         $.post({
                             url:'',
                             data:{},
@@ -248,7 +227,6 @@ var createJob = {
                             }
                         });
                     });
-
                 }
             })
 
@@ -258,6 +236,7 @@ var createJob = {
     },
     //myprofessional.html页面
     btnEdit3:function(btn){
+        var This=this;
         btn.on('click',function(){
             $(this).popupshow({
                 popupId: "pop-myprofessional",
@@ -287,74 +266,33 @@ var createJob = {
                         }
                     }
                     // 添加自定义知识点
-                    $('#addSkill').on('click',function(){
-                        var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
-                            '<input type="text" value=""  placeholder="输入新的自定义知识点" class="text"/></div> ' +
-                            '<ul class="selectArea"> <li class="style2"></li> <li class="style2"></li>'+
-                            '<li class=" style2"></li> <li class="style2"></li> </ul> </div> <div class="operation">'+
-                            '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
-                        //添加新节点========
-                        $('.myskills').append(strHtml);
-                        $(this).attr('disabled',true);
-                        //新节点添加js效果================
-                        var newNode=$('.newAdd .tickUnit');
-                        newNode.each(function(i,elem){
-                            $(elem).tickSelect();
-                        })
-                        newNode.find('li').eq(0).on('click',function(){
-                            $(this).removeClass('active');
-                            newNode.find('.name').html('');
-                        });
-                        var This=$(this);
-                        //取消确认按钮=================
-                        var opA=$('.newAdd .operation a');
-                        //取消按钮
-                        opA.eq(0).on('click',function(){
-                            $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-
-                            This.attr('disabled',false);
-                        })
-                        //确认按钮
-                        opA.eq(1).on('click',function(){
-                            var newNodeHtml=$('.myskills .newAdd .text').val();
-                            //对输入内容限制条件======
-                            var tips=textFilter(newNodeHtml);
-                            if(tips==-1){
-                                var addNode=' <div class="tickUnit proneed">'+
-                                    '<div class="name">'+newNodeHtml+'</div>'+
-                                    '<ul class="selectArea"><li class="active style1"></li> <li class="style1"></li> ' +
-                                    '<li class=" style1"></li> <li class="style1"></li> </ul> </div>';
-
-                                $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-                                $('.myskills .tickSelect').append(addNode);
-                                //新节点删除功能
-                                $(addNode).find('li').eq(0).on('click',function(){
-                                    addNode.remove();
-                                });
-                                //新节点不可编辑
-
-
-                                This.attr('disabled',false);
-                            }else{
-                                alert(tips);
-                            }
-                            function textFilter(str){
-                                var result=-1;
-                                //var re=//g;正则，更好的判断方法
-                                if(str.length>100){
-                                    result="您输入的字符过长，请重新输入";
-                                }else if(str==""||str=="输入新的自定义知识点"){
-                                    result="请输入内容";
-                                }
-                                return result;
-                            }
-
-
-                        })
-
-                    })
-                    //    保存并添加按钮事件
+                    This.userDefined($('#addSkill'));
+                    //    保存并添加按钮事件=============================
                     $('#myprofessional-submit').on('click',function(){
+                        //遍历结果数组
+                        var professionName='';
+                        var definedDegree=[];
+                        var definedName=[];
+                        //遍历========
+                        search($('.myskills .tickUnit'),definedDegree,definedName);
+                        professionName=$('.pro-name input').val();
+                        //遍历方法
+                        function search(obj,result,name){
+                            obj.each(function(i,elem){
+                                var allLi=$(elem).find('li');
+                                for(var i=0;i<allLi.length;i++){
+                                    if(allLi.eq(i).hasClass('active')){
+                                        result.push(i);
+                                        name.push($(this).html());
+                                        break;
+                                    }
+                                }
+                            });
+                        }
+                        //组织数据========================
+                        //test==========
+                        //alert(professionName);
+
                         $.post({
                             url:'',
                             data:{},
@@ -409,7 +347,84 @@ var createJob = {
                 }
             })
         })
+    },
+    userDefined:function(obj){
+        obj.on('click',function(){
+            var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
+                '<input type="text" value=""  placeholder="输入新的自定义知识点" class="text"/></div> ' +
+                '<ul class="selectArea">  <li class="color2"></li>'+
+                '<li class=" color3"></li> <li class="color4"></li> </ul> </div> <div class="operation">'+
+                '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
+            //添加新节点========
+            $('.myskills').append(strHtml);
+            $(this).attr('disabled',true);
+            //新节点添加js效果================
+            var newNode=$('.newAdd .tickUnit');
+            newNode.tickSelect();
+
+            var This=$(this);
+            //取消确认按钮=================
+            var opA=$('.newAdd .operation a');
+            //取消按钮
+            opA.eq(0).on('click',function(){
+                $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
+
+                This.attr('disabled',false);
+            })
+            //确认按钮
+            opA.eq(1).on('click',function(){
+                var newNodeHtml=$('.myskills .newAdd .text').val();
+                //对输入内容限制条件======
+                var tips=textFilter(newNodeHtml);
+                if(tips==-1){
+                    //新节点点击的位置
+                    var index=0;
+                    for(var i=0;i<3;i++){
+                        if(newNode.find('li').eq(i).hasClass('active')){
+                            index=i;
+                            break;
+                        }
+                    }
+                    var addNode=' <div class="tickUnit proneed definenewadd" data-newNodeIndex="1">'+
+                        '<div class="name">'+newNodeHtml+'</div>'+
+                        '<ul class="selectArea"><li class="del"><li class=" color2"></li> <li class="color3"></li> ' +
+                        '<li class=" color4"></li>  </ul> </div>';
+
+                    $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
+                    $('.myskills .tickSelect').append(addNode);
+                    ////新节点设置数据
+                    $('.definenewadd').each(function(i,elem){
+                        //新节点点击效果
+                        $(elem).tickSelect();
+                        //删除效果
+                        (function(node){
+                            node.find('.del').on('click',function(){
+                                node.remove();
+                            });
+                        })($(elem));
+                    })
+                    //传输用户选择的数据
+                    $('.definenewadd:last').find('li').eq(index+1).addClass('active');
+
+                    This.attr('disabled',false);
+                }else{
+                    alert(tips);
+                }
+                function textFilter(str){
+                    var result=-1;
+                    //var re=//g;正则，更好的判断方法
+                    if(str.length>100){
+                        result="您输入的字符过长，请重新输入";
+                    }else if(str==""||str=="输入新的自定义知识点"){
+                        result="请输入内容";
+                    }
+                    return result;
+                }
+            })
+
+        });
     }
+
 }
 
 $(function() {

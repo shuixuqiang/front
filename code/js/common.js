@@ -263,10 +263,9 @@
         $this=$(this);
         var selIndex=0//返回选择结果索引
         var allLi=$this.find('li');
-        var counts=allLi.size()//勾选个数
         allLi.on('click',function(){
             allLi.removeClass('active');
-            $(this).toggleClass('active');
+            $(this).addClass('active');
             selIndex=$(this).index();//当前元素的索引值
         })
         return selIndex;

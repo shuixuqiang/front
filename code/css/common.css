@@ -2391,6 +2391,9 @@ table.table-center > tfoot > tr > td {
   width: 30px;
   height: 30px;
 }
+.tickUnit .selectArea li.active {
+  background-image: url("../img/ui/tickActive.png");
+}
 .tickUnit .selectArea li.style1:nth-of-type(1) {
   background: #e8e8e8;
 }
@@ -2406,23 +2409,20 @@ table.table-center > tfoot > tr > td {
 .tickUnit .selectArea li.style1.active {
   background-image: url("../img/ui/tickActive.png");
 }
-.tickUnit .selectArea li.style2:nth-of-type(1) {
-  background: url("../img/ui/defineTick.jpg") no-repeat 0 0;
-}
-.tickUnit .selectArea li.style2:nth-of-type(2) {
-  background: #9ce7e2;
-}
-.tickUnit .selectArea li.style2:nth-of-type(3) {
-  background: #2db0aa;
-}
-.tickUnit .selectArea li.style2:nth-of-type(4) {
-  background: #086f73;
-}
-.tickUnit .selectArea li.style2:nth-of-type(1).active {
+.tickUnit li.color1 {
   background: #e8e8e8;
 }
-.tickUnit .selectArea li.style2.active {
-  background-image: url("../img/ui/tickActive.png");
+.tickUnit li.color2 {
+  background: #9ce7e2;
+}
+.tickUnit li.color3 {
+  background: #2db0aa;
+}
+.tickUnit li.color4 {
+  background: #086f73;
+}
+.tickUnit li.del {
+  background: url("../img/ui/defineTick.jpg") no-repeat;
 }
 .proneed {
   float: left;
