@@ -76,11 +76,8 @@ var createJob = {
     btnEdit:function(btn){
         var This=this;
         btn.on('click',function(){
-            var feedbackNode = $("<div class='addprofessional' id='pop-addprofessional'>");
-
             $(this).popupshow({
                 popupId: "pop-addprofessional",
-                node: feedbackNode,
                 htmlUrl: "addprofessional.html",
                 maskId: "mask",
                 position: "fixed",
@@ -106,13 +103,11 @@ var createJob = {
 
         })
     },
-    //编辑弹出层edimajor.html页面
+    //编辑专业需求弹出层edimajor.html页面
     btnEdit2:function(btn){
         btn.on('click',function(){
-            var feedbackNode = $("<div class='editmajor' id='pop-editmajor'>");
             $(this).popupshow({
                 popupId: "pop-editmajor",
-                node: feedbackNode,
                 htmlUrl: "editmajor.html",
                 maskId: "mask",
                 callback: function(){
@@ -207,13 +202,19 @@ var createJob = {
                             //对输入内容限制条件======
                             var tips=textFilter(newNodeHtml);
                             if(tips==-1){
-                                var node=$('.myskills .newAdd .tickUnit').clone(true);
+                                var addNode=' <div class="tickUnit proneed">'+
+                                    '<div class="name">'+newNodeHtml+'</div>'+
+                                '<ul class="selectArea"><li class="active style1"></li> <li class="style1"></li> ' +
+                                    '<li class=" style1"></li> <li class="style1"></li> </ul> </div>';
+
                                 $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-                                $('.myskills .tickSelect').append(node);
+                                $('.myskills .tickSelect').append(addNode);
                                 //新节点删除功能
-                                node.find('li').eq(0).on('click',function(){
-                                    node.remove();
+                                $(addNode).find('li').eq(0).on('click',function(){
+                                    addNode.remove();
                                 });
+                                //新节点不可编辑
+
 
                                 This.attr('disabled',false);
                             }else{
@@ -234,6 +235,19 @@ var createJob = {
                         })
 
                     })
+                    //    保存并添加按钮事件
+                    $('#editmajor-submit').on('click',function(){
+                        $.post({
+                            url:'',
+                            data:{},
+                            success:function(data){
+
+                            },
+                            error:function(){
+
+                            }
+                        });
+                    });
 
                 }
             })
@@ -245,10 +259,8 @@ var createJob = {
     //myprofessional.html页面
     btnEdit3:function(btn){
         btn.on('click',function(){
-            var feedbackNode = $("<div class='myprofessional' id='pop-myprofessional'>");
             $(this).popupshow({
                 popupId: "pop-myprofessional",
-                node: feedbackNode,
                 htmlUrl: "myprofessional.html",
                 maskId: "mask",
                 callback: function(){
@@ -308,13 +320,19 @@ var createJob = {
                             //对输入内容限制条件======
                             var tips=textFilter(newNodeHtml);
                             if(tips==-1){
-                                var node=$('.myskills .newAdd .tickUnit').clone(true);
+                                var addNode=' <div class="tickUnit proneed">'+
+                                    '<div class="name">'+newNodeHtml+'</div>'+
+                                    '<ul class="selectArea"><li class="active style1"></li> <li class="style1"></li> ' +
+                                    '<li class=" style1"></li> <li class="style1"></li> </ul> </div>';
+
                                 $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-                                $('.myskills .tickSelect').append(node);
+                                $('.myskills .tickSelect').append(addNode);
                                 //新节点删除功能
-                                node.find('li').eq(0).on('click',function(){
-                                    node.remove();
+                                $(addNode).find('li').eq(0).on('click',function(){
+                                    addNode.remove();
                                 });
+                                //新节点不可编辑
+
 
                                 This.attr('disabled',false);
                             }else{
@@ -335,6 +353,19 @@ var createJob = {
                         })
 
                     })
+                    //    保存并添加按钮事件
+                    $('#myprofessional-submit').on('click',function(){
+                        $.post({
+                            url:'',
+                            data:{},
+                            success:function(data){
+
+                            },
+                            error:function(){
+
+                            }
+                        });
+                    });
 
                 }
             })
@@ -344,10 +375,8 @@ var createJob = {
     //extrademond.html页面js效果
     btnEdit4:function(btn){
         btn.on('click',function(){
-            var feedbackNode = $("<div class='extrademand' id='pop-extrademand'>");
             $(this).popupshow({
                 popupId: "pop-extrademand",
-                node: feedbackNode,
                 htmlUrl: "extrademand.html",
                 maskId: "mask",
                 callback: function(){
@@ -364,6 +393,19 @@ var createJob = {
                         $(this).css('background','url('+"img/ui/icon-select-1.jpg"+')  no-repeat left top');
                         $('.content .btn-reverse').css('display','none');
                     });
+                    //    保存并添加按钮事件
+                    $('#extrademand-submit').on('click',function(){
+                        $.post({
+                            url:'',
+                            data:{},
+                            success:function(data){
+
+                            },
+                            error:function(){
+
+                            }
+                        });
+                    });
                 }
             })
         })
@@ -375,4 +417,5 @@ $(function() {
 	createJob.btnEdit($('.power-require .addnew'));
 	createJob.btnEdit2($('.power-require .btn-edit'));
 	createJob.btnEdit4($('#addOtherRequire'));
+
 });
