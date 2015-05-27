@@ -450,3 +450,101 @@ hr {
 .myprofessional .content .head ul {
   float: right;
 }
+.extrademand {
+  background: #fff;
+  z-index: 910;
+  width: 965px;
+  max-height: 600px;
+  overflow-y: auto;
+  border: 1px solid #cccccc;
+}
+.extrademand > header {
+  border-bottom: 2px solid #e1e1e1;
+  overflow: hidden;
+  height: 56px;
+  line-height: 56px;
+}
+.extrademand > header h2 {
+  float: left;
+  width: 400px;
+  padding-left: 10px ;
+  font: 16px/56px "微软雅黑";
+  border-bottom: 1px solid #f3f3f3;
+}
+.extrademand > header .close {
+  float: right;
+  padding-right: 25px;
+  margin-right: 19px;
+  height: 56px;
+  width: 18px;
+  background: url("../img/ui/close.jpg") no-repeat left 19px;
+}
+.extrademand > header .close:hover {
+  cursor: pointer;
+}
+.extrademand .content {
+  width: 907px;
+  height: 236px;
+  paddding: 0 19px;
+  margin: 19px auto;
+  overflow: hidden;
+  position: relative;
+}
+.extrademand .textArea {
+  float: left;
+  width: 712px;
+  width: 700px;
+  height: 50px ;
+  border: 1px solid #cccccc;
+  padding-left: 10px;
+  font: 14px/50px "微软雅黑";
+}
+.extrademand .selectArea {
+  float: right;
+  width: 182px;
+}
+.extrademand .selectArea .head {
+  height: 50px;
+  border: 1px solid #cccccc;
+  overflow: hidden;
+}
+.extrademand .selectArea .head span {
+  display: block;
+  float: left;
+  border-right: 1px solid #cccccc;
+  width: 129px;
+  height: 50px;
+  font: 30px/50px "微软雅黑";
+  color: #35b558;
+  padding-left: 12px;
+}
+.extrademand .selectArea .head span strong {
+  font-weight: normal;
+}
+.extrademand .selectArea .head i {
+  float: right;
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url("../img/ui/icon-select-2.jpg") no-repeat left top;
+}
+.extrademand .selectArea .con {
+  border: 1px solid #cccccc;
+  border-top: none;
+  display: none;
+}
+.extrademand .selectArea .con li {
+  height: 36px;
+  font: 30px/36px "微软雅黑";
+  padding-left: 12px ;
+}
+.extrademand .selectArea .con li:hover {
+  cursor: pointer;
+  background: #35b558;
+  color: #fff;
+}
+.extrademand .btn-reverse {
+  position: absolute;
+  bottom: 120px;
+  right: 0;
+}

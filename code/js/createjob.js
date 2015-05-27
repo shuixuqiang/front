@@ -340,12 +340,39 @@ var createJob = {
             })
 
         })
-    }
+    },
+    //extrademond.html页面js效果
+    btnEdit4:function(btn){
+        btn.on('click',function(){
+            var feedbackNode = $("<div class='extrademand' id='pop-extrademand'>");
+            $(this).popupshow({
+                popupId: "pop-extrademand",
+                node: feedbackNode,
+                htmlUrl: "extrademand.html",
+                maskId: "mask",
+                callback: function(){
+                    $('.selectArea li').on('click',function(){
+                        var html=$(this).find('span').text();
+                        $('.selectArea .head strong').html(html);
+                        $('.selectArea .con').css('display','none');
+                        $('.selectArea .icon').css('background','url('+"img/ui/icon-select-2.jpg"+')  no-repeat left top');
+                        $('.content .btn-reverse').css('display','block');
 
+                    });
+                    $('.selectArea .icon').on('click',function(){
+                        $('.selectArea .con').css('display','block');
+                        $(this).css('background','url('+"img/ui/icon-select-1.jpg"+')  no-repeat left top');
+                        $('.content .btn-reverse').css('display','none');
+                    });
+                }
+            })
+        })
+    }
 }
 
 $(function() {
 	createJob.init();
 	createJob.btnEdit($('.power-require .addnew'));
 	createJob.btnEdit2($('.power-require .btn-edit'));
+	createJob.btnEdit4($('#addOtherRequire'));
 });
