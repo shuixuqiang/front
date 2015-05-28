@@ -174,46 +174,52 @@ var createJob = {
 
                     // 保存并添加按钮事件=============================
                     $('#editmajor-submit').on('click',function(){
-                        //遍历结果数组
-                        var basicDegree=[];
-                        var advanceDegree=[];
-                        var highDegree=[];
-                        var definedDegree=[];
-                        var defineName=[];
-                        //遍历========
-                        search($('.basic-skills .tickUnit'),basicDegree);
-                        search($('.advance-skills .tickUnit'),advanceDegree);
-                        search($('.high-skills .tickUnit'),highDegree);
-                        //前三个遍历方法
-                        function search(obj,result){
-                            obj.each(function(i,elem){
-                                var allLi=$(elem).find('li');
-                                for(var i=0;i<allLi.length;i++){
-                                    if(allLi.eq(i).hasClass('active')){
-                                        result.push(i);
+                        var data=JSON.parse($('#edimajor-data').val());
+                        search($('.basic-skills .tickUnit'),data.basic);
+                        search($('.advance-skills .tickUnit'),data.advanced);
+                        search($('.high-skills .tickUnit'),data.highGrade);
+                        data.defined=[];
+                        definedSearch($('.myskills .tickUnit'),data.defined);
+                        //arr位二维数组，obj为tickunit组；
+                        function search(obj,arr){
+                            for(var i=0;i<arr.length;i++){
+                                var unit=obj.eq(i).find('li');
+                                for(var j=0;j<unit.length;j++){
+                                    if(unit.eq(j).hasClass('active')){
+                                        arr[i].push(j);
                                         break;
                                     }
                                 }
-                            });
+
+                            }
                         }
                         //自定义遍历name和degree
-                        $('.myskills .tickUnit').each(function(i,elem){
-                            //保存name
-                            var temp=$(elem).find('.name').html();
-                            defineName.push(temp);
-                            //保存degree
-                            var allLi=$(elem).find('li');
-                            for(var i=0;i<allLi.length;i++){
-                                if(allLi.eq(i).hasClass('active')){
-                                    definedDegree.push(i);
-
-                                    break;
+                        function definedSearch(obj,arr){
+                            obj.each(function(i,elem){
+                                //每一条的数据
+                                var unitArr=[];
+                                //保存name
+                                var temp=$(elem).find('.name').html();
+                                unitArr.push(temp);
+                                //保存degree
+                                var allLi=$(elem).find('li');
+                                for(var i=0;i<allLi.length;i++){
+                                    if(allLi.eq(i).hasClass('active')){
+                                        unitArr.push(i);
+                                        break;
+                                    }
                                 }
-                            }
-                        });
+                                //存入data
+                                arr.push(unitArr);
+                            });
+                        }
+
                         //test=============
                         //alert(defineName)
                         //利用上面四个数组组织数据====================
+
+
+
 
 
                         $.post({
