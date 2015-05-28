@@ -2424,6 +2424,22 @@ table.table-center > tfoot > tr > td {
 .tickUnit li.del {
   background: url("../img/ui/defineTick.jpg") no-repeat;
 }
+.tickUnit.skillmeasure-page {
+  width: 324px;
+  height: 33px;
+}
+.tickUnit.skillmeasure-page .name {
+  height: 33px;
+  font: 12px/33px "宋体";
+}
+.tickUnit.skillmeasure-page .selectArea li {
+  float: left;
+  width: 33px;
+  height: 33px;
+}
+.tickUnit.skillmeasure-page .selectArea li.active {
+  background-image: url("../img/ui/tickActive2.png");
+}
 .proneed {
   float: left;
   margin-right: 10px ;

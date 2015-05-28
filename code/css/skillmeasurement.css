@@ -1,0 +1,167 @@
+@charset "utf-8";
+.clearfix:after {
+  display: table;
+  clear: both;
+  content: " ";
+}
+.banner {
+  background: url("../img/skillmeasurement-bg.jpg") no-repeat center center;
+  height: 185px ;
+}
+.banner h1,
+.banner nav {
+  width: 1000px;
+  margin: 0 auto;
+}
+.banner h1 {
+  width: 1000px;
+  height: 111px;
+  padding-top: 22px;
+  font: 30px/111px "微软雅黑";
+  text-align: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0);
+}
+.banner nav {
+  overflow: hidden;
+  position: relative;
+  bottom: -22px;
+  border-top: 1px solid #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.banner h3 {
+  float: left;
+  height: 50px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+  margin-left: -1px;
+  text-align: center;
+  color: #808080;
+  background-color: #e8e8e8;
+  font: 20px/50px "微软雅黑";
+}
+.banner h3:nth-of-type(1) {
+  margin-left: 0px;
+}
+.banner h3.active {
+  color: #ffffff;
+  background-color: #35b558;
+}
+.banner h3.active:hover {
+  cursor: pointer;
+}
+.content {
+  background-color: #f3f3f3;
+  border-bottom: 2px solid #dad8d8;
+  overflow: hidden;
+}
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+.info {
+  height: 90px ;
+  margin-top: 49px;
+  border-top: 1px solid #e4e4e4;
+  border-left: 1px solid #e4e4e4;
+  box-shadow: 2px 2px 2px #e4e4e4;
+  background-color: #fff;
+}
+.info h4 {
+  height: 57px;
+  font: 18px/57px "微软雅黑";
+  text-align: center;
+}
+.info ul {
+  margin-bottom: 18px ;
+  margin-left: 346px;
+  height: 18px;
+  width: 350px;
+}
+.info li {
+  float: left;
+  margin-right: 28px;
+  height: 16px;
+  font: 12px/16px "宋体";
+  color: #666666;
+}
+.info li div {
+  float: left;
+  height: 16px;
+  width: 16px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+.info li .color1 {
+  background-color: #e8e8e8;
+}
+.info li .color2 {
+  background-color: #9ce7e2;
+}
+.info li .color3 {
+  background-color: #2db0aa;
+}
+.info li .color4 {
+  background-color: #086f73;
+}
+.skill-test {
+  overflow: hidden;
+}
+.skill-test.test2,
+.skill-test.test3 {
+  display: none;
+}
+.skill-test h2 {
+  height: 88px;
+  font: 30px/88px "微软雅黑";
+}
+.skill-test .test-area {
+  overflow: hidden;
+}
+.skill-test .btn-next {
+  float: right;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.last-wrap {
+  display: none;
+}
+.extra-demand h2 {
+  height: 88px;
+  font: 30px/88px "微软雅黑";
+}
+.extra-demand li {
+  overflow: hidden;
+  height: 44px;
+  padding: 7px 18px 7px 18px;
+  margin-bottom: 11px;
+  background-color: #fff;
+}
+.extra-demand li.active {
+  border: 1px solid #35b558;
+}
+.extra-demand li div {
+  height: 36px;
+}
+.extra-demand li .text {
+  font: 16px/36px "微软雅黑";
+  float: left;
+}
+.extra-demand li .tickSel {
+  float: right;
+  width: 136px;
+  padding-left: 20px ;
+  border-left: 1px solid #e8e8e8 ;
+  font: 14px/36px "微软雅黑";
+  text-align: right;
+}
+.extra-demand li .tickSel.active {
+  color: #35b558;
+}
+.extra-demand li .tickSel:hover {
+  cursor: pointer;
+}
+.skillmeasure-submit {
+  margin-top: 19px;
+  margin-bottom: 50px ;
+}
