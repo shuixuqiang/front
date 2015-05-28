@@ -180,6 +180,7 @@ var createJob = {
                         search($('.high-skills .tickUnit'),data.highGrade);
                         data.defined=[];
                         definedSearch($('.myskills .tickUnit'),data.defined);
+
                         //arr位二维数组，obj为tickunit组；
                         function search(obj,arr){
                             for(var i=0;i<arr.length;i++){
@@ -190,7 +191,6 @@ var createJob = {
                                         break;
                                     }
                                 }
-
                             }
                         }
                         //自定义遍历name和degree

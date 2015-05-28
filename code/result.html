@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>测评结果</title>
+		<link rel="stylesheet" href="js/plugin/simditor/simditor.css"/>
+		<link rel="stylesheet" href="css/common.min.css" />
+		<link rel="stylesheet" href="css/createjob.min.css" />
+		<link rel="stylesheet" href="css/result.css" />
+        <!--为了编辑弹出层添加的-->
+
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="js/plugin/less-1.7.0.min.js"></script>
+		<script src="js/plugin/simditor/module.min.js"></script>
+		<script src="js/plugin/simditor/hotkeys.min.js"></script>
+		<script src="js/plugin/simditor/uploader.min.js"></script>
+		<script src="js/plugin/simditor/simditor.min.js"></script>
+
+        <!--<link rel="stylesheet" href="js/plugin/simditor/simditor.css"/>-->
+        <!--&lt;!&ndash;<link rel="stylesheet" href="css/common.min.css" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<link rel="stylesheet" href="css/createjob.min.css" />&ndash;&gt;-->
+        <!--<link rel="stylesheet/less" href="less/common.less" />-->
+        <!--<link rel="stylesheet/less" href="less/createjob.less" />-->
+        <!--<link rel="stylesheet/less" href="less/ui/tickSelect.less" />-->
+
+        <!--<script src="js/jquery-2.1.4.min.js"></script>-->
+        <!--<script src="js/plugin/less-1.7.0.min.js"></script>-->
+        <!--<script src="js/plugin/simditor/module.min.js"></script>-->
+        <!--<script src="js/plugin/simditor/hotkeys.min.js"></script>-->
+        <!--<script src="js/plugin/simditor/uploader.min.js"></script>-->
+        <!--<script src="js/plugin/simditor/simditor.min.js"></script>-->
+
+		<script src="js/common.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header id="header">
+				<div class="wrap">
+					<div id="logo">
+						<a href="#"><img src="img/ui/logo.png" alt="" /></a>
+						<h1>职业技能测试平台</h1>
+					</div>
+					<div id="userNav">
+						<ul>
+							<li><a href="">访问极客学院</a></li>
+							<li><a href="">我的测评</a></li>
+							<li class="userName">UsernameX</li>
+							<li><a href="">退出</a></li>
+						</ul>
+					</div>
+				</div>
+				<!-- loading -->
+				<div id="loading"></div>
+				<!-- loading end -->
+			</header>
+			<div id="container">
+				<!-- wrap -->
+				<div class="wrap">
+					<!-- power-require -->
+					<div class="power-require">
+						<header>
+							<h2 class="caption">高级Web前端工程师-职位匹配度评测结果</h2>
+						</header>
+						<article class="pr-list">
+							<section class="mod-power">
+								<div class="relative">
+									<aside class="skill-score">
+										<strong class="score">85</strong>
+										<p class="note">综合得分</p>
+									</aside>
+									<div class="skill-chart">
+										<h4 class="hint">恭喜！</h4>
+										<p class="advise">您的测评结果符合该职位的技能需求，建议直接投递该职位</p>
+										<p class="desc">掌握了所需378知识点中的302个 
+											<a href="javascript:;">查看所有未掌握知识点</a>
+										</p>
+										<!-- progress -->
+										<div class="mod-scale-chart" id="scaleChart">
+											<ul>
+												<li style="width: 50%;">
+													<div class="bar" style="width: 100%; background-color: rgb(220, 77, 16);">HTML5</div>
+												</li>
+												<li style="width: 20%;">
+													<div class="bar" style="width: 100%; background-color: rgb(55, 153, 214);">CSS</div>
+												</li>
+												<li style="width: 30%;">
+													<div class="bar" style="width: 100%; background-color: rgb(211, 32, 36);">JavaScript</div>
+												</li>
+											</ul>
+											<ul class="score">
+												<li style="width: 50%;">
+													<div class="bar" style="width: 90%; background-color: rgb(220, 77, 16);">90分</div>
+												</li>
+												<li style="width: 20%;">
+													<div class="bar" style="width: 90%; background-color: rgb(55, 153, 214);">90分</div>
+												</li>
+												<li style="width: 30%;">
+													<div class="bar" style="width: 60%; background-color: rgb(211, 32, 36);">60分</div>
+												</li>
+											</ul>
+										</div>
+										<!-- /progress -->
+									</div>
+								</div>
+								
+							</section>
+						</article>
+					</div>
+					<!-- /power-require -->
+				</div>
+				<!-- wrap end -->
+
+				<!-- wrap -->
+				<div class="wrap">
+					<!-- power require-->
+					<div class="power-require">
+						<header>
+							<h2 class="caption">技能评测得分详情</h2>
+							<ul class="pr-note">
+								<li class="require-import"><i class="icon"></i>不做强制要求</li>
+								<li class="require-import general"><i class="icon"></i>权重1-需要掌握</li>
+								<li class="require-import skilled"><i class="icon"></i>权重2-需要熟练掌握</li>
+								<li class="require-import proficient"><i class="icon"></i>权重3-职位核心技能</li>
+							</ul>
+						</header>
+						<article class="pr-list">
+							<!-- skill -->
+							<section class="mod-power">
+								<div  class="skill-top">
+									<header>
+										<h3 class="tit red">HTML5</h3>
+										<ul class="pr-note">
+											<li class="require-import general"><i class="icon"></i>32个知识点</li>
+											<li class="require-import skilled"><i class="icon"></i>32个知识点</li>
+											<li class="require-import proficient"><i class="icon"></i>32个知识点</li>
+										</ul>
+									</header>
+									
+
+									<div class="mod-power-chart">
+										<ul class="power-standard">
+											<li style="width: 100px"></li>
+											<li class="general" style="width: 100px"></li>
+											<li class="skilled" style="width: 100px"></li>
+											<li class="proficient" style="width: 100px"></li>
+										</ul>
+										<ul class="power-accord">
+											<li class="highlight" style="width: 100px"></li>
+											<li style="width: 100px"></li>
+										</ul>
+
+										<ul class="power-not-accord">
+											<li style="width: 100px"></li>
+											<li class="highlight" style="width: 100px"></li>
+										</ul>
+									</div><!-- /mod-power-chart -->
+								</div>
+
+								<div class="relative">
+									<aside class="skill-score">
+										<strong class="score">90</strong>
+										<p class="note">综合得分</p>	
+									</aside>
+									<div class="skill-chart">
+										<p class="summary"><i class="circle-succ"></i>你掌握了该职位对于HTML5要求的167个知识点中的130个</p>
+										<p class="summary"><i class="circle-fail"></i>有45个知识点未掌握：</p>
+										<ul class="skill-kb">
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+										</ul>
+
+										<div class="link">
+											我们已经根据测评结果为您生成了播放列表 
+											<a class="btn btn-def lg w-lg" href="">马上充电</a>
+										</div>
+										<!--/link-->
+									</div>
+								</div>
+							</section>
+							<!-- /skill -->
+							<!-- skill -->
+							<section class="mod-power">
+								<div  class="skill-top">
+									<header>
+										<h3 class="tit blue">CSS3</h3>
+										<ul class="pr-note">
+											<li class="require-import general"><i class="icon"></i>32个知识点</li>
+											<li class="require-import skilled"><i class="icon"></i>32个知识点</li>
+											<li class="require-import proficient"><i class="icon"></i>32个知识点</li>
+										</ul>
+									</header>
+									
+
+									<div class="mod-power-chart">
+										<ul class="power-standard">
+											<li style="width: 100px"></li>
+											<li class="general" style="width: 100px"></li>
+											<li class="skilled" style="width: 100px"></li>
+											<li class="proficient" style="width: 100px"></li>
+										</ul>
+										<ul class="power-accord">
+											<li class="highlight" style="width: 100px"></li>
+											<li style="width: 100px"></li>
+										</ul>
+
+										<ul class="power-not-accord">
+											<li style="width: 100px"></li>
+											<li class="highlight" style="width: 100px"></li>
+										</ul>
+									</div><!-- /mod-power-chart -->
+								</div>
+
+								<div class="relative">
+									<aside class="skill-score">
+										<strong class="score">90</strong>
+										<p class="note">综合得分</p>	
+									</aside>
+									<div class="skill-chart">
+										<p class="summary"><i class="circle-succ"></i>你掌握了该职位对于HTML5要求的167个知识点中的130个</p>
+										<p class="summary"><i class="circle-fail"></i>有45个知识点未掌握：</p>
+										<ul class="skill-kb">
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+										</ul>
+
+										<div class="link">
+											我们已经根据测评结果为您生成了播放列表 
+											<a class="btn btn-def lg w-lg" href="">马上充电</a>
+										</div>
+										<!--/link-->
+									</div>
+								</div>
+							</section>
+							<!-- /skill -->
+							<!-- skill -->
+							<section class="mod-power">
+								<div  class="skill-top">
+									<header>
+										<h3 class="tit red">JavaScript</h3>
+										<ul class="pr-note">
+											<li class="require-import general"><i class="icon"></i>32个知识点</li>
+											<li class="require-import skilled"><i class="icon"></i>32个知识点</li>
+											<li class="require-import proficient"><i class="icon"></i>32个知识点</li>
+										</ul>
+									</header>
+									
+
+									<div class="mod-power-chart">
+										<ul class="power-standard">
+											<li style="width: 100px"></li>
+											<li class="general" style="width: 100px"></li>
+											<li class="skilled" style="width: 100px"></li>
+											<li class="proficient" style="width: 100px"></li>
+										</ul>
+										<ul class="power-accord">
+											<li class="highlight" style="width: 100px"></li>
+											<li style="width: 100px"></li>
+										</ul>
+
+										<ul class="power-not-accord">
+											<li style="width: 100px"></li>
+											<li class="highlight" style="width: 100px"></li>
+										</ul>
+									</div><!-- /mod-power-chart -->
+								</div>
+
+								<div class="relative">
+									<aside class="skill-score">
+										<strong class="score">90</strong>
+										<p class="note">综合得分</p>	
+									</aside>
+									<div class="skill-chart">
+										<p class="summary"><i class="circle-succ"></i>你掌握了该职位对于HTML5要求的167个知识点中的130个</p>
+										<p class="summary"><i class="circle-fail"></i>有45个知识点未掌握：</p>
+										<ul class="skill-kb">
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+											<li>
+												<a href="javascript:;">
+													知识点
+												</a>
+											</li>
+										</ul>
+
+										<div class="link">
+											我们已经根据测评结果为您生成了播放列表 
+											<a class="btn btn-def lg w-lg" href="">马上充电</a>
+										</div>
+										<!--/link-->
+									</div>
+								</div>
+							</section>
+							<!-- /skill -->
+						</article>
+					</div>
+					<!-- power require end -->
+					<hr/>
+					<!-- other require -->
+					<div class="other-require">
+						<header><h2 class="caption">加分项</h2></header>
+						<article>
+							<ul class="or-list skill-add">
+								<li>掌握简单的PHP代码编写<strong class="addScore">总分 +3</strong></li>
+								<li>掌握简单的PHP代码编写<strong class="addScore">总分 +3</strong></li>
+							</ul>
+						</article>
+					</div>
+					<!-- other require end -->
+				</div>
+				<!-- wrap end -->
+				<hr />
+				<!-- wrap -->
+				<div class="wrap">
+                    <div class="overview">
+                        <div class="ov-text">
+                            <div class="wrap">
+                                <h2 class="caption">高级Web前端工程师</h2>
+                                <dl class="ov-laborage">
+                                   	<dt>职位工资：</dt>
+                                    	<dd>8k-12k</dd>
+                                </dl>
+                                <dl class="ov-location">
+                                	   <dt>工作地点：</dt>
+                                	   <dd>北京</dd>
+                                </dl>
+                                <dl class="ov-item">
+                                	   <dt>职位详情：</dt>
+                                	   <dd>
+                                	       <div class="ov-item-caption">岗位职责：</div>
+                                       <ul>
+                                           <li>负责公司技术部门产品web前端研发；</li>
+                                           <li>负责内容部门web实战性项目布道师内容的设计和输出；</li>
+                                           <li>web前沿技术研究和新技术调研。</li>
+                                       </ul>
+                                       <div class="ov-item-caption">任职要求：</div>
+                                       <ol>
+                                           <li>1.精通HTML/XHTML、CSS、XML、DOM等前台相关技术，熟悉W3C各标准，精通页面架构和布局；</li>
+                                           <li>2.熟悉常见跨浏览器兼容问题，有良好的WEB前端优化经验，能够进行模块化设计与开发；</li>
+                                           <li>3.精通JavaScript、Ajax等Web开发技术，熟悉PHP/Ruby/python等后端技术；</li>
+                                           <li>4.熟悉Nodejs/H5/Canvas/WebGL/SASS/CSS3/less/backbone/angular优先；</li>
+                                           <li>5.具有娴熟的语言表达能力，逻辑性强；</li>
+                                           <li>6.热爱在线教育行业，具有极客精神；</li>
+                                           <li>7.有强烈的自我学习和成长欲望。</li>
+                                       </ol>
+                                	   </dd>
+                                </dl>
+                            </div>
+                        </div>
+                        <div class="ov-logo">
+                            <div class="wrap">
+                                <div class="qy-logo"><img src="" alt=""></div>
+                                <p>中国最大的IT职业在线教育平台！2014年9月份，获得顶级风投SIG和蓝驰创投B轮2200W美金投资。创始团队写过中国大陆第一本Android开发教材，重印高达18版，是Android开发学习入门必读红宝书。同时创办了中国最大的移动开发者社区eoe（注册用户超200W）。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resbtnbox">
+                    	<a class="btn btn-def lg" href="">使用测评结果申请该职位</a>
+                    	<a class="btn btn-def lg" href="">根据测评结果学习推荐课程</a>
+                    </div>
+                </div>
+				<!-- wrap end -->
+			</div>
+			<footer id="footer">
+
+			</footer>
+		</div>
+		<script src="js/result.js"></script>
+		<script>
+            var scaleObj = {
+                "HTML5": {
+                    "scale": 50,
+                    "color": "#dc4d10",
+                    "score": 90
+                },
+                "CSS": {
+                    "scale": 20,
+                    "color": "#3799d6",
+                    "score": 90
+                },
+                "JavaScript": {
+                    "scale": 30,
+                    "color": "#d32024",
+                    "score": 60
+                }
+            };
+        </script>
+	</body>
+</html>
