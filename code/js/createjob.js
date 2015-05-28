@@ -119,11 +119,11 @@ var createJob = {
                     $('.tickUnit').each(function(i,elem){
 
                         $(elem).tickSelect();
-                    })
+                    });
                     //全选======
                     $('.list ').each(function(s,elem){
                         selectAll($(elem));
-                    })
+                    });
                     //全选四个按钮功能实现
                     function selectAll(iblock){
                         var ihead=iblock.find('.select-head');
@@ -154,7 +154,7 @@ var createJob = {
                             })(i);
                         }
 
-                    }
+                    };
                     //自定义技能点监听事件
                     var mydefineNodes=$('.myskills .tickUnit');
                     delMyNode(mydefineNodes);
@@ -198,7 +198,7 @@ var createJob = {
                                    }
                                }
                            });
-                        };
+                        }
                         //自定义遍历name和degree
                         $('.myskills .tickUnit').each(function(i,elem){
                             //保存name
@@ -220,25 +220,20 @@ var createJob = {
                         //alert(basicDegree);
                         //利用上面四个数组组织数据====================
 
+                        //$.post({
+                        //    url:'',
+                        //    data:{},
+                        //    success:function(data){
+                        //
+                        //    },
+                        //    error:function(){
+                        //
+                        //    }
+                        //});
 
-
-
-
-                        $.post({
-                            url:'',
-                            data:{},
-                            success:function(data){
-
-                            },
-                            error:function(){
-
-                            }
-                        });
                     });
                 }
-            })
-
-
+            });
 
         })
     },
@@ -395,7 +390,7 @@ var createJob = {
                     }
                     var addNode=' <div class="tickUnit proneed definenewadd" data-newNodeIndex="1">'+
                         '<div class="name">'+newNodeHtml+'</div>'+
-                        '<ul class="selectArea"><li class="del"><li class=" color2"></li> <li class="color3"></li> ' +
+                        '<ul class="selectArea"><li class="del"></li><li class=" color2"></li> <li class="color3"></li> ' +
                         '<li class=" color4"></li>  </ul> </div>';
 
                     $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
@@ -432,16 +427,35 @@ var createJob = {
 
         });
     },
-    moveChange:function(obj,direct){
+    movefn:function(obj,direct){
+        //注意curindex从1开始编号的
         if(direct=='top'){
             obj.on('click',function(){
-                var curNode=$(this).parentsUntil('.pr-list');
-                //var curNode=$('.pr-list').eq(index);
-                curNode.remove();
+                var curNode=$(this).parents('.pr-list');
+                var curindex=curNode.index();
+                if(curindex>=2)
+                    curNode.insertBefore($('.pr-list').eq(curindex-2));
+            });
+        }else if(direct=='bottom'){
+            obj.on('click',function(){
+                var curNode=$(this).parents('.pr-list');
+                var curindex=curNode.index();
+                var length=$('.pr-list').size();
+
+                if(curindex<length)
+                    //$('.pr-list').eq(curindex-2).insertBefore(curNode);
+                    curNode.insertAfter($('.pr-list').eq(curindex));
             });
         }
 
+    },
+    moveNode:function(objArr,direct){
+        var length=objArr.size();
+        for(var i=0;i<length;i++){
+            this.movefn(objArr.eq(i),direct);
+        }
     }
+
 
 }
 
@@ -450,6 +464,8 @@ $(function() {
 	createJob.btnEdit($('.power-require .addnew'));
 	createJob.btnEdit2($('.power-require .btn-edit'));
 	createJob.btnEdit4($('#addOtherRequire'));
-	createJob.moveChange($('.btn-movetop').eq(1),'top');
+    //移动节点==
+    createJob.moveNode($('.btn-movetop'),'top');
+    createJob.moveNode($('.btn-movebottom'),'bottom');
 
 });
