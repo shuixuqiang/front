@@ -56,3 +56,28 @@ $('.extra-demand .tickSel').each(function(i,elem){
         $(this).parents('li').toggleClass('active');
     });
 });
+//保存按钮=======最终提交数据
+$('.skillmeasure-submit').on('click',function(){
+    var skillResult=[];//二维数组，每个一维数组对于存放的一组数据；
+    var extraDemand=[];//额外需求;满足为true,否则为false
+    $('.skill-test').each(function(i,elem){
+        skillResult[i]=new Array();
+        $(elem).find('.tickUnit').each(function(j,elem){
+            $(elem).find('li').each(function(k,elem){
+                if($(this).hasClass('active')){
+                    skillResult[i].push(k);
+                }
+            });
+        });
+    });
+    $('.extra-demand li').each(function(i,elem){
+        if($(elem).hasClass('active')){
+            extraDemand.push(true);
+        }else{
+            extraDemand.push(false);
+        }
+    });
+    //test
+    //alert(skillResult);
+    //alert(extraDemand);
+});

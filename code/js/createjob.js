@@ -215,14 +215,15 @@ var createJob = {
                         });
 
                         //test=============
-                        alert(basicDegree);
+                        //alert(basicDegree);
                         //利用上面四个数组组织数据====================
 
-                        //$.post({
-                        //    url:'',
-                        //    data:{},
+                        //$.ajax({
+                        //    type:'POST',
+                        //    url:'xxx.txt',
+                        //    data:basicDegree,
                         //    success:function(data){
-                        //
+                        //        alert(data);
                         //    },
                         //    error:function(){
                         //
@@ -281,18 +282,23 @@ var createJob = {
                         function search(obj,result,name){
                             obj.each(function(i,elem){
                                 var allLi=$(elem).find('li');
+                                var head=$(elem).find('.name');
                                 for(var i=0;i<allLi.length;i++){
                                     if(allLi.eq(i).hasClass('active')){
                                         result.push(i);
-                                        name.push($(this).html());
+                                        name.push(head.html());
                                         break;
                                     }
                                 }
                             });
                         }
+                        //判断输入框是否被选中
+
                         //组织数据========================
                         //test==========
                         //alert(professionName);
+                        //alert(definedDegree);
+                        //alert(definedName);
 
                         $.post({
                             url:'',
@@ -332,8 +338,13 @@ var createJob = {
                         $(this).css('background','url('+"img/ui/icon-select-1.jpg"+')  no-repeat left top');
                         $('.content .btn-reverse').css('display','none');
                     });
-                    //    保存并添加按钮事件
+                    // 保存并添加按钮事件
                     $('#extrademand-submit').on('click',function(){
+                        //传输数据
+                        var name=$('.extrademand .textArea').val();
+                        var grade=$('.extrademand .selectArea strong').html();
+                        //test===
+                        //alert(name+' '+grade);
                         $.post({
                             url:'',
                             data:{},
@@ -359,6 +370,9 @@ var createJob = {
             //添加新节点========
             $('.myskills').append(strHtml);
             $(this).attr('disabled',true);
+            //禁用保存并添加按钮
+            var submit=$(this).parents('body').find('footer .btn-reverse');
+            submit.attr('disabled',true);
             //新节点添加js效果================
             var newNode=$('.newAdd .tickUnit');
             newNode.tickSelect();
@@ -371,6 +385,8 @@ var createJob = {
                 $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
 
                 This.attr('disabled',false);
+                submit.attr('disabled',false);
+
             })
             //确认按钮
             opA.eq(1).on('click',function(){
@@ -408,6 +424,7 @@ var createJob = {
                     $('.definenewadd:last').find('li').eq(index+1).addClass('active');
 
                     This.attr('disabled',false);
+                    submit.attr('disabled',false);
                 }else{
                     alert(tips);
                 }
@@ -452,8 +469,16 @@ var createJob = {
         for(var i=0;i<length;i++){
             this.movefn(objArr.eq(i),direct);
         }
+    },
+    delBlock:function(arrObj){
+        arrObj.each(function(i,elem){
+            $(elem).on('click',function(){
+                if(window.confirm('确定删除！')){
+                    $(this).parents('.pr-list').remove();
+                }
+            });
+        });
     }
-
 
 }
 
@@ -465,5 +490,7 @@ $(function() {
     //移动节点==
     createJob.moveNode($('.btn-movetop'),'top');
     createJob.moveNode($('.btn-movebottom'),'bottom');
+    //删除节点==
+    createJob.delBlock($('.power-ctrl-btns span:nth-of-type(3)'));
 
 });
