@@ -1,11 +1,10 @@
-<div class='editmajor' id='pop-editmajor'>
+<div class="nomaster" id="pop-nomaster">
         <header>
-            <h2>编辑专业需求</h2>
+            <h2>全部未掌握的知识点</h2>
             <div class="close"></div>
         </header>
         <div class="content">
             <div class="head">
-                <h2>HTML5</h2>
                 <ul>
                     <li >不做强制要求</li>
                     <li >权重1-需要掌握</li>
@@ -13,42 +12,9 @@
                     <li >权重3-职位核心技能</li>
                 </ul>
             </div>
-            <!--基本技能-->
-            <section class="list basic-skills">
-                <div class="select-head">
-                    <h3>基本技能点</h3>
-                    <ul >
-                        <li class=""><a href="javascript:;">全选1</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选2</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选3</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全不选</a></li>
-                    </ul>
-                </div>
-                <div class="tickSelect">
-                    <div class="tickUnit proneed">
-                        <div class="name">基本结构</div>
-                        <ul class="selectArea">
-                            <li class="active style1"></li>
-                            <li class="style1"></li>
-                            <li class=" style1"></li>
-                            <li class="style1"></li>
-                        </ul>
-                    </div>
-
-                </div>
-
-            </section>
-            <!--======进阶技能=======-->
-            <section class="list advance-skills">
-                <div class="select-head">
-                    <h3>进阶技能</h3>
-                    <ul >
-                        <li class=""><a href="javascript:;">全选1</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选2</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选3</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全不选</a></li>
-                    </ul>
-                </div>
+            <!--html5-->
+            <section class="list">
+                <h2>HTML5</h2>
                 <div class="tickSelect">
                     <div class="tickUnit proneed">
                         <div class="name">基本结构</div>
@@ -134,17 +100,9 @@
                 </div>
 
             </section>
-            <!--=======高级技能=======-->
-            <section class="list high-skills">
-                <div class="select-head">
-                    <h3>高级技能</h3>
-                    <ul >
-                        <li class=""><a href="javascript:;">全选1</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选2</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选3</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全不选</a></li>
-                    </ul>
-                </div>
+            <!--css3-->
+            <section class="list">
+                <h2>css3</h2>
                 <div class="tickSelect">
                     <div class="tickUnit proneed">
                         <div class="name">基本结构</div>
@@ -230,40 +188,13 @@
                 </div>
 
             </section>
-            <!--========自定义技能点==========-->
-            <section class="list myskills">
-                <div class="select-head">
-                    <h3>自定义技能</h3>
-                    <ul >
-                        <li class=""><a href="javascript:;">全选1</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选2</a>&nbsp;&nbsp;|</li>
-                        <li class=""><a href="javascript:;">全选3</a>&nbsp;&nbsp;</li>
-                        <li class=""><a href="javascript:;" style="display: none;">全选4</a>&nbsp;&nbsp;</li>
 
-                    </ul>
-                </div>
-                <div class="tickSelect">
-                     <div class="tickUnit proneed definenewadd" data-newNodeIndex="1">
-                         <div class="name">用户自定义已存在技能</div>
-                         <ul class="selectArea">
-                             <li class="del"></li>
-                             <li class=" color2"></li>
-                             <li class="color3"></li>
-                             <li class=" color4"></li>
-                         </ul>
-                     </div>
-                </div>
-
-            </section>
-            <input type="button" value="+添加自定义知识点" class="btn  xl w-full btn-reverse" id="addSkill">
         </div>
         <footer>
-            <div class="savemypro">
-                <input type="checkbox"/>
-                <label>同时保存到我的专业库</label>
+            <div>
+                <p>我们已经根据测评结果为您生成了播放列表</p>
+                <input type="button" value="马上充电" class="btn btn-def lg btn-reverse" id="nomaster-submit" >
+                <!--<input type="hidden" id="edimajor-data" name="" value="hello" />-->
             </div>
-            <input type="button" value="保存并添加" class="btn btn-def lg btn-reverse" id="editmajor-submit" >
-            <input type="hidden" id="edimajor-data" name="" value="hello" />
         </footer>
-
 </div>

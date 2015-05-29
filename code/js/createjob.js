@@ -211,13 +211,11 @@ var createJob = {
                                     definedDegree.push(i);
                                      break;
                                }
-                               return result;
                             }
                         });
 
-
                         //test=============
-                        //alert(basicDegree);
+                        alert(basicDegree);
                         //利用上面四个数组组织数据====================
 
                         //$.post({
