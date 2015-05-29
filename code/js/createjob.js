@@ -276,8 +276,27 @@ var createJob = {
                         var definedDegree=[];
                         var definedName=[];
                         //遍历========
-                        search($('.myskills .tickUnit'),definedDegree,definedName);
                         professionName=$('.pro-name input').val();
+                        if(professionName==''){
+                            alert('请输入专业名称 ^_^ ')
+                        }else{
+                            search($('.myskills .tickUnit'),definedDegree,definedName);
+                            //组织数据========================
+                            //test==========
+                            //alert(professionName);
+                            //alert(definedDegree);
+                            //alert(definedName);
+                            $.post({
+                                url:'',
+                                data:{},
+                                success:function(data){
+
+                                },
+                                error:function(){
+
+                                }
+                            });
+                        }
                         //遍历方法
                         function search(obj,result,name){
                             obj.each(function(i,elem){
@@ -292,24 +311,7 @@ var createJob = {
                                 }
                             });
                         }
-                        //判断输入框是否被选中
 
-                        //组织数据========================
-                        //test==========
-                        //alert(professionName);
-                        //alert(definedDegree);
-                        //alert(definedName);
-
-                        $.post({
-                            url:'',
-                            data:{},
-                            success:function(data){
-
-                            },
-                            error:function(){
-
-                            }
-                        });
                     });
 
                 }
@@ -343,18 +345,24 @@ var createJob = {
                         //传输数据
                         var name=$('.extrademand .textArea').val();
                         var grade=$('.extrademand .selectArea strong').html();
-                        //test===
-                        //alert(name+' '+grade);
-                        $.post({
-                            url:'',
-                            data:{},
-                            success:function(data){
+                        //验证用户输入是否为空
+                        if(name==''){
+                            alert('请输入内容 ^_^ ')
+                        }else{
+                            //test===
+                            //alert(name+' '+grade);
+                            $.post({
+                                url:'',
+                                data:{},
+                                success:function(data){
 
-                            },
-                            error:function(){
+                                },
+                                error:function(){
 
-                            }
-                        });
+                                }
+                            });
+                        }
+
                     });
                 }
             })

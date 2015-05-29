@@ -47,9 +47,6 @@
   color: #ffffff;
   background-color: #35b558;
 }
-.banner h3.active:hover {
-  cursor: pointer;
-}
 .content {
   background-color: #f3f3f3;
   border-bottom: 2px solid #dad8d8;
