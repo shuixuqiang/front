@@ -1823,6 +1823,22 @@ table.table-center > tfoot > tr > td {
   height: 2px;
   background: #35B558;
 }
+#footer .copyright {
+  font-size: 12px;
+  color: #999;
+  margin: 0 auto;
+  width: 1000px;
+  text-align: center;
+  padding: 20px;
+}
+#footer .copyright .copyright {
+  width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+#footer .copyright .copyright strong {
+  font-weight: 400;
+}
 .mod-job {
   height: 60px;
   padding: 0 12px;
