@@ -1839,6 +1839,12 @@ table.table-center > tfoot > tr > td {
 #footer .copyright .copyright strong {
   font-weight: 400;
 }
+#footer .copyright .copyright a {
+  color: #999;
+}
+#footer .copyright .copyright a:hover {
+  color: #35B558;
+}
 .mod-job {
   height: 60px;
   padding: 0 12px;
