@@ -57,7 +57,7 @@
 	};
 
 	/* -----------------------------------------/
-	 * 功能：提交为空校验
+	 * 功能：弹出层
 	 * 参数：
 	 * 返回：
 	 * 作者：ZHANGHAIBIN
@@ -230,7 +230,7 @@
         function move(e, width, left, percent) {
             var nowCtrlL = e.pageX - left;
             // 滑块移动范围
-            if (nowCtrlL > -1 && nowCtrlL <= width) {
+            if (nowCtrlL > 0 && nowCtrlL <= width) {
                 var _ctrlL = Math.ceil(e.pageX - left);
                 var _scale = Math.ceil(_ctrlL / percent);
 
@@ -289,12 +289,13 @@ var COMMON = {
 			});
 		})
 	},
+
 	scaleChart: function(target, data) {
 		var dataLen = 0,
 			scoreLen = 0;
 		for (prop in data) {
 			dataLen++;
-			if (data[prop].score) {
+			if (data[prop].score !== undefined) {
 				scoreLen++;
 			}
 		}
@@ -322,16 +323,33 @@ var COMMON = {
 			if (dataLen == scoreLen) {
 				var score_li = $('<li>'),
 					score_bar = $('<div class="bar">');
-				score_bar.css({
-					backgroundColor: val.color
-				}).html(val.score + "分");
 
-				score_li.css({
-					width: val.scale + "%"
-				}).append(score_bar).appendTo(scoreChart);
-				score_bar.animate({
-					width: val.score + "%"
-				}, 600);
+                if (val.score > 0) {
+                    score_bar.css({
+                        backgroundColor: val.color
+                    }).html(val.score + "分");
+
+                    score_li.css({
+                        width: val.scale + "%"
+                    }).append(score_bar).appendTo(scoreChart);
+
+                    score_bar.animate({
+                        width: val.score + "%"
+                    }, 600);
+                } else {
+                    score_bar.css({
+                        backgroundColor: '#ddd'
+                    }).html(val.score + "分");
+
+                    score_li.css({
+                        width: val.scale + "%"
+                    }).append(score_bar).appendTo(scoreChart);
+
+                    score_bar.animate({
+                        width: 100 + "%"
+                    }, 600);
+                }
+
 			}
 		});
 
