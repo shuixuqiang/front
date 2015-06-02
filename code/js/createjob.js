@@ -422,9 +422,7 @@ var createJob = {
             $(this).attr('disabled',true);
             //禁用保存并添加按钮
             var submit=$(this).parents('body').find('footer .btn-reverse');
-            if ($('.definenewadd').length <= 0) {
                 submit.attr('disabled',true);
-            }
             //新节点添加js效果================
             var newNode=$('.newAdd .tickUnit');
             newNode.tickSelect();
