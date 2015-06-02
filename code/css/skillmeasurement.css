@@ -26,22 +26,17 @@
   overflow: hidden;
   position: relative;
   bottom: -22px;
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
+  broder: 1px solid #fff;
+  border-right-width: 0;
 }
 .banner h3 {
   float: left;
   height: 50px;
-  border-left: 1px solid #ffffff;
   border-right: 1px solid #ffffff;
-  margin-left: -1px;
   text-align: center;
   color: #808080;
   background-color: #e8e8e8;
   font: 20px/50px "微软雅黑";
-}
-.banner h3:nth-of-type(1) {
-  margin-left: 0px;
 }
 .banner h3.active {
   color: #ffffff;
