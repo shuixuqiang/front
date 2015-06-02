@@ -1824,25 +1824,21 @@ table.table-center > tfoot > tr > td {
   background: #35B558;
 }
 #footer .copyright {
+  width: 1000px;
   font-size: 12px;
   color: #999;
-  margin: 0 auto;
-  width: 1000px;
   text-align: center;
   padding: 20px;
-}
-#footer .copyright .copyright {
-  width: 1000px;
   margin-right: auto;
   margin-left: auto;
 }
-#footer .copyright .copyright strong {
-  font-weight: 400;
+#footer .copyright strong {
+  font-weight: normal;
 }
-#footer .copyright .copyright a {
+#footer .copyright a {
   color: #999;
 }
-#footer .copyright .copyright a:hover {
+#footer .copyright a:hover {
   color: #35B558;
 }
 .mod-job {
