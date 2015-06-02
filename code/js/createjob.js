@@ -30,6 +30,8 @@ var createJob = {
             });
         });
 
+        // 上下移动禁用
+        this.moveDisabled($('.pr-list'));
 	},
 	bindEle: function() {
 		$('#jobSubmit').bind("click", this.submitCheck);
@@ -267,16 +269,53 @@ var createJob = {
                             })(i);
                         }
                     }
+
+                    // 输入专业名称时校验字符长度, 判断是否激活按钮
+                    var $professionName = $('.pro-name input');
+                    $professionName.bind("keyup", function() {
+                        if($professionName.val()) {
+                            $('#addSkill').attr("disabled", false);
+                            var skill = $('.definenewadd');
+                            if (skill.length > 0) {
+                                $('#myprofessional-submit').attr("disabled", false);
+                            }
+                        } else {
+                            $('#addSkill').attr("disabled", true);
+                            $('#myprofessional-submit').attr("disabled", true);
+                        }
+                    });
+
                     // 添加自定义知识点
-                    This.userDefined($('#addSkill'));
-                    //    保存并添加按钮事件=============================
-                    $('#myprofessional-submit').on('click',function(){
+                    This.userDefined($('#addSkill'), function() {
+                        // 删除知识点的回调函数
+                        var skill = $('.definenewadd');
+                        if (skill.length <= 0) {
+                            $('#myprofessional-submit').attr("disabled", true);
+                        }
+                        if (!$professionName.val()) {
+                            $('#addSkill').attr("disabled", true);
+                        }
+                    }, function() {
+                        // 取消添加知识点的回调函数
+                        var skill = $('.definenewadd');
+                        if (skill.length <= 0) {
+                            $('#myprofessional-submit').attr("disabled", true);
+                        }
+                        if (!$professionName.val()) {
+                            $('#addSkill').attr("disabled", true);
+                        }
+                    });
+
+                    // 保存并添加按钮事件=============================
+
+                    $('#myprofessional-submit').on('click',function() {
                         //遍历结果数组
                         var professionName='';
                         var definedDegree=[];
                         var definedName=[];
                         //遍历========
-                        professionName=$('.pro-name input').val();
+                        professionName = $('.pro-name input').val();
+
                         if(professionName==''){
                             alert('请输入专业名称 ^_^ ')
                         }else{
@@ -340,39 +379,42 @@ var createJob = {
                         $(this).css('background','url('+"img/ui/icon-select-1.jpg"+')  no-repeat left top');
                         $('.content .btn-reverse').css('display','none');
                     });
-                    // 保存并添加按钮事件
-                    $('#extrademand-submit').on('click',function(){
-                        //传输数据
-                        var name=$('.extrademand .textArea').val();
-                        var grade=$('.extrademand .selectArea strong').html();
-                        //验证用户输入是否为空
-                        if(name==''){
-                            alert('请输入内容 ^_^ ')
-                        }else{
-                            //test===
-                            //alert(name+' '+grade);
-                            $.post({
-                                url:'',
-                                data:{},
-                                success:function(data){
 
-                                },
-                                error:function(){
+                    $('#pop-extrademand').bind('keyup', function() {
+                        var name = $('.extrademand .textArea').val();
+                        var lock = 0;
+                        if (name) {
+                            // 保存并添加按钮事件
+                            $('#extrademand-submit').on('click',function(){
+                                if (lock == 1) return false;
+                                //传输数据
+                                var name=$('.extrademand .textArea').val();
+                                var grade=$('.extrademand .selectArea strong').html();
+                                //验证用户输入是否为空
+                                $.post({
+                                    url:'',
+                                    data:{},
+                                    success:function(data){
 
-                                }
-                            });
+                                    },
+                                    error:function(){
+
+                                    }
+                                });
+                            }).removeClass("disabled");
+                        } else {
+                            $('#extrademand-submit').unbind('click').addClass("disabled");
                         }
-
                     });
                 }
             })
         })
     },
-    userDefined:function(obj){
+    userDefined:function(obj, /* optional */ delcallback, /* optional */ cancelcallback){
         obj.on('click',function(){
             var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
                 '<input type="text" value=""  placeholder="输入新的自定义知识点" class="text"/></div> ' +
-                '<ul class="selectArea">  <li class="color2"></li>'+
+                '<ul class="selectArea">  <li class="color2 active"></li>'+
                 '<li class=" color3"></li> <li class="color4"></li> </ul> </div> <div class="operation">'+
                 '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
             //添加新节点========
@@ -380,7 +422,9 @@ var createJob = {
             $(this).attr('disabled',true);
             //禁用保存并添加按钮
             var submit=$(this).parents('body').find('footer .btn-reverse');
-            submit.attr('disabled',true);
+            if ($('.definenewadd').length <= 0) {
+                submit.attr('disabled',true);
+            }
             //新节点添加js效果================
             var newNode=$('.newAdd .tickUnit');
             newNode.tickSelect();
@@ -394,6 +438,9 @@ var createJob = {
 
                 This.attr('disabled',false);
                 submit.attr('disabled',false);
+                if (cancelcallback !== undefined) {
+                    cancelcallback();
+                }
 
             })
             //确认按钮
@@ -425,6 +472,10 @@ var createJob = {
                         (function(node){
                             node.find('.del').on('click',function(){
                                 node.remove();
+                                // 删除时执行回调
+                                if (delcallback !== undefined) {
+                                    delcallback();
+                                }
                             });
                         })($(elem));
                     })
@@ -451,13 +502,17 @@ var createJob = {
         });
     },
     movefn:function(obj,direct){
+        var Thit = this;
         //注意curindex从1开始编号的
         if(direct=='top'){
             obj.on('click',function(){
                 var curNode=$(this).parents('.pr-list');
                 var curindex=curNode.index();
-                if(curindex>=2)
+                if(curindex>=2) {
                     curNode.insertBefore($('.pr-list').eq(curindex-2));
+                    // 上下移动禁用
+                    Thit.moveDisabled($('.pr-list'));
+                }
             });
         }else if(direct=='bottom'){
             obj.on('click',function(){
@@ -468,6 +523,8 @@ var createJob = {
                 if(curindex<length)
                     //$('.pr-list').eq(curindex-2).insertBefore(curNode);
                     curNode.insertAfter($('.pr-list').eq(curindex));
+                    // 上下移动禁用
+                    Thit.moveDisabled($('.pr-list'));
             });
         }
 
@@ -479,15 +536,27 @@ var createJob = {
         }
     },
     delBlock:function(arrObj){
+        var Thit = this;
         arrObj.each(function(i,elem){
             $(elem).on('click',function(){
                 if(window.confirm('确定删除！')){
                     $(this).parents('.pr-list').remove();
+                    // 上下移动禁用
+                    Thit.moveDisabled($('.pr-list'));
                 }
             });
         });
+    },
+    moveDisabled: function(obj) {
+        if (obj.length <= 1) {
+            obj.find('.btn-movetop').addClass("disabled");
+            obj.find('.btn-movebottom').addClass("disabled");
+        }
+        obj.find('.btn-movetop').removeClass("disabled");
+        obj.find('.btn-movebottom').removeClass("disabled");
+        obj.first().find('.btn-movetop').addClass("disabled");
+        obj.last().find('.btn-movebottom').addClass("disabled");
     }
-
 }
 
 $(function() {

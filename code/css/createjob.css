@@ -195,6 +195,7 @@ hr {
 }
 .addprofessional header .close {
   float: right;
+  margin-right: 10px;
   padding-right: 25px;
   height: 56px;
   width: 18px;
@@ -204,7 +205,7 @@ hr {
   cursor: pointer;
 }
 .addprofessional .content {
-  padding: 0 22px 0 19px;
+  padding: 0 22px 15px 19px;
   max-height: 500px;
   overflow-y: auto;
 }
@@ -271,6 +272,7 @@ hr {
 .editmajor > header .close,
 .myprofessional > header .close {
   float: right;
+  margin-right: 10px;
   padding-right: 25px;
   height: 56px;
   width: 18px;
@@ -428,7 +430,6 @@ hr {
 .myprofessional .pro-name {
   height: 56px;
   width: 306px;
-  border: 1px solid #cccccc;
   margin-left: 20px ;
   margin-top: 22px;
 }
@@ -474,7 +475,7 @@ hr {
 .extrademand > header .close {
   float: right;
   padding-right: 25px;
-  margin-right: 19px;
+  margin-right: 10px;
   height: 56px;
   width: 18px;
   background: url("../img/ui/close.jpg") no-repeat left 19px;

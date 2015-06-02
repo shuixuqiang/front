@@ -133,15 +133,18 @@
   padding: 7px 18px 7px 18px;
   margin-bottom: 11px;
   background-color: #fff;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 .extra-demand li.active {
   border: 1px solid #35b558;
 }
 .extra-demand li div {
-  height: 36px;
+  height: 30px;
 }
 .extra-demand li .text {
-  font: 16px/36px "微软雅黑";
+  font: 16px/30px "微软雅黑";
   float: left;
 }
 .extra-demand li .tickSel {
@@ -149,7 +152,7 @@
   width: 136px;
   padding-left: 20px ;
   border-left: 1px solid #e8e8e8 ;
-  font: 14px/36px "微软雅黑";
+  font: 14px/30px "微软雅黑";
   text-align: right;
 }
 .extra-demand li .tickSel.active {

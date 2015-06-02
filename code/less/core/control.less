@@ -140,6 +140,7 @@ label {
     &.disabled:hover, &[disabled]:hover,
     &.disabled:focus, &[disabled]:focus,
     &.disabled:active, &[disabled]:active {
+        .transition(none);
         .btn-disabled(@btn-disabled-background; @btn-disabled-border; @btn-disabled-color) !important;
         cursor: default !important;
         cursor: not-allowed !important;

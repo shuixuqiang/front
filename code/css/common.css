@@ -489,6 +489,9 @@ label.btn:hover {
 .btn[disabled]:focus,
 .btn.disabled:active,
 .btn[disabled]:active {
+  -webkit-transition: none;
+  -moz-transition: none;
+  transition: none;
   background: #eeeeee !important;
   border: 1px solid #e7e7e7 !important;
   color: #999999 !important;
