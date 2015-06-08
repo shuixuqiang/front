@@ -204,6 +204,21 @@
   padding-left: 10px;
   border-left: 3px solid #35b558;
 }
+.overview .ov-item dd b {
+  font-weight: bold;
+}
+.overview .ov-item dd i {
+  font-style: italic;
+}
+.overview .ov-item dd u {
+  text-decoration: underline;
+}
+.overview .ov-item dd ul {
+  list-style: decimal;
+}
+.overview .ov-item dd ol {
+  list-style: disc outside none;
+}
 .overview .ov-item ul {
   margin-bottom: 10px;
 }
