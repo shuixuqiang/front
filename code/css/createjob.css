@@ -426,6 +426,9 @@ hr {
   right: 24px;
   top: 20px;
 }
+.myprofessional {
+  height: 460px;
+}
 .myprofessional .pro-name {
   height: 56px;
   width: 306px;
@@ -439,6 +442,10 @@ hr {
   color: red;
   padding-left: 9px;
 }
+.myprofessional .content {
+  height: 244px;
+  padding-bottom: 10px;
+}
 .myprofessional .content .head {
   overflow: hidden;
   padding-top: 20px;
@@ -449,6 +456,9 @@ hr {
 }
 .myprofessional .content .head ul {
   float: right;
+}
+.myprofessional footer {
+  margin-top: 0;
 }
 .extrademand {
   background: #fff;

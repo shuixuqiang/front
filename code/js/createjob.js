@@ -87,7 +87,7 @@ var createJob = {
                 maskId: "mask",
                 position: "fixed",
                 callback:function(){
-                    $('#pop-addprofessional .probtn').on('click',function(){
+                    $('#pop-addprofessional .probtn:not(".disabled")').on('click',function(){
                         $('#mask').remove();
                         $('#pop-addprofessional').remove();
                         This.btnEdit2( $(this));
@@ -120,6 +120,7 @@ var createJob = {
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
+                        createJob.addTitle($(elem).find('.name'));
                         $(elem).tickSelect();
                     });
                     //全选======
@@ -160,6 +161,7 @@ var createJob = {
                     //自定义技能点监听事件
                     var mydefineNodes=$('.myskills .tickUnit');
                     delMyNode(mydefineNodes);
+
                     // 删除每一个节点
                     function delMyNode(mydefineNodes){
                         var length=mydefineNodes.size();
@@ -272,18 +274,32 @@ var createJob = {
 
                     // 输入专业名称时校验字符长度, 判断是否激活按钮
                     var $professionName = $('.pro-name input');
+                    var pronameCheck = /^[A-Za-z0-9\'_-\s\u4E00-\u9FA5\uF900-\uFA2D]+$/;
+                    var temp = '';
                     $professionName.bind("keyup", function() {
-                        if($professionName.val()) {
+                        var thisval = $(this).val();
+                        if (pronameCheck.test(thisval)) {
+                            temp = thisval;
+                        } else if (thisval.length) {
+                            $(this).val(temp);
+                        }
+                        if($(this).val()) {
                             $('#addSkill').attr("disabled", false);
                             var skill = $('.definenewadd');
                             if (skill.length > 0) {
                                 $('#myprofessional-submit').attr("disabled", false);
                             }
+
                         } else {
                             $('#addSkill').attr("disabled", true);
                             $('#myprofessional-submit').attr("disabled", true);
                         }
                     });
+
+//                  $professionName.bind("blur", function() {
+//                      var val = $(this).val();
+//                      console.log(pronameCheck.test(val));
+//                  });
 
                     // 添加自定义知识点
                     This.userDefined($('#addSkill'), function() {
@@ -420,6 +436,9 @@ var createJob = {
             //添加新节点========
             $('.myskills').append(strHtml);
             $(this).attr('disabled',true);
+            var $content = $(this).parents('.content');
+            var contentScrollT = $content.scrollTop();
+            $content.scrollTop(contentScrollT + 70);
             //禁用保存并添加按钮
             var submit=$(this).parents('body').find('footer .btn-reverse');
                 submit.attr('disabled',true);
@@ -466,6 +485,7 @@ var createJob = {
                     $('.definenewadd').each(function(i,elem){
                         //新节点点击效果
                         $(elem).tickSelect();
+                        createJob.addTitle($('.tickUnit .name'));
                         //删除效果
                         (function(node){
                             node.find('.del').on('click',function(){
@@ -554,6 +574,14 @@ var createJob = {
         obj.find('.btn-movebottom').removeClass("disabled");
         obj.first().find('.btn-movetop').addClass("disabled");
         obj.last().find('.btn-movebottom').addClass("disabled");
+    },
+    addTitle: function(obj) {
+        obj.each(function() {
+            $(this).hover(function() {
+                var text = $(this).text();
+                $(this).attr("title", text);
+            })
+        })
     }
 }
 

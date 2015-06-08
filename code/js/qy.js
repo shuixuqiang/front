@@ -6,6 +6,7 @@ var qy_submit = {
 		$('#qyLogo-btn').click(function() {
 			$('#qyLogo .note.errTxt').remove();
 		});
+		this.companyIdUp();
 	},
 	bindEle: function() {
 		$('#qySubmit').bind("click", this.submitCheck);
@@ -13,7 +14,8 @@ var qy_submit = {
 	layDate: function() {
 	    laydate({
 	        elem: '#regTime',
-	        event: 'focus'
+	        event: 'focus',
+	        max: nowTime
 	    })
 	},
 	logoUp: function() {
@@ -63,6 +65,13 @@ var qy_submit = {
 			$error.text('上传失败,请重试');
 		});
 	},
+	companyIdUp: function() {
+        $('#companyIdPic').change(function() {
+            var val = $(this)[0].files[0].name;
+            $(this).parent().next('.note.static.successColor').remove();
+            $(this).parent().after('<span class="note static successColor" style="margin-right: 10px">文件名：' + val + '</span>');
+        })
+	},
 	submitCheck: function() {
 	    var formNum = 8, formCount = 0;
 
@@ -75,8 +84,10 @@ var qy_submit = {
 			$companyName = $('#companyName'),
 			$regTime = $('#regTime'),
 			$id = $('#companyIdPic');
-		var emailVal = $email.val().trim();
-		var check = /^[A-Z_a-z0-9-\.]+@([A-Z_a-z0-9-]+\.)+[a-z0-9A-Z]{2,4}$/.test(emailVal);
+	    var emailVal = $email.val().trim();
+        var telVal = $tel.val().trim();
+        var checkEmail = /^[A-Z_a-z0-9-\.]+@([A-Z_a-z0-9-]+\.)+[a-z0-9A-Z]{2,4}$/.test(emailVal);
+        var checkPhone = /^\d+\d{10}/.test(telVal);
 
 		$name.submitEmptyCheck({
 			note: "请输入企业名称",
@@ -91,9 +102,16 @@ var qy_submit = {
             }
 		});
         $tel.submitEmptyCheck({
-            note: "请输入联系人电话",
+            note: "请输入联系人手机",
             callback: function() {
-                formCount += 1;
+                if (!checkPhone) {
+                    $tel.siblings('.note.errTxt').remove();
+                    var note = $('<div class="note errTxt">您输入的手机号不正确</div>');
+                    $tel.parent().append(note);
+                    return false;
+                } else {
+                    formCount += 1;
+                }
             }
         });
         $contact.submitEmptyCheck({
@@ -105,7 +123,7 @@ var qy_submit = {
         $email.submitEmptyCheck({
             note: "请输入联系人邮箱",
             callback: function() {
-                if (!check) {
+                if (!checkEmail) {
                     $email.siblings('.note.errTxt').remove();
                     var note = $('<div class="note errTxt">您输入的邮箱格式不正确</div>');
                     $email.parent().append(note);
