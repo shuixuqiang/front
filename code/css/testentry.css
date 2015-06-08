@@ -84,10 +84,16 @@ hr {
   text-decoration: underline;
 }
 .overview .ov-item dd ul {
-  list-style: decimal;
+  list-style: decimal inside none;
 }
 .overview .ov-item dd ol {
-  list-style: disc outside none;
+  list-style: disc inside none;
+}
+.overview .ov-item dd *[data-indent="0"] {
+  margin-left: 0;
+}
+.overview .ov-item dd *[data-indent="1"] {
+  margin-left: 40px;
 }
 .overview .ov-item ul {
   margin-bottom: 10px;

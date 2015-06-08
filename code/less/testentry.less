@@ -107,10 +107,16 @@ hr {
                 text-decoration: underline;
             }
             ul {
-                list-style: decimal;
+                list-style: decimal inside none;
             }
             ol {
-                list-style: disc outside none;
+                list-style: disc inside none;
+            }
+            *[data-indent="0"] {
+                margin-left: 0;
+            }
+            *[data-indent="1"] {
+                margin-left: 40px;
             }
         }
         ul {
