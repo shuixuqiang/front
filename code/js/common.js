@@ -311,7 +311,7 @@ var COMMON = {
 			// 创建权重图表
 			scale_bar.css({
 				backgroundColor: val.color
-			}).html(key);
+			}).html(val.name);
 			scale_li.css({
 				width: val.scale + "%"
 			}).append(scale_bar).appendTo(scaleChart);
