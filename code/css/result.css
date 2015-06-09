@@ -225,6 +225,9 @@
 .overview .ov-item dd *[data-indent="1"] {
   margin-left: 40px;
 }
+.overview .ov-item dd hr {
+  margin: 5px 0;
+}
 .overview .ov-item ul {
   margin-bottom: 10px;
 }
