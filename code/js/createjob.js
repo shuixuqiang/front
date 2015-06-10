@@ -526,8 +526,9 @@ var createJob = {
             obj.on('click',function(){
                 var curNode=$(this).parents('.pr-list');
                 var curindex=curNode.index();
-                if(curindex>=2) {
-                    curNode.insertBefore($('.pr-list').eq(curindex-2));
+                console.log(curindex)
+                if(curindex>=1) {
+                    curNode.insertBefore($('.pr-list').eq(curindex-1));
                     // 上下移动禁用
                     Thit.moveDisabled($('.pr-list'));
                 }
@@ -537,10 +538,10 @@ var createJob = {
                 var curNode=$(this).parents('.pr-list');
                 var curindex=curNode.index();
                 var length=$('.pr-list').size();
+                console.log(curindex)
 
-                if(curindex<length)
-                    //$('.pr-list').eq(curindex-2).insertBefore(curNode);
-                    curNode.insertAfter($('.pr-list').eq(curindex));
+                if(curindex + 1 < length)
+                    curNode.insertAfter($('.pr-list').eq(curindex + 1));
                     // 上下移动禁用
                     Thit.moveDisabled($('.pr-list'));
             });
@@ -553,16 +554,14 @@ var createJob = {
             this.movefn(objArr.eq(i),direct);
         }
     },
-    delBlock:function(arrObj){
+    delBlock:function(){
         var Thit = this;
-        arrObj.each(function(i,elem){
-            $(elem).on('click',function(){
-                if(window.confirm('确定删除！')){
-                    $(this).parents('.pr-list').remove();
-                    // 上下移动禁用
-                    Thit.moveDisabled($('.pr-list'));
-                }
-            });
+        $('.mod-power').delegate('.power-ctrl-btns span:nth-of-type(3)', 'click',function(){
+            if(window.confirm('确定删除！')){
+                $(this).parents('.pr-list').remove();
+                // 上下移动禁用
+                Thit.moveDisabled($('.pr-list'));
+            }
         });
     },
     moveDisabled: function(obj) {
@@ -594,6 +593,6 @@ $(function() {
     createJob.moveNode($('.btn-movetop'),'top');
     createJob.moveNode($('.btn-movebottom'),'bottom');
     //删除节点==
-    createJob.delBlock($('.power-ctrl-btns span:nth-of-type(3)'));
+    createJob.delBlock();
 
 });
