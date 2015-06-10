@@ -52,6 +52,7 @@ var qy_submit = {
 
 		// 文件上传成功
 		uploader.on('uploadSuccess', function(file, response) {
+		    $('#qyLogo-btn').find('input[name="imgurl"]').remove();
 			$('<input type="hidden" name="imgurl" value="' + response.result.url + '" />').appendTo("#qyLogo-btn");
 		});
 
@@ -101,7 +102,7 @@ var qy_submit = {
                 formCount += 1;
             }
 		});
-		var logourl = $logo.has('input[name="imgurl"]').val();
+		var logourl = $logo.find('input[name="imgurl"]').val();
         if (!logourl) {
             $logo.find('.note.errTxt').remove();
             $logo.append('<div class="note errTxt">请上传企业LOGO</div>')
