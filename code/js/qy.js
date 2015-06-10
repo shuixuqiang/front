@@ -73,14 +73,14 @@ var qy_submit = {
         })
 	},
 	submitCheck: function() {
-	    var formNum = 8, formCount = 0;
+	    var formNum = 9, formCount = 0;
 
 		var $name = $('#qyName'),
 			$overview = $('#qyOverview'),
 			$tel = $('#qyTel'),
 			$contact = $('#qyContact'),
 			$email = $('#qyEmail'),
-			$logo = $('#qyLogo-btn :file'),
+			$logo = $('#qyLogo'),
 			$companyName = $('#companyName'),
 			$regTime = $('#regTime'),
 			$id = $('#companyIdPic');
@@ -101,6 +101,13 @@ var qy_submit = {
                 formCount += 1;
             }
 		});
+		var logourl = $logo.has('input[name="imgurl"]').val();
+        if (!logourl) {
+            $logo.find('.note.errTxt').remove();
+            $logo.append('<div class="note errTxt">请上传企业LOGO</div>')
+        } else {
+            formCount += 1;
+        }
         $tel.submitEmptyCheck({
             note: "请输入联系人手机",
             callback: function() {
