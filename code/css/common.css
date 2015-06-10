@@ -207,7 +207,6 @@ a:hover {
 .disabled:hover,
 .disabled:hover a {
   cursor: default !important;
-  cursor: not-allowed !important;
 }
 .full-block {
   display: block;
@@ -423,7 +422,6 @@ input[type="radio"][disabled]:focus,
 input[type="checkbox"][disabled]:active,
 input[type="radio"][disabled]:active {
   cursor: default !important;
-  cursor: not-allowed !important;
 }
 label input[type="checkbox"],
 label input[type="radio"] {
@@ -496,7 +494,6 @@ label.btn:hover {
   border: 1px solid #e7e7e7 !important;
   color: #999999 !important;
   cursor: default !important;
-  cursor: not-allowed !important;
 }
 /* button theme */
 .btn-def,
@@ -685,7 +682,6 @@ textarea[disabled]:active {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   cursor: default !important;
-  cursor: not-allowed !important;
 }
 /* input text */
 .txt {
