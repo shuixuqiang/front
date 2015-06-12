@@ -2439,6 +2439,7 @@ table.table-center > tfoot > tr > td {
   float: left;
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .tickUnit .selectArea li.active {
   background-image: url("../img/ui/tickActive.png");

@@ -17,6 +17,8 @@ var result = {
                 callback: function () {
                     $('.tickUnit').each(function(i,elem){
                         $(elem).tickSelect();
+                        COMMON.addTitle($(elem).find('.name'));
+                        COMMON.titleTips('.tickUnit .name');
                     });
                 }
             });

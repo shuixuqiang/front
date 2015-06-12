@@ -277,6 +277,10 @@ var COMMON = {
 		this.bindEle();
 		this.filtersort();
 		this.titleTips('a[title]');
+		this.addTitle($('.job-company>span'));
+		this.titleTips('.job-company>span');
+		this.addTitle($('.job-location>span'));
+		this.titleTips('.job-location>span');
 	},
 	bindEle: function() {
 	},
