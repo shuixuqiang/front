@@ -69,7 +69,19 @@ var createJob = {
 		if (!editorLen) {
 			$('#editor').parents('.item-cont').append('<div class="note errTxt">请输入职位描述</div>');
 		} else {
-            formCount += 1;
+		    // 正文长度
+            var regAttr = /<[a-z]+[^>]*[a-z]=['"]([^"]*)['"].*?[^>]*>/g;
+            var regTag = /(<([a-z]+)>)*(<\/([a-z]+)>)*(&nbsp;)*/g;
+            var text = editorLen.replace(regAttr, "").trim();
+            text = text.replace(regTag, "").trim();
+            var setLength = 1500;
+            if(text.length > setLength) {
+                $('#editor').parents(".item-cont").find('.note.errTxt').remove();
+                var node = $('<div class="note errTxt"><i class="icon icon-warn" style="margin-right:5px"></i>正文内容长度超出' + setLength + '个字符</div>');
+                $('#editor').parents(".item-cont").append(node);
+            } else {
+                formCount += 1;
+            }
 		}
 
 		if (formCount == formNum) {
@@ -120,7 +132,8 @@ var createJob = {
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
-                        createJob.addTitle($(elem).find('.name'));
+                        COMMON.addTitle($(elem).find('.name'));
+                        COMMON.titleTips('.tickUnit .name');
                         $(elem).tickSelect();
                     });
                     //全选======
@@ -573,14 +586,6 @@ var createJob = {
         obj.find('.btn-movebottom').removeClass("disabled");
         obj.first().find('.btn-movetop').addClass("disabled");
         obj.last().find('.btn-movebottom').addClass("disabled");
-    },
-    addTitle: function(obj) {
-        obj.each(function() {
-            $(this).hover(function() {
-                var text = $(this).text();
-                $(this).attr("title", text);
-            })
-        })
     }
 }
 

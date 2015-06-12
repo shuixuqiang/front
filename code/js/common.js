@@ -276,9 +276,12 @@ var COMMON = {
 	init: function() {
 		this.bindEle();
 		this.filtersort();
+		this.titleTips('a[title]');
 	},
 	bindEle: function() {
-
+//      $('body').delegate('a[title]', "mouseover", function() {
+//          COMMON.titleTips($(this));
+//      });
 	},
 	filtersort: function() {
 		// 筛选选中效果
@@ -289,7 +292,6 @@ var COMMON = {
 			});
 		})
 	},
-
 	scaleChart: function(target, data) {
 		var dataLen = 0,
 			scoreLen = 0;
@@ -359,6 +361,45 @@ var COMMON = {
 		if (scoreLen == dataLen) {
 			target.append(scoreChart);
 		}
+	},
+    addTitle: function(obj) {
+        obj.each(function() {
+            $(this).hover(function() {
+                var text = $(this).text();
+                $(this).attr("title", text);
+            })
+        })
+    },
+	titleTips: function(obj) {
+	    $('body').delegate(obj, "mouseover", function() {
+            var $this = $(this);
+            var title = $this.attr("title");
+            var thisH = $this.height();
+            var thisT = $this.offset().top;
+            var thisL = $this.offset().left;
+            var node = $('<div class="title-tips" id="titleTips">');
+            var temp;
+            if (title) {
+                temp = title;
+                $this.removeAttr('title');
+                node.text(temp).appendTo('body').fadeIn(300);
+                node.css({top: thisT + thisH, left: thisL, zIndex: 900});
+                var nodeW = node.outerWidth();
+                var regNum = /[0-9]+/;
+                var nodeMaxW = Number(regNum.exec(node.css("max-width"))[0]);
+                if (nodeW >= nodeMaxW) {
+                    node.addClass("break");
+                }
+                if ($("#mask")) {
+                    var mask_zIndex = $("#mask").css("z-index");
+                    node.css("z-index", mask_zIndex * 2);
+                }
+            }
+            $this.unbind("mouseout").bind("mouseout", function() {
+                $('#titleTips').remove();
+                $this.attr("title", temp);
+            });
+	    });
 	}
 };
 
