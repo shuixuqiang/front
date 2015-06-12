@@ -279,9 +279,6 @@ var COMMON = {
 		this.titleTips('a[title]');
 	},
 	bindEle: function() {
-//      $('body').delegate('a[title]', "mouseover", function() {
-//          COMMON.titleTips($(this));
-//      });
 	},
 	filtersort: function() {
 		// 筛选选中效果
@@ -373,7 +370,7 @@ var COMMON = {
         })
     },
 	titleTips: function(obj) {
-	    $('body').delegate(obj, "mouseover", function() {
+	    $('body').delegate(obj, "mouseover", function(e) {
             var $this = $(this);
             var title = $this.attr("title");
             var thisH = $this.height();
@@ -382,10 +379,11 @@ var COMMON = {
             var node = $('<div class="title-tips" id="titleTips">');
             var temp;
             if (title) {
+                $('#titleTips').remove();
                 temp = title;
                 $this.removeAttr('title');
                 node.text(temp).appendTo('body').fadeIn(300);
-                node.css({top: thisT + thisH, left: thisL, zIndex: 900});
+                node.css({top: thisT + thisH, left: e.pageX, zIndex: 900});
                 var nodeW = node.outerWidth();
                 var regNum = /[0-9]+/;
                 var nodeMaxW = Number(regNum.exec(node.css("max-width"))[0]);
