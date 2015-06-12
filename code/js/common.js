@@ -365,8 +365,10 @@ var COMMON = {
     addTitle: function(obj) {
         obj.each(function() {
             $(this).hover(function() {
-                var text = $(this).text();
-                $(this).attr("title", text);
+                if (!($(this).attr("title"))) {
+                    var text = $(this).text();
+                    $(this).attr("title", text);
+                }
             })
         })
     },
