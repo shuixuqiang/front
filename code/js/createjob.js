@@ -99,6 +99,7 @@ var createJob = {
                 maskId: "mask",
                 position: "fixed",
                 callback:function(){
+                    btn.trigger('blur');
                     $('#pop-addprofessional .probtn:not(".disabled")').on('click',function(){
                         $('#mask').remove();
                         $('#pop-addprofessional').remove();
@@ -129,6 +130,7 @@ var createJob = {
                 htmlUrl: "editmajor.html",
                 maskId: "mask",
                 callback: function(){
+                    btn.trigger('blur');
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
@@ -262,6 +264,7 @@ var createJob = {
                 htmlUrl: "myprofessional.html",
                 maskId: "mask",
                 callback: function(){
+                    btn.trigger('blur');
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
@@ -395,6 +398,8 @@ var createJob = {
                 htmlUrl: "extrademand.html",
                 maskId: "mask",
                 callback: function(){
+                    btn.trigger('blur');
+                    $('#pop-extrademand .textArea').trigger('focus');
                     $('.selectArea li').on('click',function(){
                         var html=$(this).find('span').text();
                         $('.selectArea .head strong').html(html);
@@ -442,16 +447,20 @@ var createJob = {
     userDefined:function(obj, /* optional */ delcallback, /* optional */ cancelcallback){
         obj.on('click',function(){
             var strHtml='<div class="newAdd "><div class="tickUnit proneed " > <div class="name">' +
-                '<input type="text" value=""  placeholder="输入新的自定义知识点" class="text"/></div> ' +
+                '<input type="text" value="" placeholder="输入新的自定义知识点" class="text"/></div> ' +
                 '<ul class="selectArea">  <li class="color2 active"></li>'+
                 '<li class=" color3"></li> <li class="color4"></li> </ul> </div> <div class="operation">'+
                 '<a href="javascript:;">取消</a> <a href="javascript:;">确认</a> </div> </div>';
+
+            var This=$(this);
             //添加新节点========
             $('.myskills').append(strHtml);
-            $(this).attr('disabled',true);
+            This.attr('disabled',true);
+            // 输入框定位
             var $content = $(this).parents('.content');
             var contentScrollT = $content.scrollTop();
             $content.scrollTop(contentScrollT + 70);
+
             //禁用保存并添加按钮
             var submit=$(this).parents('body').find('footer .btn-reverse');
                 submit.attr('disabled',true);
@@ -459,9 +468,8 @@ var createJob = {
             var newNode=$('.newAdd .tickUnit');
             newNode.tickSelect();
 
-            var This=$(this);
             //取消确认按钮=================
-            var opA=$('.newAdd .operation a');
+            var opA = $('.newAdd .operation a');
             //取消按钮
             opA.eq(0).on('click',function(){
                 $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
@@ -472,7 +480,7 @@ var createJob = {
                     cancelcallback();
                 }
 
-            })
+            });
             //确认按钮
             opA.eq(1).on('click',function(){
                 var newNodeHtml=$('.myskills .newAdd .text').val();
@@ -487,18 +495,21 @@ var createJob = {
                             break;
                         }
                     }
-                    var addNode=' <div class="tickUnit proneed definenewadd" data-newNodeIndex="1">'+
-                        '<div class="name">'+newNodeHtml+'</div>'+
-                        '<ul class="selectArea"><li class="del"></li><li class=" color2"></li> <li class="color3"></li> ' +
-                        '<li class=" color4"></li>  </ul> </div>';
+                    var tickUnit= $('<div class="tickUnit proneed definenewadd" data-newNodeIndex="1">');
+                    var tickUnit_name = $('<div class="name">');
+                    var tickUnit_select = $('<ul class="selectArea"><li class="del"></li><li class=" color2"></li> <li class="color3"></li><li class=" color4"></li></ul>');
+                    var tickUnit_name_temp = tickUnit_name.text(newNodeHtml);
+                    tickUnit.append(tickUnit_name_temp).append(tickUnit_select);
 
+                    // 删除newAdd
                     $(this).parentsUntil('.tickSelect').find('.newAdd').remove();
-                    $('.myskills .tickSelect').append(addNode);
+                    // 插入知识点
+                    $('.myskills .tickSelect').append(tickUnit);
                     ////新节点设置数据
                     $('.definenewadd').each(function(i,elem){
                         //新节点点击效果
                         $(elem).tickSelect();
-                        createJob.addTitle($('.tickUnit .name'));
+                        COMMON.addTitle($('.tickUnit .name'));
                         //删除效果
                         (function(node){
                             node.find('.del').on('click',function(){
@@ -528,7 +539,15 @@ var createJob = {
                     }
                     return result;
                 }
-            })
+            });
+            // 自动获取焦点，以及敲击回车键添加
+            $('.newAdd .text').focus(function() {
+                $('body').keyup(function(e) {
+                    if (e.keyCode == '13') {
+                        opA.eq(1).click();
+                    }
+                });
+            }).trigger('focus');
 
         });
     },
@@ -539,7 +558,6 @@ var createJob = {
             obj.on('click',function(){
                 var curNode=$(this).parents('.pr-list');
                 var curindex=curNode.index();
-                console.log(curindex)
                 if(curindex>=1) {
                     curNode.insertBefore($('.pr-list').eq(curindex-1));
                     // 上下移动禁用
@@ -551,7 +569,6 @@ var createJob = {
                 var curNode=$(this).parents('.pr-list');
                 var curindex=curNode.index();
                 var length=$('.pr-list').size();
-                console.log(curindex)
 
                 if(curindex + 1 < length)
                     curNode.insertAfter($('.pr-list').eq(curindex + 1));
