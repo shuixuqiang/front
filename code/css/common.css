@@ -1923,6 +1923,12 @@ table.table-center > tfoot > tr > td {
   height: 18px;
   background-position: -108px -62px;
 }
+.mod-job .job-toolbar .editor:hover .icon {
+  background-position: -54px -62px;
+}
+.mod-job .job-toolbar .delete:hover .icon {
+  background-position: -18px -62px;
+}
 .mod-job .statistic {
   float: left;
   height: 40px;
