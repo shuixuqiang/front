@@ -214,10 +214,10 @@
   text-decoration: underline;
 }
 .overview .ov-item dd ul {
-  list-style: decimal inside none;
+  list-style: disc inside none;
 }
 .overview .ov-item dd ol {
-  list-style: disc inside none;
+  list-style: decimal inside none;
 }
 .overview .ov-item dd *[data-indent="0"] {
   margin-left: 0;
