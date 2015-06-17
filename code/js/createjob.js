@@ -99,9 +99,7 @@ var createJob = {
                 maskId: "mask",
                 position: "fixed",
                 callback:function(){
-                    btn.trigger('blur');
                     $('#pop-addprofessional .probtn:not(".disabled")').on('click',function(){
-                        $('#mask').remove();
                         $('#pop-addprofessional').remove();
                         This.btnEdit2( $(this));
                         $(this).trigger('click');
@@ -109,7 +107,6 @@ var createJob = {
                     //添加自定义专业点击事件
                     $('#pop-addprofessional .adduser-defined .btn-reverse').on('click',function(ev){
                         ev.preventDefault();
-                        $('#mask').remove();
                         $('#pop-addprofessional').remove();
                         This.btnEdit3( $(this));
                         $(this).trigger('click');
@@ -130,7 +127,6 @@ var createJob = {
                 htmlUrl: "editmajor.html",
                 maskId: "mask",
                 callback: function(){
-                    btn.trigger('blur');
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
@@ -221,7 +217,7 @@ var createJob = {
                         //自定义遍历name和degree
                         $('.myskills .tickUnit').each(function(i,elem){
                             //保存name
-                            var temp=$(elem).find('.name').html();
+                            var temp=$(elem).find('.name').text();
                             defineName.push(temp);
                             //保存degree
                             var allLi=$(elem).find('li');
@@ -264,7 +260,6 @@ var createJob = {
                 htmlUrl: "myprofessional.html",
                 maskId: "mask",
                 callback: function(){
-                    btn.trigger('blur');
                     <!--每个单独点击-->
                     $('.tickUnit').each(function(i,elem){
 
@@ -376,7 +371,7 @@ var createJob = {
                                 for(var i=0;i<allLi.length;i++){
                                     if(allLi.eq(i).hasClass('active')){
                                         result.push(i);
-                                        name.push(head.html());
+                                        name.push(head.text());
                                         break;
                                     }
                                 }
@@ -398,7 +393,6 @@ var createJob = {
                 htmlUrl: "extrademand.html",
                 maskId: "mask",
                 callback: function(){
-                    btn.trigger('blur');
                     $('#pop-extrademand .textArea').trigger('focus');
                     $('.selectArea li').on('click',function(){
                         var html=$(this).find('span').text();

@@ -62,43 +62,107 @@
 	 * 返回：
 	 * 作者：ZHANGHAIBIN
 	/ ---------------------------------------- */
+
     $.fn.popupshow = function(options) {
         var settings = $.extend({
-            'popupId': null, //弹出层id
-            'htmlUrl': null, //要插入的html
-            'maskId': null, //遮罩id,默认不显示
-            'position': 'fixed', //定位类别
-            'callback': null, //弹出回调
-            'closeCallback': null //关闭回调
+            'popupId': null, // 弹出层id
+            'htmlUrl': null, // 要插入的HTML的URL, 如果弹层隐藏在页面中, 则不用设置
+            'maskId': 'mask', // 遮罩id,null不显示遮罩
+            'position': 'fixed', // 定位类别(参数fixed和absolute)
+            'zindex': null, // z-index值
+            'countdown': null,   // 倒计时关闭(正整数,以秒为单位)
+            'timer': null,   // 倒计时输出位置
+            'jump': null,    // 关闭时跳转URL
+            'callback': null, // 弹出调用函数
+            'closeCallback': null // 关闭回调
         }, options);
 
-        var $popup = $("#" + settings.popupId);
+            // 如果popupId不存在, 则返回
+            if (!settings.popupId) return false;
+        // 重命名参数名称
+        var _popupId = settings.popupId,
+            _url = settings.htmlUrl,
+            _maskId = settings.maskId,
+            _position = settings.position,
+            _zindex = settings.zindex,
+            _countdown = settings.countdown,
+            _timer = settings.timer,
+            _jump = settings.jump;
+
+        var $popup = $("#" + _popupId);
+        // 倒计时节点
+        var $countdown = $('<div class="countdownTxt">');
 
         //弹出层显示
         if ($popup.length > 0) {
-            // 给隐藏在页面中的弹层做标记
-            $popup.show().attr("popmark", "popmark");
-            // 弹层定位
-            _popupPsotion(settings.popupId, settings.position);
-            //关闭弹层
-            $("#" + settings.popupId + " .close").bind('click', _close);
-            // 弹出回调
-            if (settings.callback !== null) {
-                settings.callback();
+            // 如果弹层已弹出, 则返回
+            if ($popup.is(':visible')) return;
+            // 关闭已弹出弹层
+            closeActive();
+            // 给页面自有弹层添加属性
+            $popup.attr({popup: "show", popmark: "own"}).show();
+            // 设置zIndex值
+            if (_zindex !== null) {
+                $popup.css({zIndex: _zindex});
             }
-
-        } else if (settings.htmlUrl !== null) {
+            // 弹层定位
+            popupPsotion(_popupId, _position);
+            //判断是否启用遮罩
+            if (_maskId !== null) mask();
+            //关闭弹层
+            $("#" + _popupId + " .close").bind('click', function() {
+                close($(this));
+                $("#" + _maskId).hide();
+            });
+            // 弹出回调
+            if (settings.callback !== null) settings.callback();
+            // 倒计时关闭
+            if (_countdown !== null) {
+                // 参数类型判断
+                if (typeof _countdown == 'number' && _countdown > 0) {
+                    countdown(_countdown, _timer, _jump);
+                } else {
+                    throw new TypeError();
+                }
+            }
+        } else if (_url !== null) {
             $.ajax({
                 type: "GET",
-                url: settings.htmlUrl,
+                url: _url,
                 success: function(res) {
+                    // 如果弹层已弹出, 则返回
+                    if ($('body').find("#" + _popupId).length) return;
+                    // 关闭已弹出弹层
+                    closeActive();
+                    // 插入弹层
                     $('body').append(res);
-                    _popupPsotion(settings.popupId, settings.position);
+                    //判断是否启用遮罩
+                    if (_maskId !== null) mask();
+
+                    var $popup = $("#" + _popupId);
+                    // 添加属性
+                    $popup.attr("popup", "show");
+                    // 设置zIndex值
+                    if (_zindex !== null) {
+                        $popup.css({zIndex: _zindex});
+                    }
+                    // 弹层定位
+                    popupPsotion(_popupId, _position);
                     //关闭弹层
-                    $("#" + settings.popupId + " .close").bind('click', _close);
+                    $("#" + _popupId + " .close").bind('click', function() {
+                        close($(this));
+                        $("#" + _maskId).hide();
+                    });
                     // 弹出回调
-                    if (settings.callback !== null) {
-                        settings.callback();
+                    if (settings.callback !== null) settings.callback();
+                    // 倒计时关闭
+                    if (_countdown !== null) {
+                        // 参数类型判断
+                        if (typeof _countdown == 'number' && _countdown > 0) {
+                            countdown(_countdown, _timer, _jump);
+                        } else {
+                            throw new TypeError();
+                        }
                     }
                 }
             });
@@ -106,36 +170,82 @@
             return false;
         }
 
-        //判断是否启用遮罩
-        if (settings.maskId !== null) {
-            var $mask = $("#" + settings.maskId);
+        //遮罩
+        function mask() {
+            var $mask = $("#" + _maskId);
             if ($mask.length > 0) {
+                if ($mask.is(":visible")) return;
                 $mask.show();
             } else {
-                var maskNode = $("<div class='mask' id='" + settings.maskId + "'>");
+                var maskNode = $("<div class='mask' id='" + _maskId + "'>");
                 $('body').append(maskNode);
             }
         }
-
-        //关闭弹层
-        function _close() {
-            if (settings.closeCallback !== null) {
-                settings.closeCallback();
-            } else {
-                var _popup = $(this).parents("#" + settings.popupId);
-                var _mark = _popup.attr("popmark");
-                // 如果存在popmark属性则隐藏，否则删除
-                if (_mark == "popmark") {
-                    _popup.hide();
-                } else {
-                    _popup.remove();
-                }
-                $("#mask").hide();
-            }
+        // 关闭已弹出弹层
+        function closeActive() {
+            $('body').find('[popup="show"]').attr("popup","hide").find('.close').click();
         }
+        // 倒计时关闭
+        function countdown(time, node, url) {
+            // 参数说明:
+            // 1. time是设定的倒计时时间;
+            // 2. node是自定义显示倒计时的位置;
+            // 3. url是倒计时结束时跳转的url
 
+            var _time = Math.ceil(time) - 1;
+            var _popup = $("#" + _popupId);
+            if (_time <= 0) return;
+            // 如果自定义了时间显示节点名, 则在指定位置显示倒计时
+            if (node !== null) {
+                _popup.find(node).text(_time + "秒");
+            } else {
+                _popup.find("." + $countdown[0].className).remove();
+                _popup.children('.wrap').append($countdown).find($countdown).text(_time + "秒");
+            }
+            // 清除倒计时
+            window.clearTimeout(this._t);
+            this._t = window.setTimeout(function() {
+                _time--;
+                if (_time > 0) {
+                    // 如果自定义了时间显示节点名, 则在指定位置显示倒计时
+                    if (node !== null) {
+                        _popup.find(node).text(_time + "秒");
+                    } else {
+                        _popup.children('.wrap').append($countdown).find($countdown).text(_time + "秒");
+                    }
+                   return countdown(time - 1, node, url);
+                } else {
+                    $("#" + _popupId + " .close").click();
+                    if (url !== null) {
+                        document.location = url;
+                        window.clearTimeout(this._t);
+                    }
+                }
+            }, 1000);
+        }
+        //关闭按钮
+        function close(obj) {
+            // 清除倒计时
+            window.clearTimeout(this._t);
+            // 关闭回调
+            if (settings.closeCallback !== null) settings.closeCallback();
+            if (_jump !== null) {
+                document.location = _jump;
+            }
+            var _popup = obj.parents("#" + _popupId);
+            var _mark = _popup.attr("popmark");
+            // 设置弹层属性
+            _popup.attr("popup", "hide");
+            // 如果popmark属性为own则隐藏，否则删除
+            if (_mark == "own") {
+                _popup.hide();
+            } else {
+                _popup.remove();
+            }
+//          $("#" + _maskId).hide();
+        }
         //弹层定位
-        function _popupPsotion(popupId, position) {
+        function popupPsotion(popupId, position) {
             var $popup = $("#" + popupId),
                 $win = $(window),
                 winW = $win.width(),
@@ -144,8 +254,18 @@
                 popupH = $popup.height(),
                 scrollT = $win.scrollTop(),
                 scrollL = $win.scrollLeft();
+            if (popupH > winH) {
+                // 如果弹层高度大于视窗高度, popupTop为滚动条Top值
+                var popupTop = scrollT,
+                    popupLeft = (winW - popupW) / 2 + scrollL;
 
-            if (position == "fixed") {
+                $popup.css({
+                    position: "absolute",
+                    top: popupTop,
+                    left: popupLeft,
+                    margin: 0
+                });
+            } else if (position == "fixed") {
                 var popupTop = (winH - popupH) / 2,
                     popupLeft = (winW - popupW) / 2;
 
@@ -167,8 +287,9 @@
                 });
             }
         }
+        // 窗口调整是重新定位
         $(window).resize(function() {
-            _popupPsotion(settings.popupId, settings.position);
+            popupPsotion(_popupId, _position);
         });
     };
 
