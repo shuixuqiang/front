@@ -1,9 +1,10 @@
 {
   "name": "shuixuqiang/front",
   "description": "front",
-  "type": "library",
+  "type": "library-sxq",
   "keywords": [
-    "front"
+    "front",
+    "shuixuqiang front"
   ],
   "homepage": "https://github.com/shuixuqiang/front",
   "license": "Apache-2.0",
@@ -17,9 +18,6 @@
     "php": ">=7.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^6.0",
-    "phploc/phploc": "^4.0",
-    "sebastian/phpcpd": "^3.0"
   },
   "autoload": {
     "psr-4": {
